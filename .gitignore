@@ -1,0 +1,11 @@
+*.txt
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.pdf
+*.snm
+*.toc
+*.vrb
+*.xdv
