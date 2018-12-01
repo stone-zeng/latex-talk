@@ -1,7 +1,7 @@
 \documentclass[fontset=none]{ctexbeamer}
 % \documentclass[aspectratio=169]{ctexbeamer}
 
-\usepackage{graphicx,array,caption,listings,fontawesome,bookmark}
+\usepackage{graphicx,array,caption,listings,fontawesome,unicode-math,hologo,bookmark}
 
 \makeatletter
 
@@ -12,7 +12,8 @@
 \usefonttheme{serif}
 
 % Beamer settings
-\metroset{sectionpage=simple}
+% \metroset{sectionpage=simple}
+\metroset{progressbar=none}
 \setbeamerfont{title}{size=\huge, series=\bfseries}
 \setbeamerfont*{subtitle}{size=\large, shape=\itshape}
 \setbeamerfont{section title}{size=\Large, series=\bfseries}
@@ -32,20 +33,35 @@
   \insertsubtitle
   \hspace*{1.2cm}\par
   \vspace*{0.5em}}
-\setbeamertemplate{frame numbering}{\zhdigits[style=Financial]{\insertframenumber}}
+\setbeamertemplate{title page}{
+  \begin{minipage}[b]{\textwidth}
+    \mbox{}\vfill
+    \usebeamertemplate*{title}
+    \usebeamertemplate*{subtitle}
+    \usebeamertemplate*{title separator}
+    \usebeamertemplate*{author}
+    \usebeamertemplate*{date}
+    \usebeamertemplate*{institute}
+    \vfill
+  \end{minipage}}
+\setbeamertemplate{frame numbering}{\zhnumber[style=Financial]{\insertframenumber}}
+\setbeamertemplate{itemize/enumerate subbody begin}{\footnotesize}
 
 % CTeX settings
-\ctexset{punct=kaiming}
+% \ctexset{punct=kaiming}
 
 % Colors
 \colorlet{keyword}{松花绿}
 \colorlet{comment}{漆黑!50}
 \colorlet{texcs}{酡红}
-\colorlet{emph}{靛蓝}
+\colorlet{emph1}{靛蓝}
+\colorlet{emph2}{乌金}
+\colorlet{inline}{玄色}
 
 % Fonts
 \setmainfont{Libertinus Serif}[Scale=1.1, BoldFont=* Bold]
-\setmonofont{Iosevka}
+\setmonofont{Iosevka}[Scale=MatchLowercase]
+\setmathfont{Libertinus Math}
 \setCJKmainfont{Source Han Serif SC}[%
   UprightFont=* SemiBold, BoldFont=* Heavy, ItalicFont=* SemiBold, RawFeature=+fwid]
 \setCJKmonofont{Sarasa Mono SC}
@@ -68,13 +84,16 @@
   keywordstyle    = \bfseries\color{keyword},
   commentstyle    = \itshape\color{comment},
   texcsstyle      = *\color{texcs},
-  emphstyle       = \itshape\color{emph},
+  emphstyle       = [1]\itshape\color{emph1},
+  emphstyle       = [2]\color{emph2},
   numbersep       = 4pt,
 }
 \lstnewenvironment{texcode}[1][]{\lstset{%
   style=style@latex,
   gobble=2,
   morekeywords={\documentclass,\usepackage,\begin,\end},#1}}{}
+\lstMakeShortInline[%
+  basicstyle=\ttfamily\color{inline}, keepspaces=true, escapeinside={(*}{*)}]|
 
 % Hack
 % Use small caps for LaTeX symbol
@@ -100,6 +119,22 @@
 % Macros
 \newcommand\enparen[1]{（\raisebox{0.2ex}{#1}）}
 \newcommand\link[1]{\href{#1}{\faLink}}
+\newcommand\CASE[1]{{\addfontfeatures{Letters=Uppercase}#1}}
+\newcommand\kbd[1]{{\fontspec{Libertinus Keyboard}#1}}
+\newcommand\kbdWin{{\fontspec{Libertinus Keyboard}\symbol{"E168}}}
+\newcommand\kbdAlt{{\fontspec{Libertinus Keyboard}\symbol{"E171}}}
+\newcommand\kbdCtrl{{\fontspec{Libertinus Keyboard}\symbol{"E173}}}
+\newcommand\kbdShift{{\fontspec{Libertinus Keyboard}\symbol{"E174}}}
+\newcommand\kbdIns{{\fontspec{Libertinus Keyboard}\symbol{"E18B}}}
+
+\newcommand\XeTeX{\hologo{XeTeX}}
+\newcommand\pdfTeX{\hologo{pdfTeX}}
+\newcommand\LuaTeX{\hologo{LuaTeX}}
+% \newcommand\XeLaTeX{\hologo{Xe}\LaTeX}
+% \newcommand\pdfLaTeX{pdf\LaTeX}
+% \newcommand\LuaLaTeX{Lua\LaTeX}
+
+\makeatother
 
 % Information
 \title{现代 \LaTeX{} 入门讲座}
@@ -108,12 +143,10 @@
 \institute{复旦大学\quad 物理系}
 \date{\zhdate{2018/12/6}}
 
-\makeatother
-
 \begin{document}
 
 \maketitle
-
+% \iffalse
 \section{介绍}
 
 \begin{frame}{历史回眸}
@@ -133,8 +166,8 @@
   \end{figure}
 \end{column}
 \end{columns}
-\footnotetext[1]{图片来源：~\url{https://www-cs-faculty.stanford.edu/~knuth/graphics.html}}
-\footnotetext[2]{图片来源：~\url{https://aperiodical.com/2018/09/hlf-blogs-leslie-lamport-thinks-your-code-is-bad}}
+\footnotetext[1]{图片来源：\url{https://www-cs-faculty.stanford.edu/~knuth/graphics.html}}
+\footnotetext[2]{图片来源：\url{https://aperiodical.com/2018/09/hlf-blogs-leslie-lamport-thinks-your-code-is-bad}}
 \end{frame}
 
 \begin{frame}{\LaTeX{} 是什么？}
@@ -146,11 +179,11 @@
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\LaTeX{} 是什么？\mbox{}——\mbox{}“What you think is what you get!”}
+\frametitle{\LaTeX{} 是什么？\mbox{}——\mbox{}What you think is what you get!}
 \begin{columns}
 \begin{column}{0.48\textwidth}
   \begin{texcode}[basicstyle=\tiny\ttfamily, moretexcs={\maketitle},
-    emph={equation,itemize,document}]
+    emph={[1]equation,itemize,document},emph={[2]article,amsmath,graphicx}]
   \documentclass{article}
   \usepackage{amsmath,graphicx}
   \title{Normal distribution}
@@ -237,9 +270,9 @@
       \item 清华大学开源软件镜像站 \link{https://mirrors.tuna.tsinghua.edu.cn}
       \item 上海交通大学软件源镜像服务 \link{https://mirrors.sjtug.sjtu.edu.cn}
       \item 中国科学技术大学开源软件镜像 \link{https://mirrors.ustc.edu.cn}
-      \item 复旦大学……不存在的
+      \item 复旦大学……
     \end{itemize}
-  \item 建议使用 ISO 安装
+  \item 建议使用 iso 镜像离线安装
   \item 在线安装要求网络稳定
 \end{itemize}
 \end{frame}
@@ -248,24 +281,233 @@
 \begin{itemize}
   \item 新手建议安装完整版 \TeX{} Live 或 Mac\TeX{}
     \begin{itemize}
-      \item 一路点击“下一步”
+      \item 一路点击「下一步」
       \item 保持耐心，做好重装的打算
     \end{itemize}
   \item Linux specials
     \begin{itemize}
       \item 软件源更新较慢，推荐 Vanilla \TeX{} Live
-      \item 环境变量、\texttt{fontconfig} 配置
+      \item GUI 安装界面需要 \texttt{perl-tk} 等
+      \item 环境变量、\texttt{fontconfig}、dummy package 配置
     \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{神圣的战争——选择编辑器}
-  
+\begin{itemize}
+  \item 专用型
+    \begin{itemize}
+      \item TeXworks：\TeX{} Live 自带 \faWindows{} \faApple{} \faLinux{}
+      \item TeXstudio：功能丰富，对新手友好 \faWindows{} \faApple{} \faLinux{}
+      \item TeXShop：Mac\TeX{} 自带 \faApple{}
+      \item WinEdt：功能丰富，收费 \faWindows{}
+    \end{itemize}
+  \item 通用型
+    \begin{itemize}
+      \item Visual Studio Code：利益相关（逃
+      \item Atom：卡
+      \item Sublime Text：收费
+      \item Vim：\texttt{q}、\texttt{q!}、\texttt{wq}、\texttt{wq!}
+    \end{itemize}
+  \item 在线服务
+    \begin{itemize}
+      \item \href{https://www.sharelatex.com}{\textcolor{酡红}{ShareLaTeX}} 和
+            \href{https://www.overleaf.com}{\textcolor{松花绿}{Overleaf}}
+    \end{itemize}
+  \item 编辑器对比：\link{https://tex.stackexchange.com/q/339}
+                    \link{https://en.wikipedia.org/wiki/Comparison_of_TeX_editors}
+                    \link{https://www.zhihu.com/question/19954023}
+\end{itemize}
+\end{frame}
+
+\section{开始之前……}
+
+\begin{frame}{命令行基础}
+\begin{itemize}
+  \item 打开终端
+    \begin{itemize}
+      \item \faWindows{}：右键开始菜单、空白处 \kbdShift{} + 右键、\kbdWin{} + \kbd{R} \& \texttt{cmd}
+      \item \faLinux{}：\kbdCtrl{} + \kbdAlt{} + \kbd{T}
+    \end{itemize}
+  \item 基本命令：
+    \begin{itemize}
+      \item \texttt{cd}、\texttt{ls/dir}、\texttt{rm/del}、\texttt{clear/cls}
+      \item 选项：\texttt{-h}、\texttt{--help}、\texttt{/?}
+    \end{itemize}
+  \item 其他：
+    \begin{itemize}
+      \item 复制粘贴：\kbdCtrl{}/\kbdShift{} + \kbdIns{}
+      \item 路径连接符：slash (\texttt{/}) \textit{or} backslash (\texttt{\textbackslash})
+    \end{itemize}
+  \item \alert{尽量不要用中文}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{编码}
+\begin{center}
+  \huge \alert{一律使用 UTF\CASE{-}8} \\[0.5ex]
+  \footnotesize \textit{without BOM}
+\end{center}
+\end{frame}
+% \fi
+\section{填写内容}
+
+\begin{frame}[fragile]
+\frametitle{Hello world!}
+\begin{texcode}[emph={[1]document}, emph={[2]article}]
+  % 用 pdfLaTeX、XeLaTeX 或 LuaLaTeX 编译
+  \documentclass{article}
+  \begin{document}
+  Hello world!
+  \end{document}
+\end{texcode}
+
+\begin{texcode}[emph={[1]document}, emph={[2]ctexart}]
+  % 用 XeLaTeX 或 LuaLaTeX 编译
+  \documentclass{ctexart}
+  \begin{document}
+  你好，世界！
+  \end{document}
+  \end{texcode}
+\end{frame}
+
+\begin{frame}{引擎与格式}
+\begin{itemize}
+  \item \textbf{引擎}：\TeX{} 的实现
+    \begin{itemize}
+      \item \pdfTeX{}：直接生成 PDF，支持 micro-typography
+      \item \XeTeX{}：支持 Unicode、OpenType 与复杂文本排版
+      \item \LuaTeX{}：支持 Unicode，内联 Lua，支持 OpenType
+      \item Ap\TeX{}：底层 CJK 支持，内联 Ruby，Color Emoji（手动斜眼笑）
+    \end{itemize}
+  \item \textbf{格式}：\TeX{} 的语言扩展（命令封装）
+    \begin{itemize}
+      \item plain \TeX{}：Knuth 同志专用
+      \item \LaTeX{}：排版科技类文章的事实\enparen{\textit{de facto}}标准
+      \item Con\TeX t：基于 \LuaTeX{} 实现，优雅、易用（吗？）
+    \end{itemize}
+  \item \textbf{程序}：引擎 + dump 之后的格式代码
+    \begin{itemize}
+      \item \alert{英文文章：\texttt{pdflatex}、\texttt{xelatex} 或 \texttt{lualatex}}
+      \item \alert{中文文章：\texttt{xelatex} 或 \texttt{lualatex}}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{语法}
+\begin{itemize}
+  \item 注释以 |%| 开头，忽略其后所有内容
+  \item 命令以 |\| 开头，区分大小写
+    \begin{itemize}
+      \item |\foo{arg}|：必选参数放在 |{...}| 中
+      \item |\foo[bar]{arg}|：可选参数放在 |[...]|
+    \end{itemize}
+  \item 环境
+    \begin{texcode}[gobble=4, basicstyle=\footnotesize\ttfamily, emph={[1]env}]
+      \begin{env}
+        ...
+      \end{env}
+    \end{texcode}
+  \item 特殊符号需要转义：|\%|、|\$|、|\&| 等
+  \item 连续多个空格 = 单个空格 = 单个换行符
+  \item \TeX{}/\LaTeX{} 的语法可以修改
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{文件结构}
+\begin{texcode}[basicstyle=\scriptsize\ttfamily, moretexcs={\keyword,\"},
+  emph={[1]document}, emph={[2]article,amsmath}]
+  % 用 UTF-8 编码，命名为 xxx.tex
+  \documentclass{article}                     % 指明文档类型：文章
+  % 导言区：设置文档样式
+  \usepackage{amsmath}                        % 调用宏包，实现各种功能
+  \newcommand\keyword[1]{\textbf{#1}}         % 自定义命令
+
+  \begin{document}
+  % 正文：套用格式
+  In quantum mechanics, the Schr\"odinger equation is a mathematical
+  equation that describes the changes over time of a physical system
+  in which quantum effects, such as \keyword{wave--particle duality},
+  are significant.
+
+  % 上面的空行表示分段
+  In classical mechanics, Newton's second law ($F=ma$)\ldots{}
+
+  Time-dependent Schrödinger equation can be written as  % ö 也能直接用
+  \[ i\hbar \frac{d}{dt} |\Psi(t)\rangle = \hat{H} |\Psi(t)\rangle. \]
+  \end{document}
+\end{texcode}
+\vspace{-0.6cm}
+\end{frame}
+
+\begin{frame}{Schrödinger equation}
+In quantum mechanics, the Schr\"odinger equation is a mathematical
+equation that describes the changes over time of a physical system
+in which quantum effects, such as \textbf{wave--particle duality},
+are significant.
+
+In classical mechanics, Newton's second law ($F=ma$)\ldots{}
+
+Time-dependent Schrödinger equation can be written as
+\[ i\hbar \frac{d}{dt} \vert\Psi(t)\rangle = \hat{H} \, \vert\Psi(t)\rangle. \]
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{谋篇布局}
+\begin{itemize}
+  \item 文档部件
+    \begin{itemize}
+      \item 标题：|\title|、|\author|、|\date| $\to$ |\maketitle|
+      \item 摘要：|abstract| 环境
+      \item 目录：|\tableofcontents|
+      \item 章节：|\chapter|、|\section|、|\subsection| 等
+      \item 文献：|\bibliography|
+    \end{itemize}
+  \item 文档划分
+    \begin{itemize}
+      \item 凤头猪肚豹尾：|\frontmatter|、|\mainmatter|、|\backmatter|
+      \item 分文件编译：|\include|、|\input|
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{文本标记}
+\begin{itemize}
+  \item 加粗：|{\bfseries ...}| 或 |\textbf{...}|
+  \item 倾斜：|{\itshape ...}| 或 |\textit{...}|
+  \item 字号：|\tiny|、|\small|、|\large|、|\Large| 等
+  \item 换行：|\\|
+  \item 缩进：|\indent|
+  \item 居中：|\centering| 或 |center| 环境
+\end{itemize}
+\end{frame}
+
+\begin{frame}[standout]
+  \huge \textbf{请忘记上一页}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{文本标记}
+\begin{itemize}
+  \item 为什么要有不同的标记？\mbox{}——表达不同的\alert{语义}
+  \item |\textbf| 这样的命令是否表达语义？
+  \item 再提一遍基本原则：\alert{内容与格式分离}
+  \item 正确（或曰：合理）的做法
+    \begin{itemize}
+      \item 强调文字（意大利体）：|\emph{...}|
+      \item 摘要（居中，小字号，题为「Abstract」）：|abstract| 环境
+      \item 引用（左右边距较大）：|quote| 或 |quotation| 环境
+      \item 自定义新的命令、环境
+    \end{itemize}
+  \item 报告，我想偷懒！
+\end{itemize}
 \end{frame}
 
 \iffalse
 
-\section{填写内容}
 \section{改变样式}
 
 \fi
