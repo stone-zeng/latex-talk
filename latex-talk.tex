@@ -1,7 +1,8 @@
+\XeTeXgenerateactualtext=1
 \documentclass[fontset=none]{ctexbeamer}
 % \documentclass[aspectratio=169]{ctexbeamer}
 
-\usepackage{graphicx,array,caption,listings,fontawesome,unicode-math,hologo,bookmark}
+\usepackage{graphicx,array,caption,listings,ragged2e,fontawesome,unicode-math,hologo,bookmark}
 
 \makeatletter
 
@@ -60,10 +61,12 @@
 
 % Fonts
 \setmainfont{Libertinus Serif}[Scale=1.1, BoldFont=* Bold]
-\setmonofont{Iosevka}[Scale=MatchLowercase]
+\setsansfont{Roboto}%[Scale=MatchLowercase]
+\setmonofont{Iosevka}%[Scale=MatchLowercase]
 \setmathfont{Libertinus Math}
 \setCJKmainfont{Source Han Serif SC}[%
   UprightFont=* SemiBold, BoldFont=* Heavy, ItalicFont=* SemiBold, RawFeature=+fwid]
+\setCJKsansfont{Source Han Sans SC Medium}
 \setCJKmonofont{Sarasa Mono SC}
 
 % Graphics
@@ -117,9 +120,13 @@
 \ExplSyntaxOff
 
 % Macros
-\newcommand\enparen[1]{（\raisebox{0.2ex}{#1}）}
 \newcommand\link[1]{\href{#1}{\faLink}}
 \newcommand\CASE[1]{{\addfontfeatures{Letters=Uppercase}#1}}
+\newcommand\zhparen[1]{（\raisebox{0.2ex}{#1}）}
+\newcommand\enparen[1]{\CASE{(}#1\CASE{)}}
+\newcommand\exe[1]{\texttt{#1}}
+\newcommand\pkg[1]{\texttt{#1}}
+\newcommand\usv[1]{\texttt{U+#1}}
 \newcommand\kbd[1]{{\fontspec{Libertinus Keyboard}#1}}
 \newcommand\kbdWin{{\fontspec{Libertinus Keyboard}\symbol{"E168}}}
 \newcommand\kbdAlt{{\fontspec{Libertinus Keyboard}\symbol{"E171}}}
@@ -130,9 +137,6 @@
 \newcommand\XeTeX{\hologo{XeTeX}}
 \newcommand\pdfTeX{\hologo{pdfTeX}}
 \newcommand\LuaTeX{\hologo{LuaTeX}}
-% \newcommand\XeLaTeX{\hologo{Xe}\LaTeX}
-% \newcommand\pdfLaTeX{pdf\LaTeX}
-% \newcommand\LuaLaTeX{Lua\LaTeX}
 
 \makeatother
 
@@ -146,7 +150,7 @@
 \begin{document}
 
 \maketitle
-% \iffalse
+\iffalse
 \section{介绍}
 
 \begin{frame}{历史回眸}
@@ -224,11 +228,11 @@
     \begin{itemize}
       \item 《别把 \LaTeX{} 当 Word 用》
     \end{itemize}
-  \item 遵循业\enparen{xué}界\enparen{xiào}规范
+  \item 遵循业\zhparen{xué}界\zhparen{xiào}规范
     \begin{itemize}
       \item 《管教务处 \textit{or} 研究生院 \textit{or} 物理系叫爸爸》
     \end{itemize}
-  \item 追求良好的阅读体验\enparen{readability}
+  \item 追求良好的阅读体验\zhparen{readability}
   \item 内容与格式分离
   \item \alert{内容永远比格式重要！}
 \end{itemize}
@@ -238,7 +242,7 @@
 
 \begin{frame}{选择发行版}
 \begin{itemize}
-  \item \TeX{} 发行版\enparen{distribution}
+  \item \TeX{} 发行版\zhparen{distribution}
     \begin{itemize}
       \item 引擎、宏包、字体、文档的综合体
       \item 类比 Visual Studio
@@ -248,7 +252,7 @@
     \begin{itemize}
       \item 官方维护，首选，跨平台
       \item Mac\TeX{} ≈ macOS 下的 \TeX{} Live
-      \item 缺点：体积大\enparen{3GB+}、每年需要重装
+      \item 缺点：体积大\zhparen{3GB+}、每年需要重装
     \end{itemize}
   \item MiK\TeX{} \link{https://miktex.org}
     \begin{itemize}
@@ -287,13 +291,14 @@
   \item Linux specials
     \begin{itemize}
       \item 软件源更新较慢，推荐 Vanilla \TeX{} Live
-      \item GUI 安装界面需要 \texttt{perl-tk} 等
-      \item 环境变量、\texttt{fontconfig}、dummy package 配置
+      \item GUI 安装界面需要 \exe{perl-tk} 等
+      \item 环境变量、\exe{fontconfig}、dummy package 配置
     \end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{神圣的战争——选择编辑器}
+\begin{frame}[fragile]
+\frametitle{神圣的战争——选择编辑器}
 \begin{itemize}
   \item 专用型
     \begin{itemize}
@@ -307,7 +312,7 @@
       \item Visual Studio Code：利益相关（逃
       \item Atom：卡
       \item Sublime Text：收费
-      \item Vim：\texttt{q}、\texttt{q!}、\texttt{wq}、\texttt{wq!}
+      \item Vim：|q|、|q!|、|wq|、|wq!|
     \end{itemize}
   \item 在线服务
     \begin{itemize}
@@ -322,22 +327,24 @@
 
 \section{开始之前……}
 
-\begin{frame}{命令行基础}
+\begin{frame}[fragile]
+\frametitle{命令行基础}
 \begin{itemize}
   \item 打开终端
     \begin{itemize}
-      \item \faWindows{}：右键开始菜单、空白处 \kbdShift{} + 右键、\kbdWin{} + \kbd{R} \& \texttt{cmd}
+      \item \faWindows{}：右键开始菜单、空白处 \kbdShift{} + 右键、\kbdWin{} + \kbd{R} \& |cmd|
       \item \faLinux{}：\kbdCtrl{} + \kbdAlt{} + \kbd{T}
     \end{itemize}
   \item 基本命令：
     \begin{itemize}
-      \item \texttt{cd}、\texttt{ls/dir}、\texttt{rm/del}、\texttt{clear/cls}
-      \item 选项：\texttt{-h}、\texttt{--help}、\texttt{/?}
+      \item |cd|、|ls/dir|、|rm/del|、|clear/cls|
+      \item 选项：|-h|、|--help|、|/?|
     \end{itemize}
   \item 其他：
     \begin{itemize}
       \item 复制粘贴：\kbdCtrl{}/\kbdShift{} + \kbdIns{}
-      \item 路径连接符：slash (\texttt{/}) \textit{or} backslash (\texttt{\textbackslash})
+      \item 路径连接符：斜线（|/|）或反斜线（|\|）
+      \item 换行符：LF（|\n|）或 CRLF（|\r\n|）
     \end{itemize}
   \item \alert{尽量不要用中文}
 \end{itemize}
@@ -349,7 +356,7 @@
   \footnotesize \textit{without BOM}
 \end{center}
 \end{frame}
-% \fi
+
 \section{填写内容}
 
 \begin{frame}[fragile]
@@ -383,13 +390,13 @@
   \item \textbf{格式}：\TeX{} 的语言扩展（命令封装）
     \begin{itemize}
       \item plain \TeX{}：Knuth 同志专用
-      \item \LaTeX{}：排版科技类文章的事实\enparen{\textit{de facto}}标准
+      \item \LaTeX{}：排版科技类文章的事实\zhparen{\textit{de facto}}标准
       \item Con\TeX t：基于 \LuaTeX{} 实现，优雅、易用（吗？）
     \end{itemize}
   \item \textbf{程序}：引擎 + dump 之后的格式代码
     \begin{itemize}
-      \item \alert{英文文章：\texttt{pdflatex}、\texttt{xelatex} 或 \texttt{lualatex}}
-      \item \alert{中文文章：\texttt{xelatex} 或 \texttt{lualatex}}
+      \item \alert{英文文章：\exe{pdflatex}、\exe{xelatex} 或 \exe{lualatex}}
+      \item \alert{中文文章：\exe{xelatex} 或 \exe{lualatex}}
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -417,7 +424,7 @@
 
 \begin{frame}[fragile]
 \frametitle{文件结构}
-\begin{texcode}[basicstyle=\scriptsize\ttfamily, moretexcs={\keyword,\"},
+\begin{texcode}[basicstyle=\scriptsize\ttfamily, moretexcs={\keyword,\boldsymbol},
   emph={[1]document}, emph={[2]article,amsmath}]
   % 用 UTF-8 编码，命名为 xxx.tex
   \documentclass{article}                     % 指明文档类型：文章
@@ -427,13 +434,14 @@
 
   \begin{document}
   % 正文：套用格式
-  In quantum mechanics, the Schr\"odinger equation is a mathematical
-  equation that describes the changes over time of a physical system
-  in which quantum effects, such as \keyword{wave--particle duality},
-  are significant.
+  In quantum mechanics, the \keyword{Schr\"odinger equation} is a
+  mathematical equation that describes the changes over time of a
+  physical system in which quantum effects, such as \keyword{wave--%
+  particle duality}, are significant.
 
   % 上面的空行表示分段
-  In classical mechanics, Newton's second law ($F=ma$)\ldots{}
+  In classical mechanics, Newton's second law
+  ($\boldsymbol{F}=m\boldsymbol{a}$) is used to make a \ldots{}
 
   Time-dependent Schrödinger equation can be written as  % ö 也能直接用
   \[ i\hbar \frac{d}{dt} |\Psi(t)\rangle = \hat{H} |\Psi(t)\rangle. \]
@@ -443,12 +451,13 @@
 \end{frame}
 
 \begin{frame}{Schrödinger equation}
-In quantum mechanics, the Schr\"odinger equation is a mathematical
-equation that describes the changes over time of a physical system
-in which quantum effects, such as \textbf{wave--particle duality},
-are significant.
+In quantum mechanics, the \textbf{Schr\"odinger equation} is a
+mathematical equation that describes the changes over time of a
+physical system in which quantum effects, such as \textbf{wave--%
+particle duality}, are significant.
 
-In classical mechanics, Newton's second law ($F=ma$)\ldots{}
+In classical mechanics, Newton's second law
+($\boldsymbol{F}=m\boldsymbol{a}$) is used to make a \ldots{}
 
 Time-dependent Schrödinger equation can be written as
 \[ i\hbar \frac{d}{dt} \vert\Psi(t)\rangle = \hat{H} \, \vert\Psi(t)\rangle. \]
@@ -498,7 +507,7 @@ Time-dependent Schrödinger equation can be written as
   \item 正确（或曰：合理）的做法
     \begin{itemize}
       \item 强调文字（意大利体）：|\emph{...}|
-      \item 摘要（居中，小字号，题为「Abstract」）：|abstract| 环境
+      \item 摘要（居中，小字号，带有标题）：|abstract| 环境
       \item 引用（左右边距较大）：|quote| 或 |quotation| 环境
       \item 自定义新的命令、环境
     \end{itemize}
@@ -506,9 +515,294 @@ Time-dependent Schrödinger equation can be written as
 \end{itemize}
 \end{frame}
 
-\iffalse
+\begin{frame}{中文支持}
+\begin{columns}
+\begin{column}{0.65\textwidth}
+  \begin{itemize}
+    \item 中文有什么特殊？
+      \begin{itemize}
+        \item 汉字太多（87,887）
+        \item 横排 + 直排、标点禁则、行间注 \link{https://www.w3.org/TR/clreq}
+        \item {\CJKfontspec{Source Han Serif SemiBold}日本語（にほんご）}、
+              {\fontspec{FreeSerif}[Script=Devanagari]देवनागरी}、
+              {\fontspec{FreeSerif}[Script=Arabic]العَرَبِيَّة‎}
+      \end{itemize}
+    \item 已淘汰：
+      \begin{itemize}
+        \item CCT 系统、\pkg{CJK} 宏包（裸用）
+        \item \CTeX{} 套装
+      \end{itemize}
+    \item 目前推荐手段：
+      \begin{itemize}
+        \item \alert{\CTeX{} 宏集}（此 \CTeX{} 非彼 \CTeX{}）
+        \item \exe{xelatex} 编译
+      \end{itemize}
+    \item 可以用，不推荐：
+      \begin{itemize}
+        \item \pkg{xeCJK} 宏包（裸用）
+        \item \CTeX{} 宏集 + 其他引擎编译
+      \end{itemize}
+  \end{itemize}
+\end{column}
+\begin{column}{0.33\textwidth}
+  \tiny
+  \begin{tabular}{cc}
+    \includegraphics[width=1cm]{figures/leoliu.png}        &
+    \includegraphics[width=1cm]{figures/qinglee.jpg}       \\
+    刘海洋 & 李清 \\[2ex]
+    \includegraphics[width=1cm]{figures/wulingyun.jpg}     &
+    \includegraphics[width=1cm]{figures/jjgod.jpg}         \\
+    吴凌云 & 江疆 \\[2ex]
+    \includegraphics[width=1cm]{figures/li-a-ling.jpg}     &
+    \includegraphics[width=1cm]{figures/liam-huang.jpg}    \\
+    马起园 & 黄晨成 \\[2ex]
+    \includegraphics[width=1cm]{figures/louisstuart96.jpg} &
+    \includegraphics[width=1cm]{figures/zepinglee.jpg}     \\
+    鲁尚文 & 李泽平
+  \end{tabular}
+\end{column}
+\end{columns}
+\let\thefootnote\relax
+\footnotetext{图片来源：Github，知乎}
+\end{frame}
 
-\section{改变样式}
+\begin{frame}[fragile]
+\frametitle{模板}
+\begin{itemize}
+  \item 是什么？
+    \begin{itemize}
+      \item 设计好的格式框架
+      \item 专注于内容
+      \item Word 中的样式：「学好 \LaTeX{} 可以更科学地使用 Word」
+    \end{itemize}
+  \item 有哪些？
+    \begin{itemize}
+      \item 期刊：REV\TeX{}、\pkg{elsarticle}、\pkg{IEEEtran}……
+      \item 学位论文：\pkg{thuthesis}、\pkg{ustcthesis}、\alert{\pkg{fduthesis}}……
+    \end{itemize}
+  \item 怎么用？
+    \begin{itemize}
+      \item |\documentclass{...}|，配置参数，照常编写
+      \item \alert{看文档，看文档，看文档}
+    \end{itemize}
+  \item 去哪里找？
+    \begin{itemize}
+      \item CTAN \link{https://ctan.org} 或 GitHub \href{https://github.com}{\faGithub}
+      \item 期刊官网
+      \item 「湿兄用 U 盘拷给你的模板一定是过时的」
+    \end{itemize}
+\end{itemize}
+\end{frame}
+\fi
+
+\section{数学}
+
+\section{字体排印}
+
+\begin{frame}{先看一个例子}
+\begin{minipage}{\textwidth}
+  \fontspec{SimHei}[AutoFakeBold, AutoFakeSlant]\small
+  \hyphenpenalty=10000\hbadness=10000\linespread{0.85}\selectfont
+  \textbf{Typography} is the art and technique of arranging type to make written language
+  legible,readable,and appealing when displayed. The arrangement of type involves selecting
+  typefaces, point sizes, line lengths, line-spacing(\textit{leading}), and letter-spacing
+  (\textit{tracking}), and adjusting the space between pairs of letters(\textit{kerning}).
+  The term typography is also applied to the style,arrangement, and appearance of the letters,
+  numbers, and symbols created by the process. \textbf{Type design} is a closely related craft,
+  sometimes considered part of typography;most typographers do not design typefaces, and some
+  type designers do not consider themselves typographers. Typography also may be used as a
+  decorative device,unrelated to communication of information.
+\end{minipage}
+\let\thefootnote\relax
+\footnotetext{中易黑体，行距 0.85 倍，关闭 hypenation}
+\end{frame}
+
+\begin{frame}{没有对比就没有伤害}
+\begin{minipage}{\textwidth}
+  \fontspec{EB Garamond}\small
+  \textbf{Typography} is the art and technique of arranging type to make written language
+  legible, readable, and appealing when displayed. The arrangement of type involves selecting
+  typefaces, point sizes, line lengths, line-spacing (\textit{leading}), and letter-spacing
+  (\textit{tracking}), and adjusting the space between pairs of letters (\textit{kerning}).
+  The term typography is also applied to the style, arrangement, and appearance of the letters,
+  numbers, and symbols created by the process. \textbf{Type design} is a closely related craft,
+  sometimes considered part of typography; most typographers do not design typefaces, and some
+  type designers do not consider themselves typographers. Typography also may be used as a
+  decorative device, unrelated to communication of information.
+\end{minipage}
+\let\thefootnote\relax
+\footnotetext{EB Garamond，默认设置}
+\end{frame}
+
+\begin{frame}{术语}
+\footnotesize
+\begin{columns}[t]
+\begin{column}{0.48\textwidth}
+  \begin{itemize}
+    \item 语言\zhparen{language}
+    \item 文字\zhparen{script}
+    \item 书写系统\zhparen{writting system}
+  \end{itemize}
+  \begin{itemize}
+    \item 符号\zhparen{symbol}
+    \item 字符\zhparen{character}
+    \item 字符形\zhparen{glyph}
+  \end{itemize}
+  \begin{itemize}
+    \item 字符集\zhparen{character set}
+    \item 编码\zhparen{encoding}
+    \item 码位\zhparen{code point}
+  \end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+  \begin{itemize}
+    \item 字体\zhparen{font}
+    \item 字型\zhparen{typeface}
+  \end{itemize}
+  \begin{itemize}
+    \item 易认性\zhparen{legibility}
+    \item 可读性\zhparen{readability}
+  \end{itemize}
+  \begin{itemize}
+    \item 字偶间距\zhparen{kerning}
+    \item 字距\zhparen{tracking}
+  \end{itemize}
+  \begin{itemize}
+    \item 栅格化\zhparen{rasterization}
+    \item 渲染提示\zhparen{hinting}
+  \end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[standout]
+  \large \textbf{\LaTeX{} will do (almost) all the things for you.}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Punctuations: hyphen/dash}
+\begin{columns}
+\begin{column}{0.84\textwidth}
+  \begin{itemize}
+    \item Hyphen \enparen{\usv{002D}}: |-|
+      \begin{itemize}
+        \item Four-dimensional momentum
+        \item Hyphenation
+      \end{itemize}
+    \item En dash \enparen{\usv{2013}}: |--|
+      \begin{itemize}
+        \item Newton--Leibniz formula (\emph{cf.} Levi-Civita symbol)
+        \item pp.~187--189
+      \end{itemize}
+    \item Em dash \enparen{\usv{2014}}: |---|
+      \begin{itemize}
+        \item Red, white, and blue---these are the colors of the flag
+        \item Like colon, parentheses, \emph{etc.}
+      \end{itemize}
+    \item Minus \enparen{\usv{2212}}: |$-$|
+      \begin{itemize}
+        \item $a-b$, $-a$
+      \end{itemize}
+  \end{itemize}
+\end{column}
+\begin{column}{0.13\textwidth}
+  \tiny\RaggedRight
+  A hyphen\alert{-}ation algo\alert{-}rithm is a set of rules, especially one codified
+  for imple\alert{-}mentation in a computer program, that decides at which points
+  a word can be broken over two lines with a hyphen.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Punctuations: quotation mark}
+\begin{itemize}
+  \item Left/right, single/double:
+    \begin{itemize}
+      \item `\ldots{}' \enparen{\usv{2018}, \usv{2019}}: |`...'|
+      \item ``\ldots{}'' \enparen{\usv{201C}, \usv{201D}}: |``...''|
+    \end{itemize}
+  \item Different languages:
+    \begin{itemize}
+      \item `British ``English'' style' and ``American `English' style''
+      \item „German'', ''Finnish'', «French», »Danish«, \emph{etc.}
+      \item Use \pkg{csquotes} package
+    \end{itemize}
+  \item Programming:
+    \begin{itemize}
+      \item |char* my_name = "Xiangdong Zeng"|
+    \end{itemize}
+  \item Mathematics:
+    \begin{itemize}
+      \item |x'| = |x^{\prime}|: $x'(t) = x^{\prime}(t)$
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{中文标点符号}
+\begin{itemize}
+  \item 句号
+    \begin{itemize}
+      \item 正常文本。科技文本．
+    \end{itemize}
+  \item 引号
+    \begin{itemize}
+      \item 『传统风格』，「某乎风格」，“标准风格”，‘奇葩风格’
+    \end{itemize}
+  \item 破折号
+    \begin{itemize}
+      \item 断开{\CJKfontspec{Source Han Serif SC Medium}\symbol{"2014}\symbol{"2014}}是不好的，
+            不断开——是好的
+    \end{itemize}
+  \item 波浪号：
+    \begin{itemize}
+      \item |~| ≠ |\textasciitilde| ≠ |\texttildelow| ≠ |$\sim$| ≠ 你要的那一个
+      \item 那就是~青\textasciitilde 藏\texttildelow 高 $\sim$ 原\symbol{"FF5E}\symbol{"FF5E}\symbol{"FF5E}\symbol{"FF5E}
+        \begin{itemize}
+          \item \texttt{\usv{007E}: Tilde}
+          \item \texttt{\usv{02F7}: Modifier letter low tilde}
+          \item \texttt{\usv{223C}: Tilde operator}
+          \item \texttt{\usv{FF5E}: Fullwidth tilde}
+          \item \ldots{}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{使用字体}
+\begin{itemize}
+  \item 字体家族
+    \begin{itemize}
+      \item 衬线体：Times New Roman, Garamond, Palatino, \emph{etc.}
+      \item 无衬线体：\textsf{Helvetica}, \textsf{Frutiger}, \textsf{Avenir Next}, \emph{etc.}
+      \item 等宽体：\texttt{Courier}, \texttt{Consolas}, \texttt{Iosevka}, \emph{etc.}
+      \item 中文字体：宋、\textsf{黑}、
+        {\CJKfontspec{FZFangSong-Z02}仿}、{\CJKfontspec{FZKai-Z03}楷}……
+    \end{itemize}
+  \item 样式
+    \begin{itemize}
+      \item 粗体：\textbf{Bold}
+      \item 伪粗体：{\addfontfeatures{AutoFakeBold=3}\textbf{Faked bold}}
+      \item 意大利体：\textit{Italic}
+      \item 倾斜体：{\addfontfeatures{AutoFakeSlant=0.2}\textsl{Slant}}
+    \end{itemize}
+  \item OpenType
+    \begin{itemize}
+      \item 连字（Ligature）：{f}{f} $\to$ ff, {f}{i} $\to$ fi, {f}{l} $\to$ fl
+      \item 老式数字（Old-style number）：
+        0123456789 $\to$ {\addfontfeatures{Numbers=OldStyle}0123456789}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\iffalse
+\section{进阶扩展}
 
 \fi
+
+\begin{frame}[standout]
+  \large \textbf{谢谢大家！}
+\end{frame}
+
 \end{document}
