@@ -1,0 +1,236 @@
+\section{填写内容}
+
+\begin{frame}[fragile]
+\frametitle{Hello world!}
+\begin{texcode}[emph={[1]document}, emph={[2]article}]
+  % 用 pdfLaTeX、XeLaTeX 或 LuaLaTeX 编译
+  \documentclass{article}
+  \begin{document}
+  Hello world!
+  \end{document}
+\end{texcode}
+
+\begin{texcode}[emph={[1]document}, emph={[2]ctexart}]
+  % 用 XeLaTeX 或 LuaLaTeX 编译
+  \documentclass{ctexart}
+  \begin{document}
+  你好，世界！
+  \end{document}
+  \end{texcode}
+\end{frame}
+
+\begin{frame}{引擎与格式}
+\begin{itemize}
+  \item \textbf{引擎}：\TeX{} 的实现
+    \begin{itemize}
+      \item \pdfTeX{}：直接生成 PDF，支持 micro-typography
+      \item \XeTeX{}：支持 Unicode、OpenType 与复杂文本排版
+      \item \LuaTeX{}：支持 Unicode，内联 Lua，支持 OpenType
+      \item Ap\TeX{}：底层 CJK 支持，内联 Ruby，Color Emoji（手动斜眼笑）
+    \end{itemize}
+  \item \textbf{格式}：\TeX{} 的语言扩展（命令封装）
+    \begin{itemize}
+      \item plain \TeX{}：Knuth 同志专用
+      \item \LaTeX{}：排版科技类文章的事实\zhparen{\textit{de facto}}标准
+      \item Con\TeX t：基于 \LuaTeX{} 实现，优雅、易用（吗？）
+    \end{itemize}
+  \item \textbf{程序}：引擎 + dump 之后的格式代码
+    \begin{itemize}
+      \item \alert{英文文章：\exe{pdflatex}、\exe{xelatex} 或 \exe{lualatex}}
+      \item \alert{中文文章：\exe{xelatex} 或 \exe{lualatex}}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{语法}
+\begin{itemize}
+  \item 注释以 |%| 开头，忽略其后所有内容
+  \item 命令以 |\| 开头，区分大小写
+    \begin{itemize}
+      \item |\foo{arg}|：必选参数放在 |{...}| 中
+      \item |\foo[bar]{arg}|：可选参数放在 |[...]|
+    \end{itemize}
+  \item 环境
+    \begin{texcode}[gobble=4, basicstyle=\footnotesize\ttfamily, emph={[1]env}]
+      \begin{env}
+        ...
+      \end{env}
+    \end{texcode}
+  \item 特殊符号需要转义：|\%|、|\$|、|\&| 等
+  \item 连续多个空格 = 单个空格 = 单个换行符
+  \item \TeX{}/\LaTeX{} 的语法可以修改
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{文件结构}
+\begin{texcode}[basicstyle=\scriptsize\ttfamily, moretexcs={\keyword,\boldsymbol},
+  emph={[1]document}, emph={[2]article,amsmath}]
+  % 用 UTF-8 编码，命名为 xxx.tex
+  \documentclass{article}                     % 指明文档类型：文章
+  % 导言区：设置文档样式
+  \usepackage{amsmath}                        % 调用宏包，实现各种功能
+  \newcommand\keyword[1]{\textbf{#1}}         % 自定义命令
+
+  \begin{document}
+  % 正文：套用格式
+  In quantum mechanics, the \keyword{Schr\"odinger equation} is a
+  mathematical equation that describes the changes over time of a
+  physical system in which quantum effects, such as \keyword{wave--%
+  particle duality}, are significant.
+
+  % 上面的空行表示分段
+  In classical mechanics, Newton's second law
+  ($\boldsymbol{F}=m\boldsymbol{a}$) is used to make a \ldots{}
+
+  Time-dependent Schrödinger equation can be written as  % ö 也能直接用
+  \[ i\hbar \frac{d}{dt} |\Psi(t)\rangle = \hat{H} |\Psi(t)\rangle. \]
+  \end{document}
+\end{texcode}
+\vspace{-0.6cm}
+\end{frame}
+
+\begin{frame}{Schrödinger equation}
+In quantum mechanics, the \textbf{Schr\"odinger equation} is a
+mathematical equation that describes the changes over time of a
+physical system in which quantum effects, such as \textbf{wave--%
+particle duality}, are significant.
+
+In classical mechanics, Newton's second law
+($\boldsymbol{F}=m\boldsymbol{a}$) is used to make a \ldots{}
+
+Time-dependent Schrödinger equation can be written as
+\[ i\hbar \frac{d}{dt} \vert\Psi(t)\rangle = \hat{H} \, \vert\Psi(t)\rangle. \]
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{谋篇布局}
+\begin{itemize}
+  \item 文档部件
+    \begin{itemize}
+      \item 标题：|\title|、|\author|、|\date| $\to$ |\maketitle|
+      \item 摘要：|abstract| 环境
+      \item 目录：|\tableofcontents|
+      \item 章节：|\chapter|、|\section|、|\subsection| 等
+      \item 文献：|\bibliography|
+    \end{itemize}
+  \item 文档划分
+    \begin{itemize}
+      \item 凤头猪肚豹尾：|\frontmatter|、|\mainmatter|、|\backmatter|
+      \item 分文件编译：|\include|、|\input|
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{文本标记}
+\begin{itemize}
+  \item 加粗：|{\bfseries ...}| 或 |\textbf{...}|
+  \item 倾斜：|{\itshape ...}| 或 |\textit{...}|
+  \item 字号：|\tiny|、|\small|、|\large|、|\Large| 等
+  \item 换行：|\\|
+  \item 缩进：|\indent|
+  \item 居中：|\centering| 或 |center| 环境
+\end{itemize}
+\end{frame}
+
+\begin{frame}[standout]
+  \huge \textbf{请忘记上一页}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{文本标记}
+\begin{itemize}
+  \item 为什么要有不同的标记？\mbox{}——表达不同的\alert{语义}
+  \item |\textbf| 这样的命令是否表达语义？
+  \item 再提一遍基本原则：\alert{内容与格式分离}
+  \item 正确（或曰：合理）的做法
+    \begin{itemize}
+      \item 强调文字（意大利体）：|\emph{...}|
+      \item 摘要（居中，小字号，带有标题）：|abstract| 环境
+      \item 引用（左右边距较大）：|quote| 或 |quotation| 环境
+      \item 自定义新的命令、环境
+    \end{itemize}
+  \item 报告，我想偷懒！
+\end{itemize}
+\end{frame}
+
+\begin{frame}{中文支持}
+\begin{columns}
+\begin{column}{0.65\textwidth}
+  \begin{itemize}
+    \item 中文有什么特殊？
+      \begin{itemize}
+        \item 汉字太多（87,887）
+        \item 横排 + 直排、标点禁则、行间注 \link{https://www.w3.org/TR/clreq}
+        \item {\CJKfontspec{Source Han Serif SemiBold}日本語（にほんご）}、
+              {\fontspec{FreeSerif}[Script=Devanagari]देवनागरी}、
+              {\fontspec{FreeSerif}[Script=Arabic]العَرَبِيَّة‎}
+      \end{itemize}
+    \item 已淘汰：
+      \begin{itemize}
+        \item CCT 系统、\pkg{CJK} 宏包（裸用）
+        \item \CTeX{} 套装
+      \end{itemize}
+    \item 目前推荐手段：
+      \begin{itemize}
+        \item \alert{\CTeX{} 宏集}（此 \CTeX{} 非彼 \CTeX{}）
+        \item \exe{xelatex} 编译
+      \end{itemize}
+    \item 可以用，不推荐：
+      \begin{itemize}
+        \item \pkg{xeCJK} 宏包（裸用）
+        \item \CTeX{} 宏集 + 其他引擎编译
+      \end{itemize}
+  \end{itemize}
+\end{column}
+\begin{column}{0.33\textwidth}
+  \tiny
+  \begin{tabular}{cc}
+    \includegraphics[width=1cm]{figures/leoliu.png}        &
+    \includegraphics[width=1cm]{figures/qinglee.jpg}       \\
+    刘海洋 & 李清 \\[2ex]
+    \includegraphics[width=1cm]{figures/wulingyun.jpg}     &
+    \includegraphics[width=1cm]{figures/jjgod.jpg}         \\
+    吴凌云 & 江疆 \\[2ex]
+    \includegraphics[width=1cm]{figures/li-a-ling.jpg}     &
+    \includegraphics[width=1cm]{figures/liam-huang.jpg}    \\
+    马起园 & 黄晨成 \\[2ex]
+    \includegraphics[width=1cm]{figures/louisstuart96.jpg} &
+    \includegraphics[width=1cm]{figures/zepinglee.jpg}     \\
+    鲁尚文 & 李泽平
+  \end{tabular}
+\end{column}
+\end{columns}
+\let\thefootnote\relax
+\footnotetext{图片来源：Github，知乎}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{模板}
+\begin{itemize}
+  \item 是什么？
+    \begin{itemize}
+      \item 设计好的格式框架
+      \item 专注于内容
+      \item Word 中的样式：「学好 \LaTeX{} 可以更科学地使用 Word」
+    \end{itemize}
+  \item 有哪些？
+    \begin{itemize}
+      \item 期刊：REV\TeX{}、\pkg{elsarticle}、\pkg{IEEEtran}……
+      \item 学位论文：\pkg{thuthesis}、\pkg{ustcthesis}、\alert{\pkg{fduthesis}}……
+    \end{itemize}
+  \item 怎么用？
+    \begin{itemize}
+      \item |\documentclass{...}|，配置参数，照常编写
+      \item \alert{看文档，看文档，看文档}
+    \end{itemize}
+  \item 去哪里找？
+    \begin{itemize}
+      \item CTAN \link{https://ctan.org} 或 GitHub \href{https://github.com}{\faGithub}
+      \item 期刊官网
+      \item 「湿兄用 U 盘拷给你的模板一定是过时的」
+    \end{itemize}
+\end{itemize}
+\end{frame}

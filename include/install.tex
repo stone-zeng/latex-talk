@@ -1,0 +1,86 @@
+\section{安装}
+
+\begin{frame}{选择发行版}
+\begin{itemize}
+  \item \TeX{} 发行版\zhparen{distribution}
+    \begin{itemize}
+      \item 引擎、宏包、字体、文档的综合体
+      \item 类比 Visual Studio
+      \item \TeX{} Live、Mac\TeX{}、W32\TeX{}、MiK\TeX{} 等
+    \end{itemize}
+  \item \TeX{} Live \link{https://www.tug.org/texlive}
+    \begin{itemize}
+      \item 官方维护，首选，跨平台
+      \item Mac\TeX{} ≈ macOS 下的 \TeX{} Live
+      \item 缺点：体积大\zhparen{3GB+}、每年需要重装
+    \end{itemize}
+  \item MiK\TeX{} \link{https://miktex.org}
+    \begin{itemize}
+      \item 由 Christian Schenk 维护（是个狠人）
+      \item 宏包随用随装
+      \item 缺点：曾经只有 Windows 版本、网络问题
+    \end{itemize}
+  \item \alert{不要安装 \CTeX{} 套装！}
+    \begin{itemize}
+      \item \alert{存在严重 bug，并且完全过时}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{下载}
+\begin{itemize}
+  \item 选择国内 CTAN 镜像
+    \begin{itemize}
+      \item 清华大学开源软件镜像站 \link{https://mirrors.tuna.tsinghua.edu.cn}
+      \item 上海交通大学软件源镜像服务 \link{https://mirrors.sjtug.sjtu.edu.cn}
+      \item 中国科学技术大学开源软件镜像 \link{https://mirrors.ustc.edu.cn}
+      \item 复旦大学……
+    \end{itemize}
+  \item 建议使用 iso 镜像离线安装
+  \item 在线安装要求网络稳定
+\end{itemize}
+\end{frame}
+
+\begin{frame}{安装流程}
+\begin{itemize}
+  \item 新手建议安装完整版 \TeX{} Live 或 Mac\TeX{}
+    \begin{itemize}
+      \item 一路点击「下一步」
+      \item 保持耐心，做好重装的打算
+    \end{itemize}
+  \item Linux specials
+    \begin{itemize}
+      \item 软件源更新较慢，推荐 Vanilla \TeX{} Live
+      \item GUI 安装界面需要 \exe{perl-tk} 等
+      \item 环境变量、\exe{fontconfig}、dummy package 配置
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{神圣的战争——选择编辑器}
+\begin{itemize}
+  \item 专用型
+    \begin{itemize}
+      \item TeXworks：\TeX{} Live 自带 \faWindows{} \faApple{} \faLinux{}
+      \item TeXstudio：功能丰富，对新手友好 \faWindows{} \faApple{} \faLinux{}
+      \item TeXShop：Mac\TeX{} 自带 \faApple{}
+      \item WinEdt：功能丰富，收费 \faWindows{}
+    \end{itemize}
+  \item 通用型
+    \begin{itemize}
+      \item Visual Studio Code：利益相关（逃
+      \item Atom：卡
+      \item Sublime Text：收费
+      \item Vim：|q|、|q!|、|wq|、|wq!|
+    \end{itemize}
+  \item 在线服务
+    \begin{itemize}
+      \item \href{https://www.sharelatex.com}{\textcolor{酡红}{ShareLaTeX}} 和
+            \href{https://www.overleaf.com}{\textcolor{松花绿}{Overleaf}}
+    \end{itemize}
+  \item 编辑器对比：\link{https://tex.stackexchange.com/q/339}
+                    \link{https://en.wikipedia.org/wiki/Comparison_of_TeX_editors}
+                    \link{https://www.zhihu.com/question/19954023}
+\end{itemize}
+\end{frame}

@@ -1,0 +1,199 @@
+\section{字体排印}
+
+\begin{frame}{先看一个例子}
+\begin{minipage}{\textwidth}
+  \fontspec{SimHei}[AutoFakeBold, AutoFakeSlant]\small
+  \hyphenpenalty=10000\hbadness=10000\linespread{0.85}\selectfont
+  \textbf{Typography} is the art and technique of arranging type to make written language
+  legible,readable,and appealing when displayed. The arrangement of type involves selecting
+  typefaces, point sizes, line lengths, line-spacing(\textit{leading}), and letter-spacing
+  (\textit{tracking}), and adjusting the space between pairs of letters(\textit{kerning}).
+  The term typography is also applied to the style,arrangement, and appearance of the letters,
+  numbers, and symbols created by the process. \textbf{Type design} is a closely related craft,
+  sometimes considered part of typography;most typographers do not design typefaces, and some
+  type designers do not consider themselves typographers. Typography also may be used as a
+  decorative device,unrelated to communication of information.
+\end{minipage}
+\let\thefootnote\relax
+\footnotetext{中易黑体，行距 0.85 倍，关闭 hypenation}
+\end{frame}
+
+\begin{frame}{没有对比就没有伤害}
+\begin{minipage}{\textwidth}
+  \fontspec{EB Garamond}\small
+  \textbf{Typography} is the art and technique of arranging type to make written language
+  legible, readable, and appealing when displayed. The arrangement of type involves selecting
+  typefaces, point sizes, line lengths, line-spacing (\textit{leading}), and letter-spacing
+  (\textit{tracking}), and adjusting the space between pairs of letters (\textit{kerning}).
+  The term typography is also applied to the style, arrangement, and appearance of the letters,
+  numbers, and symbols created by the process. \textbf{Type design} is a closely related craft,
+  sometimes considered part of typography; most typographers do not design typefaces, and some
+  type designers do not consider themselves typographers. Typography also may be used as a
+  decorative device, unrelated to communication of information.
+\end{minipage}
+\let\thefootnote\relax
+\footnotetext{EB Garamond，默认设置}
+\end{frame}
+
+\begin{frame}{术语}
+\footnotesize
+\begin{columns}[t]
+\begin{column}{0.48\textwidth}
+  \begin{itemize}
+    \item 语言\zhparen{language}
+    \item 文字\zhparen{script}
+    \item 书写系统\zhparen{writting system}
+  \end{itemize}
+  \begin{itemize}
+    \item 符号\zhparen{symbol}
+    \item 字符\zhparen{character}
+    \item 字符形\zhparen{glyph}
+  \end{itemize}
+  \begin{itemize}
+    \item 字符集\zhparen{character set}
+    \item 编码\zhparen{encoding}
+    \item 码位\zhparen{code point}
+  \end{itemize}
+\end{column}
+\begin{column}{0.48\textwidth}
+  \begin{itemize}
+    \item 字体\zhparen{font}
+    \item 字型\zhparen{typeface}
+  \end{itemize}
+  \begin{itemize}
+    \item 易认性\zhparen{legibility}
+    \item 可读性\zhparen{readability}
+  \end{itemize}
+  \begin{itemize}
+    \item 字偶间距\zhparen{kerning}
+    \item 字距\zhparen{tracking}
+  \end{itemize}
+  \begin{itemize}
+    \item 栅格化\zhparen{rasterization}
+    \item 渲染提示\zhparen{hinting}
+  \end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[standout]
+  \large \textbf{\LaTeX{} will do (almost) all the things for you.}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Punctuations: hyphen/dash}
+\begin{columns}
+\begin{column}{0.84\textwidth}
+  \begin{itemize}
+    \item Hyphen \enparen{\usv{002D}}: |-|
+      \begin{itemize}
+        \item Four-dimensional momentum
+        \item Hyphenation
+      \end{itemize}
+    \item En dash \enparen{\usv{2013}}: |--|
+      \begin{itemize}
+        \item Newton--Leibniz formula (\emph{cf.} Levi-Civita symbol)
+        \item pp.~187--189
+      \end{itemize}
+    \item Em dash \enparen{\usv{2014}}: |---|
+      \begin{itemize}
+        \item Red, white, and blue---these are the colors of the flag
+        \item Like colon, parentheses, \emph{etc.}
+      \end{itemize}
+    \item Minus \enparen{\usv{2212}}: |$-$|
+      \begin{itemize}
+        \item $a-b$, $-a$
+      \end{itemize}
+  \end{itemize}
+\end{column}
+\begin{column}{0.13\textwidth}
+  \tiny\RaggedRight
+  A hyphen\alert{-}ation algo\alert{-}rithm is a set of rules, especially one codified
+  for imple\alert{-}mentation in a computer program, that decides at which points
+  a word can be broken over two lines with a hyphen.
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Punctuations: quotation mark}
+\begin{itemize}
+  \item Left/right, single/double:
+    \begin{itemize}
+      \item `\ldots{}' \enparen{\usv{2018}, \usv{2019}}: |`...'|
+      \item ``\ldots{}'' \enparen{\usv{201C}, \usv{201D}}: |``...''|
+    \end{itemize}
+  \item Different languages:
+    \begin{itemize}
+      \item `British ``English'' style' and ``American `English' style''
+      \item „German'', ''Finnish'', «French», »Danish«, \emph{etc.}
+      \item Use \pkg{csquotes} package
+    \end{itemize}
+  \item Programming:
+    \begin{itemize}
+      \item |char* my_name = "Xiangdong Zeng";|
+    \end{itemize}
+  \item Mathematics:
+    \begin{itemize}
+      \item |x'| = |x^{\prime}|: $x'(t) = x^{\prime}(t)$
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{中文标点符号}
+\begin{itemize}
+  \item 句号
+    \begin{itemize}
+      \item 正常文本。科技文本．
+    \end{itemize}
+  \item 引号
+    \begin{itemize}
+      \item 『传统风格』，「某乎风格」，“标准风格”，‘奇葩风格’
+    \end{itemize}
+  \item 破折号
+    \begin{itemize}
+      \item 断开{\CJKfontspec{Source Han Serif SC Medium}\symbol{"2014}\symbol{"2014}}是不好的，
+            不断开——是好的
+    \end{itemize}
+  \item 波浪号：
+    \begin{itemize}
+      \item |~| ≠ |\textasciitilde| ≠ |\texttildelow| ≠ |$\sim$| ≠ 你要的那一个
+      \item 那就是~青\textasciitilde 藏\texttildelow 高 $\sim$ 原～～～～
+        \begin{itemize}
+          \item \texttt{\usv{007E}: Tilde}
+          \item \texttt{\usv{02F7}: Modifier letter low tilde}
+          \item \texttt{\usv{223C}: Tilde operator}
+          \item \texttt{\usv{FF5E}: Fullwidth tilde}
+          \item \ldots{}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{使用字体}
+\begin{itemize}
+  \item 字体家族
+    \begin{itemize}
+      \item 衬线体：Times New Roman, Garamond, Palatino, \emph{etc.}
+      \item 无衬线体：\textsf{Helvetica}, \textsf{Frutiger}, \textsf{Avenir Next}, \emph{etc.}
+      \item 等宽体：\texttt{Courier}, \texttt{Consolas}, \texttt{Iosevka}, \emph{etc.}
+      \item 中文字体：宋、{\CJKfontspec{Source Han Sans SC}黑}、
+        {\CJKfontspec{FZFangSong-Z02}仿}、{\CJKfontspec{FZKai-Z03}楷}……
+    \end{itemize}
+  \item 样式
+    \begin{itemize}
+      \item 粗体：\textbf{Bold}
+      \item 伪粗体：{\addfontfeatures{AutoFakeBold=3}\textbf{Faked bold}}
+      \item 意大利体：\textit{Italic}
+      \item 伪斜体：{\addfontfeatures{AutoFakeSlant=0.2}\textsl{Slant}}
+    \end{itemize}
+  \item OpenType
+    \begin{itemize}
+      \item 连字\zhparen{ligature}：{f}{f} $\to$ ff, {f}{i} $\to$ fi, {f}{l} $\to$ fl
+      \item 老式数字\zhparen{old-style number}：
+        0123456789 $\to$ {\addfontfeatures{Numbers=OldStyle}0123456789}
+      \item 字偶间距\zhparen{kerning}：{T}{y} $\to$ Ty, {W}{A} $\to$ WA
+    \end{itemize}
+\end{itemize}
+\end{frame}
