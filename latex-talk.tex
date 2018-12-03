@@ -2,7 +2,7 @@
 \documentclass[fontset=none]{ctexbeamer}
 % \documentclass[aspectratio=169]{ctexbeamer}
 
-\usepackage{graphicx,array,caption,listings,ragged2e,fontawesome,unicode-math,hologo,bookmark}
+\usepackage{array,bookmark,fontawesome,hologo,listings,ragged2e,siunitx,unicode-math}
 
 \makeatletter
 
@@ -11,6 +11,7 @@
 % Beamer theme
 \usetheme{Xiaoshan}
 \usefonttheme{serif}
+\usefonttheme{professionalfonts}
 
 % Beamer settings
 % \metroset{sectionpage=simple}
@@ -47,9 +48,7 @@
   \end{minipage}}
 \setbeamertemplate{frame numbering}{\zhnumber[style=Financial]{\insertframenumber}}
 \setbeamertemplate{itemize/enumerate subbody begin}{\footnotesize}
-
-% CTeX settings
-% \ctexset{punct=kaiming}
+\setbeamertemplate{caption}{\parbox{\textwidth}{\centering\insertcaption}\par}
 
 % Colors
 \colorlet{keyword}{松花绿}
@@ -68,9 +67,6 @@
   UprightFont=* SemiBold, BoldFont=* Heavy, ItalicFont=* SemiBold, RawFeature=+fwid]
 \setCJKmonofont{Sarasa Mono SC}
 
-% Graphics
-\captionsetup[figure]{labelformat=empty, justification=centering}
-
 % PDF bookmark
 \apptocmd{\beamer@@frametitle}{%
   \only<1>{\expandafter\ifnum\insertcontinuationcount<2\relax
@@ -81,21 +77,22 @@
   language        = [latex]TeX,
   alsoletter      = {*},
   basewidth       = 0.54em,
-  escapeinside    = {(*}{*)},
   basicstyle      = \small\ttfamily,
   keywordstyle    = \bfseries\color{keyword},
   commentstyle    = \itshape\color{comment},
   texcsstyle      = *\color{texcs},
   emphstyle       = [1]\itshape\color{emph1},
-  emphstyle       = [2]\color{emph2},
-  numbersep       = 4pt,
+  emphstyle       = [2]\color{emph2}
+}
+\lstdefinestyle{style@inline}{
+  basicstyle      = \ttfamily\color{inline},
+  keepspaces      = true
 }
 \lstnewenvironment{texcode}[1][]{\lstset{%
   style=style@latex,
   gobble=2,
   morekeywords={\documentclass,\usepackage,\begin,\end},#1}}{}
-\lstMakeShortInline[%
-  basicstyle=\ttfamily\color{inline}, keepspaces=true, escapeinside={(*}{*)}]|
+\lstMakeShortInline[style=style@inline]|
 
 % Hack
 % Use small caps for LaTeX symbol
@@ -121,7 +118,7 @@
 % Macros
 \newcommand\link[1]{\href{#1}{\faLink}}
 \newcommand\CASE[1]{{\addfontfeatures{Letters=Uppercase}#1}}
-\newcommand\zhparen[1]{（\raisebox{0.2ex}{#1}）}
+\newcommand\zhparen[1]{（\raisebox{0.1ex}{#1}）}
 \newcommand\enparen[1]{\CASE{(}#1\CASE{)}}
 \newcommand\exe[1]{\texttt{#1}}
 \newcommand\pkg[1]{\texttt{#1}}
@@ -149,14 +146,6 @@
 \begin{document}
 
 \maketitle
-
-\begin{frame}[standout]
-  \large\fontspec{xkcd-script.ttf}[Path=./fonts/, Ligatures=TeX]
-  ``Your paper makes no goddamn sense, \\
-  but it's the most beautiful thing \\
-  \XeTeXglyph\XeTeXglyphindex"I_hyphen_p_r_o_n_o_u_n"\relax\
-  have ever laid eyes on.''
-\end{frame}
 
 \input{include/introduction.tex}
 \input{include/install.tex}

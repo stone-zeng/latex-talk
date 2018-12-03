@@ -1,0 +1,16 @@
+% See https://tex.stackexchange.com/q/453132
+%     https://github.com/u-fischer/luaotfload/issues/6
+\documentclass{standalone}
+\usepackage{fontspec,unicode-math,tikz-feynman,cncolours}
+
+\setmainfont{Libertinus Serif}
+\setmathfont{Libertinus Math}
+
+\begin{document}
+\feynmandiagram [vertical=e to f] {
+  a -- [fermion] b -- [photon, momentum=$k$] c -- [fermion] d,
+  b -- [fermion, momentum'=$p_{1}$] e -- [fermion, momentum'=$p_{2}$] c,
+  e -- [gluon, style={color=酡红}] f,
+  h -- [fermion] f -- [fermion] i;
+};
+\end{document}
