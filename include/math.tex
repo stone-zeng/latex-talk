@@ -7,7 +7,7 @@
     \begin{itemize}
       \item 不受外界字体命令控制
       \item 数学模式中空格不起作用，尽管用
-      \item \alert{不要用 MathType 生成 \LaTeX{} 公式}
+      \item \alert{不建议用 MathType 生成 \LaTeX{} 公式}
     \end{itemize}
   \item 行内\zhparen{inline}公式
     \begin{itemize}
@@ -15,7 +15,7 @@
       \item 示例：理想气体状态方程可以写为 \alert{$PV=nRT$}, 其中
             \alert{$P$}、\alert{$V$} 和 \alert{$T$} 分别是压强、体积和绝对温度
     \end{itemize}
-  \item 显示\zhparen{display}公式
+  \item 独显\zhparen{display}公式
     \begin{itemize}
       \item 无编号：用 |\[...\]| 或 |equation*| 环境
       \item 编号：用 |equation| 环境
@@ -38,7 +38,7 @@
   \item 分式
     \begin{itemize}
       \item |\frac{〈分子〉}{〈分母〉}|
-      \item 行内分式、小分式不好看：改用 |a/b|，或改用显示公式
+      \item 行内分式、小分式不好看：改用 |a/b|，或改用独显公式
       \item \alert{不推荐} |\dfrac|
     \end{itemize}
   \item 根式
@@ -60,13 +60,13 @@
     \end{itemize}
   \item 自动调节
     \begin{itemize}
-      \item |\left(...\right)| \emph{etc.}
+      \item |\left(...\right)| 等
       \item 大型括号是拼出来的
     \end{itemize}
   \item 手动调节
     \begin{itemize}
       \item 只有 4 + 1 档：|\big|、|\Big|、|\bigg|、|\Bigg|
-      \item 声明左中右：|\bigl|、|\bigm|、|\bigr| \emph{etc.}
+      \item 声明左中右：|\bigl|、|\bigm|、|\bigr| 等
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -87,7 +87,7 @@
   \item 数学字体
     \begin{itemize}
       \item 你们要的「Times New Roman」：\pkg{newtxmath} 宏包
-      \item \alert{不要用 \pkg{times} 和 \pkg{mathptmx}}
+      \item \alert{不要用 \pkg{times} 和 \pkg{mathptmx} 宏包}
       \item 加粗：使用 \pkg{bm} 宏包
     \end{itemize}
   \item 新方案：\pkg{unicode-math}
@@ -98,7 +98,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{专业功能（I）}
+\frametitle{专业功能（一）}
 \begin{itemize}
   \item 更高更妙的物理：\pkg{physics} 宏包
     \begin{itemize}
@@ -112,7 +112,7 @@
         \begin{itemize}
           \item $1.23 J mol^{-1} K^{-1}$---No!
         \end{itemize}
-      \item |\SI{1.23}{J.mol^{-1}.K^{-1}}| 
+      \item |\SI{1.23}{J.mol^{-1}.K^{-1}}|
         \begin{itemize}
           \item \SI{1.23}{J.mol^{-1}.K^{-1}}---Yes!
         \end{itemize}
@@ -123,7 +123,7 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{专业功能（II）}
+\begin{frame}{专业功能（二）}
 \begin{columns}
 \begin{column}{0.65\textwidth}
   \begin{itemize}
@@ -145,4 +145,43 @@
   \includegraphics[width=\textwidth]{example/feynman-diag.pdf}
 \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{专业功能（三）}
+\begin{itemize}
+  \item 抄录：忽略所有特殊类别码\zhparen{catcode}，原样显示
+    \begin{itemize}
+      \item |\verb〈char〉...〈char〉|、|verbatim| 环境
+      \item \pkg{verbatim}、\pkg{fancyvrb} 宏包
+    \end{itemize}
+  \item 语法高亮
+    \begin{itemize}
+      \item \pkg{listings} 宏包
+      \item \pkg{minted} 宏包
+        \begin{itemize}
+          \item 需要 Python，且开启 |--shell-escape|
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\begin{lstlisting}[
+  language         = C,
+  basewidth        = 0.54em,
+  xleftmargin      = 6em,
+  numbers          = left,
+  numberstyle      = \tiny,
+  basicstyle       = \scriptsize\ttfamily,
+  keywordstyle     = \color{emph1},
+  commentstyle     = \itshape\color{comment},
+  stringstyle      = \color{texcs},
+  showstringspaces = false]
+/* A standard Hello World program in C. */
+#include <stdio.h>
+
+int main(int argc, char** argv) {
+    printf("Hello, world!\n");
+    return 0;
+}
+\end{lstlisting}
+\vspace{-1cm}
 \end{frame}

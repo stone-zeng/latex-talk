@@ -36,8 +36,8 @@
     \end{itemize}
   \item \textbf{程序}：引擎 + dump 之后的格式代码
     \begin{itemize}
-      \item \alert{英文文章：\exe{pdflatex}、\exe{xelatex} 或 \exe{lualatex}}
-      \item \alert{中文文章：\exe{xelatex} 或 \exe{lualatex}}
+      \item \alert{英文文章：\pdfLaTeX{}、\XeLaTeX{} 或 \LuaLaTeX{}}
+      \item \alert{中文文章：\XeLaTeX{} 或 \LuaLaTeX{}}
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -82,7 +82,7 @@
 
   % 上面的空行表示分段
   In classical mechanics, Newton's second law
-  ($\boldsymbol{F}=m\boldsymbol{a}$) is used to make a \ldots{}
+  ($\boldsymbol{F}=m\boldsymbol{a}$) is used to make a\ldots{}
 
   Time-dependent Schrödinger equation can be written as  % ö 也能直接用
   \[ i\hbar \frac{d}{dt} |\Psi(t)\rangle = \hat{H} |\Psi(t)\rangle. \]
@@ -98,7 +98,7 @@ physical system in which quantum effects, such as \textbf{wave--%
 particle duality}, are significant.
 
 In classical mechanics, Newton's second law
-($\boldsymbol{F}=m\boldsymbol{a}$) is used to make a \ldots{}
+($\mathbfit{F}=m\mathbfit{a}$) is used to make a\ldots{}
 
 Time-dependent Schrödinger equation can be written as
 \[ i\hbar \frac{d}{dt} \vert\Psi(t)\rangle = \hat{H} \, \vert\Psi(t)\rangle. \]
@@ -156,6 +156,52 @@ Time-dependent Schrödinger equation can be written as
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{浮动体与交叉引用}
+\begin{itemize}
+  \item 浮动体机制
+    \begin{itemize}
+      \item |figure| 和 |table| 环境
+      \item 文本为主，图、表为辅
+      \item 希望浮动体不要乱跑：「这是病，得治」
+            \link{https://liam.page/2017/03/11/floats-in-LaTeX-basic}
+      \item 避免「见上图」、「见下表」
+    \end{itemize}
+  \item 以标签控制交叉引用
+    \begin{itemize}
+      \item 被引处：|\label|
+      \item 引用处：|\ref|、|\eqref| 等
+      \item 用有意义的标签：|\label{eq:euler-lagrange-eq}|
+      \item 需多次编译——推荐 \pkg{latexmk}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{文献}
+\begin{itemize}
+  \item 建议自动生成（你只有三篇参考文献？）
+  \item |.bib| 数据库
+    \begin{itemize}
+      \item Google Scholar 可直接复制
+      \item 用 Zotero、Jabref 等生成
+    \end{itemize}
+  \item 传统方法：\BibTeX{} 后端
+    \begin{itemize}
+      \item 控制文献、引用样式：\pkg{natbib} 宏包
+      \item 国家标准 GB/T 7714--2015
+            \link{https://www.gb688.cn/bzgk/gb/newGbInfo?hcno=7FA63E9BBA56E60471AEDAEBDE44B14C}
+            \link{https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style/files/153951/GBT.7714-2015.pdf}：
+            \alert{\pkg{gbt7714} 宏包}
+    \end{itemize}
+  \item 现代方法：\pkg{biber} 后端 + \pkg{biblatex} 宏包
+    \begin{itemize}
+      \item 国家标准：\pkg{biblatex-gb7714-2015} 宏包
+    \end{itemize}
+  \item 需多次编译——再次推荐 \pkg{latexmk}
+\end{itemize}
+\end{frame}
+
 \begin{frame}{中文支持}
 \begin{columns}
 \begin{column}{0.65\textwidth}
@@ -175,13 +221,13 @@ Time-dependent Schrödinger equation can be written as
       \end{itemize}
     \item 目前推荐手段：
       \begin{itemize}
-        \item \alert{\CTeX{} 宏集}（此 \CTeX{} 非彼 \CTeX{}）
-        \item \exe{xelatex} 编译
+        \item \alert{\pkg{ctex} 宏集}（此 \pkg{ctex} 非彼 \CTeX{}）
+        \item \XeLaTeX{} 编译
       \end{itemize}
     \item 可以用，不推荐：
       \begin{itemize}
         \item \pkg{xeCJK} 宏包（裸用）
-        \item \CTeX{} 宏集 + 其他引擎编译
+        \item \pkg{ctex} 宏集 + 其他引擎编译
       \end{itemize}
   \end{itemize}
 \end{column}
@@ -218,7 +264,7 @@ Time-dependent Schrödinger equation can be written as
     \end{itemize}
   \item 有哪些？
     \begin{itemize}
-      \item 期刊：REV\TeX{}、\pkg{elsarticle}、\pkg{IEEEtran}……
+      \item 期刊：\pkg{revtex}、\pkg{elsarticle}、\pkg{IEEEtran}……
       \item 学位论文：\pkg{thuthesis}、\pkg{ustcthesis}、\alert{\pkg{fduthesis}}……
     \end{itemize}
   \item 怎么用？

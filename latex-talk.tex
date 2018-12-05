@@ -74,24 +74,24 @@
 
 % Code listings
 \lstdefinestyle{style@latex}{
-  language        = [latex]TeX,
-  alsoletter      = {*},
-  basewidth       = 0.54em,
-  basicstyle      = \small\ttfamily,
-  keywordstyle    = \bfseries\color{keyword},
-  commentstyle    = \itshape\color{comment},
-  texcsstyle      = *\color{texcs},
-  emphstyle       = [1]\itshape\color{emph1},
-  emphstyle       = [2]\color{emph2}
+  language     = [latex]TeX,
+  alsoletter   = {*},
+  basewidth    = 0.54em,
+  basicstyle   = \small\ttfamily,
+  keywordstyle = \bfseries\color{keyword},
+  commentstyle = \itshape\color{comment},
+  texcsstyle   = *\color{texcs},
+  emphstyle    = [1]\itshape\color{emph1},
+  emphstyle    = [2]\color{emph2}
 }
 \lstdefinestyle{style@inline}{
-  basicstyle      = \ttfamily\color{inline},
-  keepspaces      = true
+  basicstyle   = \ttfamily\color{inline},
+  keepspaces   = true
 }
-\lstnewenvironment{texcode}[1][]{\lstset{%
-  style=style@latex,
-  gobble=2,
-  morekeywords={\documentclass,\usepackage,\begin,\end},#1}}{}
+\lstnewenvironment{texcode}[1][]{\lstset{
+  style        = style@latex,
+  gobble       = 2,
+  morekeywords = {\documentclass,\usepackage,\begin,\end},#1}}{}
 \lstMakeShortInline[style=style@inline]|
 
 % Hack
@@ -120,7 +120,6 @@
 \newcommand\CASE[1]{{\addfontfeatures{Letters=Uppercase}#1}}
 \newcommand\zhparen[1]{（\raisebox{0.1ex}{#1}）}
 \newcommand\enparen[1]{\CASE{(}#1\CASE{)}}
-\newcommand\exe[1]{\texttt{#1}}
 \newcommand\pkg[1]{\texttt{#1}}
 \newcommand\usv[1]{\texttt{U+#1}}
 \newcommand\kbd[1]{{\fontspec{Libertinus Keyboard}#1}}
@@ -133,12 +132,16 @@
 \newcommand\XeTeX{\hologo{XeTeX}}
 \newcommand\pdfTeX{\hologo{pdfTeX}}
 \newcommand\LuaTeX{\hologo{LuaTeX}}
+\newcommand\XeLaTeX{\hologo{Xe}\kern-.13em\LaTeX{}}
+\newcommand\pdfLaTeX{pdf\LaTeX{}}
+\newcommand\LuaLaTeX{Lua\LaTeX{}}
+\newcommand\BibTeX{\hologo{BibTeX}}
 
 \makeatother
 
 % Information
 \title{现代 \LaTeX{} 入门讲座}
-\subtitle{Introduction to Modern \LaTeX{}}
+\subtitle{Modern \LaTeX{} in a Nutshell}
 \author{曾祥东}
 \institute{复旦大学\quad 物理系}
 \date{2018 年 12 月}
@@ -147,13 +150,13 @@
 
 \maketitle
 
-\input{include/introduction.tex}
-\input{include/install.tex}
-\input{include/start.tex}
+%\input{include/introduction.tex}
+%\input{include/install.tex}
+%\input{include/start.tex}
 \input{include/content.tex}
 \input{include/math.tex}
-\input{include/typography.tex}
-\input{include/advanced.tex}
+%\input{include/typography.tex}
+%\input{include/advanced.tex}
 
 \begin{frame}[standout]
   \huge \textbf{谢谢大家！}
