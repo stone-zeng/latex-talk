@@ -128,6 +128,9 @@
 \newcommand\kbdCtrl{{\fontspec{Libertinus Keyboard}\symbol{"E173}}}
 \newcommand\kbdShift{{\fontspec{Libertinus Keyboard}\symbol{"E174}}}
 \newcommand\kbdIns{{\fontspec{Libertinus Keyboard}\symbol{"E18B}}}
+\DeclareRobustCommand{\nonumberfootnote}[1]{
+  \let\thefootnote\relax
+  \footnotetext{#1}}
 
 \newcommand\XeTeX{\hologo{XeTeX}}
 \newcommand\pdfTeX{\hologo{pdfTeX}}
@@ -150,16 +153,16 @@
 
 \maketitle
 
-%\input{include/introduction.tex}
-%\input{include/install.tex}
-%\input{include/start.tex}
+\input{include/introduction.tex}
+\input{include/install.tex}
+\input{include/start.tex}
 \input{include/content.tex}
 \input{include/math.tex}
-%\input{include/typography.tex}
-%\input{include/advanced.tex}
+\input{include/typography.tex}
+\input{include/advanced.tex}
 
 \begin{frame}[standout]
-  \huge \textbf{谢谢大家！}
+  \huge \textbf{\texttt{\textbackslash bye}}
 \end{frame}
 
 \end{document}

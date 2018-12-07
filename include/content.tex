@@ -178,6 +178,30 @@ Time-dependent Schrödinger equation can be written as
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{如何在论文中画出漂亮的插图？}
+\begin{itemize}
+  \item 外部插入
+    \begin{itemize}
+      \item Mathematica、MATLAB
+      \item PowerPoint、Visio、Adobe Illustrator、Inkscape
+      \item Python \alert{Matplotlib}
+    \end{itemize}
+  \item \TeX{} 内联
+    \begin{itemize}
+      \item Asymptote
+      \item \alert{\pkg{pgf}/\pkg{TikZ}、\pkg{pgfplots}}
+    \end{itemize}
+  \item 插图格式
+    \begin{itemize}
+      \item 矢量图：|.pdf|（\alert{不再推荐} |.eps|）
+      \item 位图：|.jpg| 或 |.png|
+    \end{itemize}
+  \item 参考：\link{https://www.zhihu.com/question/21664179}
+              \link{https://tex.stackexchange.com/q/158668}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{文献}
 \begin{itemize}
   \item 建议自动生成（你只有三篇参考文献？）
@@ -249,8 +273,7 @@ Time-dependent Schrödinger equation can be written as
   \end{tabular}
 \end{column}
 \end{columns}
-\let\thefootnote\relax
-\footnotetext{图片来源：Github，知乎}
+\nonumberfootnote{图片来源：Github，知乎}
 \end{frame}
 
 \begin{frame}[fragile]

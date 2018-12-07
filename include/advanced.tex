@@ -1,2 +1,178 @@
 \section{进阶扩展}
-% 占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符占位符
+
+\begin{frame}[fragile]
+\frametitle{宏包推荐}
+\vspace*{-0.4cm}
+\begin{columns}[t]
+\small
+\setbeamertemplate{itemize/enumerate subbody begin}{\scriptsize}
+\begin{column}{0.32\textwidth}
+  \begin{itemize}
+    \item 必备
+      \begin{itemize}
+        \item \pkg{amsmath}
+        \item \pkg{graphicx}
+        \item \pkg{hyperref}
+      \end{itemize}
+    \item 样式
+      \begin{itemize}
+        \item \pkg{caption}
+        \item \pkg{enumitem}
+        \item \pkg{fancyhdr}
+        \item \pkg{footmisc}
+        \item \pkg{geometry}
+        \item \pkg{ntheorem}
+        \item \pkg{titlesec}
+      \end{itemize}
+    \item 数学
+      \begin{itemize}
+        \item \pkg{bm}
+        \item \pkg{mathtools}
+        \item \pkg{physics}
+        \item \pkg{unicode-math}
+      \end{itemize}
+  \end{itemize}
+\end{column}
+\begin{column}{0.32\textwidth}
+  \begin{itemize}
+    \item 表格
+      \begin{itemize}
+        \item \pkg{array}
+        \item \pkg{booktabs}
+        \item \pkg{longtable}
+        \item \pkg{tabularx}
+      \end{itemize}
+    \item 插图、绘图
+      \begin{itemize}
+        \item \pkg{float}
+        \item \pkg{pdfpages}
+        \item \pkg{standalone}
+        \item \pkg{subfig}
+        \item \pkg{pgf}/\pkg{tikz}
+        \item \pkg{pgfplots}
+      \end{itemize}
+    \item 字体
+      \begin{itemize}
+        \item \pkg{newtx}
+        \item \pkg{newpx}
+        \item \pkg{pifont}
+        \item \pkg{fontspec}
+      \end{itemize}
+  \end{itemize}
+\end{column}
+\begin{column}{0.32\textwidth}
+  \begin{itemize}
+    \item 各种功能
+      \begin{itemize}
+        \item \pkg{algorithm2e}
+        \item \pkg{beamer}
+        \item \pkg{biblatex}
+        \item \pkg{fancyhdr}
+        \item \pkg{listings}
+        \item \pkg{mhchem}
+        \item \pkg{microtype}
+        \item \pkg{minted}
+        \item \pkg{natbib}
+        \item \pkg{siunitx}
+        \item \pkg{xcolor}
+      \end{itemize}
+    \item 多语言
+      \begin{itemize}
+        \item \pkg{babel}
+        \item \pkg{polyglossia}
+        \item \pkg{ctex}
+        \item \pkg{xeCJK}
+        \item \pkg{luatexja}
+      \end{itemize}
+    % \item 宏编程
+    %   \begin{itemize}
+    %     \item \pkg{calc}
+    %     \item \pkg{etoolbox}
+    %     \item \pkg{expl3}
+    %     \item \pkg{xparse}
+    %     \item \pkg{xpatch}
+    %     \item \pkg{xtemplate}
+    %   \end{itemize}
+  \end{itemize}
+\end{column}
+\end{columns}
+\vspace*{-0.3cm}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\TeX{} 宏编程}
+  
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Markdown}
+\begin{columns}
+\lstset{%
+  moredelim    = [s][emphstyle]{*}{*},
+  moredelim    = [s][keywordstyle]{**}{**},
+  moredelim    = [s][emphstyle2]{\`}{\`},
+  moredelim    = [s][emphstyle2]{\`\`\`}{\`\`\`},
+  moredelim    = [l][keywordstyle2]{\#},
+  moredelim    = [is][keywordstyle2]{+}{+},
+  moredelim    = *[is][\itshape]{!}{!},
+  moredelim    = [is][keywordstyle]{(+}{+)},
+  moredelim    = [is][emphstyle2]{(-}{-)},
+  basicstyle   = \scriptsize\ttfamily,
+  keywordstyle = [1]\bfseries\color{keyword},
+  keywordstyle = [2]\bfseries\color{texcs},
+  emphstyle    = [1]\itshape\color{emph1},
+  emphstyle    = [2]\color{inline}}
+\begin{column}{0.5\textwidth}
+  \begin{lstlisting}[gobble=2]
+  # Markdown syntax
+
+  This is **bold text**.
+  This text is *italicized*.
+  Use `git status` to list all
+  new or modified files.
+
+  Block code:
+
+  ```
+  git status
+  git add
+  git commit
+  ```
+
+  Quotation:
+
+  +>+ !Markdown uses email-style `>`!
+  +>+ !characters for blockquoting.!
+  \end{lstlisting}
+\end{column}
+\begin{column}{0.5\textwidth}
+  \begin{lstlisting}[gobble=2]
+  ## List
+
+  ### Bullet list
+
+    +*+ apples
+    +*+ oranges
+    +*+ pears
+
+  ### Numbered list
+
+    +1.+ wash
+    +2.+ rinse
+    +3.+ repeat
+
+  +---+
+
+  Link: from [(+Wikipedia+)]
+  ((-https://en.wikipedia.org/wiki/-)
+  (-Markdown-))
+
+  \end{lstlisting}
+\end{column}
+\end{columns}
+\vspace{-0.6cm}
+\end{frame}
+
+\begin{frame}{Git}
+  
+\end{frame}

@@ -14,8 +14,8 @@
   type designers do not consider themselves typographers. Typography also may be used as a
   decorative device,unrelated to communication of information.
 \end{minipage}
-\let\thefootnote\relax
-\footnotetext{中易黑体，行距 0.85 倍，关闭 hypenation}
+\nonumberfootnote{中易黑体，行距 0.85 倍，关闭断词；来源：
+  \link{https://en.wikipedia.org/wiki/Typography}}
 \end{frame}
 
 \begin{frame}{没有对比就没有伤害}
@@ -31,8 +31,7 @@
   type designers do not consider themselves typographers. Typography also may be used as a
   decorative device, unrelated to communication of information.
 \end{minipage}
-\let\thefootnote\relax
-\footnotetext{EB Garamond，默认设置}
+\nonumberfootnote{EB Garamond，默认设置}
 \end{frame}
 
 \begin{frame}{术语}
@@ -80,6 +79,7 @@
   \large \textbf{\LaTeX{} will do (almost) all the things for you.}
 \end{frame}
 
+% TODO: 页码用西文
 \begin{frame}[fragile]
 \frametitle{Punctuations: hyphen/dash}
 \begin{columns}
@@ -135,7 +135,7 @@
     \end{itemize}
   \item Mathematics:
     \begin{itemize}
-      \item |x'| = |x^{\prime}|: $x'(t) = x^{\prime}(t)$
+      \item |f'| = |f^{\prime}|: $f'(x) = f^{\prime}(x)$
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -149,7 +149,7 @@
     \end{itemize}
   \item 引号
     \begin{itemize}
-      \item 『传统风格』，「某乎风格」，“标准风格”，‘奇葩风格’
+      \item 『传统风格』，「某乎风格」，“标准风格”，\mbox{}’\kern-0.6em奇葩风格”
     \end{itemize}
   \item 破折号
     \begin{itemize}
