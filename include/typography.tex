@@ -176,9 +176,18 @@
   \item 字体家族
     \begin{itemize}
       % TODO
-      \item 衬线体：Times New Roman, Garamond, Palatino, \emph{etc.}
-      \item 无衬线体：{Helvetica}, {Frutiger}, {Avenir Next}, \emph{etc.}
-      \item 等宽体：\texttt{Courier}, \texttt{Consolas}, \texttt{Iosevka}, \emph{etc.}
+      \item 衬线体：
+        {\fontspec{EBGaramond08-Regular.otf}Garamond},
+        {\fontspec{Times New Roman}Times New Roman},
+        {\fontspec{lmroman8-regular.otf}Latin Modern}, \emph{etc.}
+      \item 无衬线体：
+        {\fontspec{Futura LT Medium.ttf}[Path=./fonts/]Futura},
+        {\fontspec{HelveticaNeueLTPro-Roman.otf}[Path=./fonts/]Helvetica},
+        {\fontspec{Frutiger CE 55 Roman.ttf}[Path=./fonts/]Frutiger}, \emph{etc.}
+      \item 等宽字体：
+        {\fontspec{Courier New}Courier},
+        {\fontspec{Consolas}Consolas},
+        \texttt{Iosevka}, \emph{etc.}
       \item 中文字体：宋、{\CJKfontspec{Source Han Sans SC}黑}、
         {\CJKfontspec{FZFangSong-Z02}仿}、{\CJKfontspec{FZKai-Z03}楷}……
     \end{itemize}
@@ -188,6 +197,7 @@
       \item 伪粗体：{\addfontfeatures{AutoFakeBold=3}\textbf{Faked bold}}
       \item 意大利体：\textit{Italic}
       \item 伪斜体：{\addfontfeatures{AutoFakeSlant=0.2}\textsl{Slant}}
+      \item \alert{汉字一般不使用斜体}
     \end{itemize}
   \item OpenType
     \begin{itemize}
@@ -198,4 +208,5 @@
     \end{itemize}
   \item \alert{请勿同时使用三种以上字体}
 \end{itemize}
+\vspace{-0.2cm}
 \end{frame}

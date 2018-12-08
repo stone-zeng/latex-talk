@@ -49,6 +49,7 @@
 \setbeamertemplate{frame numbering}{\zhnumber[style=Financial]{\insertframenumber}}
 \setbeamertemplate{itemize/enumerate subbody begin}{\footnotesize}
 \setbeamertemplate{caption}{\parbox{\textwidth}{\centering\insertcaption}\par}
+\setbeamertemplate{bibliography item}[text]
 
 % Colors
 \colorlet{keyword}{松花绿}
@@ -100,6 +101,15 @@
   L\kern-.3em%
   \raisebox{.2em}{\textsc{a}}\kern-.14em%
   \TeX}
+% Compatibility with unicode-math
+\DeclareRobustCommand{\LaTeXe}{%
+  \LaTeX\kern.15em2%
+  \hbox{%
+    \if b\expandafter\@car\f@series\@nil
+      $_{\textstyle\symbf{\varepsilon}}$%
+    \else
+      $_{\textstyle\varepsilon}$%
+    \fi}}
 % PoZheHao, see https://github.com/CTeX-org/ctex-kit/issues/382
 \ExplSyntaxOn
 \xeCJK_new_class:n { PoZheHao }
@@ -153,29 +163,31 @@
 
 \maketitle
 
-\input{include/introduction.tex}
-\input{include/install.tex}
-\input{include/start.tex}
-\input{include/content.tex}
-\input{include/math.tex}
+%\input{include/introduction.tex}
+%\input{include/install.tex}
+%\input{include/start.tex}
+%\input{include/content.tex}
+%\input{include/math.tex}
 \input{include/typography.tex}
-\input{include/advanced.tex}
-
-\renewcommand*\footnoterule{}
+%\input{include/advanced.tex}
 
 \begin{frame}{关于}
+\vspace*{1.2cm}
 \footnotesize
 本幻灯片：\url{https://github.com/Stone-Zeng/latex-talk} \\
 许可证：Creative Commons Attribution-ShareAlike 4.0 International
+\vspace{0.4cm}
 \begin{center}
   \huge\ccbysa
 \end{center}
-\nonumberfootnote{%
-  \begin{flushleft}
-    Beamer 主题：萧山 \link{https://ctan.org/pkg/pgfornament-han} \\
-    正文字体：思源宋体 + Libertinus Serif \\
-    等宽字体：等距更纱黑体 + Iosevka
-  \end{flushleft}}
+\vspace{2cm}
+\begin{flushleft}
+  \tiny
+  Beamer 主题：萧山 \link{https://ctan.org/pkg/pgfornament-han} \\
+  正文字体：思源宋体 + Libertinus Serif \\
+  等宽字体：等距更纱黑体 + Iosevka
+\end{flushleft}
+\vspace{-0.5cm}
 \end{frame}
 
 \begin{frame}[standout]
