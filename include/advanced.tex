@@ -3,18 +3,18 @@
 \begin{frame}[fragile]
 \frametitle{\TeX{} 宏编程}
 \begin{itemize}
-  \item \TeX{} 层面
+  \item<+-> \TeX{} 层面
     \begin{itemize}
       \item 定义新命令：|\def|、|\gdef|、|\let|
       \item 类别码：|\catcode|
       \item 展开控制：|\edef|、|\expandafter|
     \end{itemize}
-  \item \LaTeX{} 层面
+  \item<+-> \LaTeX{} 层面
     \begin{itemize}
       \item 定义新命令：|\newcommand|、|\renewcommand|、|\newenvironment|
       \item 内部命令：|\makeatletter|、|\makeatother|
     \end{itemize}
-  \item \LaTeX3——遥遥无期的未来
+  \item<+-> \LaTeX3——遥遥无期的未来
     \begin{itemize}
       \item 区分底层、接口层与用户层
       \item 命令举例：|\cs_new:Npn|、|\seq_push:Nx|、|\regex_match:nnTF|
@@ -22,19 +22,19 @@
       \item 面向对象编程：\pkg{xtemplate} 宏包
       \item \pkg{fontspec}、\pkg{siunitx}、\pkg{ctex}、\pkg{fduthesis} 等均使用 \LaTeX3 实现
     \end{itemize}
-  \item 外部语言：Lua
+  \item<+-> 外部语言：Lua
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{编写宏包}
 \begin{itemize}
-  \item 文学编程
+  \item<+-> 文学编程
     \begin{itemize}
       \item 代码、注释与文档合为一体（|.dtx| 文件）
       \item 使用 \pkg{doc} 与 \pkg{docstrip} 宏包
     \end{itemize}
-  \item 发布
+  \item<+-> 发布
     \begin{itemize}
       \item 上传 CTAN 实际上并无门槛
       \item 但仍有必要了解：
@@ -46,7 +46,7 @@
             \link{https://www.latex-project.org/lppl/lppl-1-3c}
         \end{itemize}
     \end{itemize}
-  \item 参考
+  \item<+-> 参考
     \begin{itemize}
       \item \LaTeX{} 内核代码：\pkg{source2e.pdf}、\pkg{classes.pdf}、\pkg{source3.pdf}
       \item 书籍：\emph{The \TeX book}、\emph{\TeX{} by Topic}、\emph{The \LaTeX{} Companion} 等
@@ -145,7 +145,7 @@
 \end{frame}
 
 \begin{frame}[standout]
-  \huge \textbf{请务必先读文档！} \\[1ex]
+  \huge \textbf{请务必先读文档！} \\[1ex] \pause
   \footnotesize 命令行执行 \texttt{texdoc \textit{package}}
 \end{frame}
 
@@ -221,13 +221,13 @@
 \begin{frame}[fragile]
 \frametitle{Git}
 \begin{itemize}
-  \item 版本管理的必要性
+  \item<+-> 版本管理的必要性
     \begin{itemize}
       \item 远离“初稿，第二稿，第三稿……终稿，终稿（打死也不改了）”
       \item 有底气做大范围修改、重构
       \item 方便与他人协同合作
     \end{itemize}
-  \item 基本用法
+  \item<+-> 基本用法
     \begin{itemize}
       \item 把大象放进冰箱：|git init|、|git add|、|git commit|
       \item 时空穿梭：|git reset|、|git revert|
@@ -236,12 +236,12 @@
       \item 参考链接：\link{https://git-scm.com/book/en/v2}
         \link{https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000}
     \end{itemize}
-  \item GitHub \href{https://github.com}{\faGithub}
+  \item<+-> GitHub \href{https://github.com}{\faGithub}
     \begin{itemize}
       \item 远程 Git 仓库
       \item Clone \& fork
       \item Issues \& pull requests
-      \item \alert{提醒：绑定 \texttt{.edu} 邮箱可以免费无限量使用私有仓库}
+      \item<+-> \alert{提醒：绑定 \texttt{.edu} 邮箱可以免费无限量使用私有仓库}
     \end{itemize}
 \end{itemize}
 \end{frame}

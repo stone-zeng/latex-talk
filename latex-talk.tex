@@ -1,6 +1,9 @@
 \XeTeXgenerateactualtext=1
-\documentclass[fontset=none]{ctexbeamer}
-% \documentclass[aspectratio=169]{ctexbeamer}
+\ifdefined\HANDOUT
+  \documentclass[fontset=none,handout]{ctexbeamer}
+\else
+  \documentclass[fontset=none]{ctexbeamer}
+\fi
 
 \usepackage{array,bookmark,ccicons,fontawesome,hologo,listings,ragged2e,siunitx,unicode-math}
 
@@ -14,7 +17,6 @@
 \usefonttheme{professionalfonts}
 
 % Beamer settings
-% \metroset{sectionpage=simple}
 \metroset{progressbar=none}
 \setbeamerfont{title}{size=\huge, series=\bfseries}
 \setbeamerfont*{subtitle}{size=\large, shape=\itshape}
@@ -138,9 +140,10 @@
 \newcommand\kbdCtrl{{\fontspec{Libertinus Keyboard}\symbol{"E173}}}
 \newcommand\kbdShift{{\fontspec{Libertinus Keyboard}\symbol{"E174}}}
 \newcommand\kbdIns{{\fontspec{Libertinus Keyboard}\symbol{"E18B}}}
-\DeclareRobustCommand{\nonumberfootnote}[1]{
+\DeclareRobustCommand{\nonumberfootnote}[2][]{
   \let\thefootnote\relax
-  \footnotetext{#1}}
+  \footnotetext#1{#2}}
+\renewcommand*\footnoterule{}
 
 \newcommand\XeTeX{\hologo{XeTeX}}
 \newcommand\pdfTeX{\hologo{pdfTeX}}
@@ -163,13 +166,13 @@
 
 \maketitle
 
-%\input{include/introduction.tex}
-%\input{include/install.tex}
-%\input{include/start.tex}
-%\input{include/content.tex}
-%\input{include/math.tex}
+\input{include/introduction.tex}
+\input{include/install.tex}
+\input{include/start.tex}
+\input{include/content.tex}
+\input{include/math.tex}
 \input{include/typography.tex}
-%\input{include/advanced.tex}
+\input{include/advanced.tex}
 
 \begin{frame}{关于}
 \vspace*{1.2cm}
