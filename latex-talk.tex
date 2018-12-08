@@ -2,7 +2,7 @@
 \documentclass[fontset=none]{ctexbeamer}
 % \documentclass[aspectratio=169]{ctexbeamer}
 
-\usepackage{array,bookmark,fontawesome,hologo,listings,ragged2e,siunitx,unicode-math}
+\usepackage{array,bookmark,ccicons,fontawesome,hologo,listings,ragged2e,siunitx,unicode-math}
 
 \makeatletter
 
@@ -160,6 +160,23 @@
 \input{include/math.tex}
 \input{include/typography.tex}
 \input{include/advanced.tex}
+
+\renewcommand*\footnoterule{}
+
+\begin{frame}{关于}
+\footnotesize
+本幻灯片：\url{https://github.com/Stone-Zeng/latex-talk} \\
+许可证：Creative Commons Attribution-ShareAlike 4.0 International
+\begin{center}
+  \huge\ccbysa
+\end{center}
+\nonumberfootnote{%
+  \begin{flushleft}
+    Beamer 主题：萧山 \link{https://ctan.org/pkg/pgfornament-han} \\
+    正文字体：思源宋体 + Libertinus Serif \\
+    等宽字体：等距更纱黑体 + Iosevka
+  \end{flushleft}}
+\end{frame}
 
 \begin{frame}[standout]
   \huge \textbf{\texttt{\textbackslash bye}}
