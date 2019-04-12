@@ -2,8 +2,8 @@
 
 \begin{frame}{先看一个例子}
 \begin{minipage}{\textwidth}
-  \fontspec{SimHei}[AutoFakeBold, AutoFakeSlant]\small
-  \hyphenpenalty=10000\hbadness=10000\linespread{0.85}\selectfont
+  \SimHei\small
+  \hyphenpenalty=10000\hbadness=10000\linespread{0.8}\selectfont
   \textbf{Typography} is the art and technique of arranging type to make written language
   legible,readable,and appealing when displayed. The arrangement of type involves selecting
   typefaces, point sizes, line lengths, line-spacing(\textit{leading}), and letter-spacing
@@ -14,13 +14,13 @@
   type designers do not consider themselves typographers. Typography also may be used as a
   decorative device,unrelated to communication of information.
 \end{minipage}
-\nonumberfootnote{中易黑体，行距 0.85 倍，关闭断词；来源：
+\nonumberfootnote{中易黑体，行距 0.8 倍，关闭断词；来源：
   \link{https://en.wikipedia.org/wiki/Typography}}
 \end{frame}
 
 \begin{frame}{没有对比就没有伤害}
 \begin{minipage}{\textwidth}
-  \fontspec{EB Garamond}\small
+  \EBGaramond\small
   \textbf{Typography} is the art and technique of arranging type to make written language
   legible, readable, and appealing when displayed. The arrangement of type involves selecting
   typefaces, point sizes, line lengths, line-spacing (\textit{leading}), and letter-spacing
@@ -42,13 +42,11 @@
     \item 语言\zhparen{language}
     \item 文字\zhparen{script}
     \item 书写系统\zhparen{writting system}
-  \end{itemize}
-  \begin{itemize}
+    %
     \item 符号\zhparen{symbol}
     \item 字符\zhparen{character}
     \item 字符形\zhparen{glyph}
-  \end{itemize}
-  \begin{itemize}
+    %
     \item 字符集\zhparen{character set}
     \item 编码\zhparen{encoding}
     \item 码位\zhparen{code point}
@@ -58,18 +56,16 @@
   \begin{itemize}
     \item 字体\zhparen{font}
     \item 字型\zhparen{typeface}
-  \end{itemize}
-  \begin{itemize}
+    %
     \item 易认性\zhparen{legibility}
     \item 可读性\zhparen{readability}
-  \end{itemize}
-  \begin{itemize}
+    %
     \item 字偶间距\zhparen{kerning}
     \item 字距\zhparen{tracking}
-  \end{itemize}
-  \begin{itemize}
+    %
     \item 栅格化\zhparen{rasterization}
     \item 渲染提示\zhparen{hinting}
+    \item ……
   \end{itemize}
 \end{column}
 \end{columns}
@@ -153,7 +149,7 @@
     \end{itemize}
   \item<+-> 破折号
     \begin{itemize}
-      \item 断开{\CJKfontspec{Source Han Serif SC Medium}\symbol{"2014}\symbol{"2014}}是不好的，
+      \item 断开{\SourceHanSerifSC\symbol{"2014}\symbol{"2014}}是不好的，
             不断开——是好的
     \end{itemize}
   \item<+-> 波浪号：
@@ -176,19 +172,18 @@
   \item<1-> 字体家族
     \begin{itemize}
       \item 衬线体：
-        {\fontspec{EBGaramond08-Regular.otf}Garamond},
-        {\fontspec{Times New Roman}Times New Roman},
-        {\fontspec{lmroman8-regular.otf}Latin Modern}, \emph{etc.}
+        {\EBGaramond EB Garamond},
+        {\TimesNewRoman Times New Roman},
+        {\LatinRoman Latin Modern}, \emph{etc.}
       \item 无衬线体：
-        {\fontspec{Futura LT Medium.ttf}[Path=./fonts/]Futura},
-        {\fontspec{HelveticaNeueLTPro-Roman.otf}[Path=./fonts/]Helvetica},
-        {\fontspec{Frutiger CE 55 Roman.ttf}[Path=./fonts/]Frutiger}, \emph{etc.}
+        {\Helvetica Helvetica Neue},
+        {\Avenir Avenir Next},
+        {\Optima Optima}, \emph{etc.}
       \item 等宽字体：
-        {\fontspec{Courier New}Courier},
-        {\fontspec{Consolas}Consolas},
+        {\Courier Courier},
+        {\Menlo Menlo},
         \texttt{Iosevka}, \emph{etc.}
-      \item 中文字体：宋、{\CJKfontspec{Source Han Sans SC}黑}、
-        {\CJKfontspec{FZFangSong-Z02}仿}、{\CJKfontspec{FZKai-Z03}楷}……
+      \item 中文字体：宋体、{\HeiTi 黑体}、{\FangSong 仿宋}、{\KaiTi 楷书}、{\WaWa （娃娃体）}……
     \end{itemize}
   \item<2-> 样式
     \begin{itemize}
