@@ -1,12 +1,11 @@
 \XeTeXgenerateactualtext=1
-\def\HANDOUT{}
 \ifdefined\HANDOUT
   \documentclass[fontset=none,handout]{ctexbeamer}
 \else
   \documentclass[fontset=none]{ctexbeamer}
 \fi
 
-\usepackage{array,bookmark,ccicons,hologo,listings,ragged2e,siunitx,unicode-math}
+\usepackage{array,bookmark,ccicons,hologo,listings,qrcode,ragged2e,siunitx,unicode-math}
 
 \makeatletter
 
@@ -14,8 +13,7 @@
 
 % Beamer theme
 \usetheme{Xiaoshan}
-\usefonttheme{serif}
-\usefonttheme{professionalfonts}
+\usefonttheme{serif,professionalfonts}
 
 % Beamer settings
 \metroset{progressbar=none}
@@ -40,7 +38,7 @@
   \vspace*{0.5em}}
 \setbeamertemplate{title page}{
   \begin{minipage}[b]{\textwidth}
-    \mbox{}\vfill
+    \usebeamertemplate*{title graphic}\vfill
     \usebeamertemplate*{title}
     \usebeamertemplate*{subtitle}
     \usebeamertemplate*{title separator}
@@ -198,6 +196,9 @@
 \author{曾祥东}
 \institute{复旦大学\quad 物理系}
 \date{2019 年 4 月 18 日}
+\titlegraphic{%
+  \vspace{3.4cm}
+  \qrcode[hyperlink, height=1.6cm]{https://github.com/stone-zeng/latex-talk/}}
 
 \begin{document}
 
@@ -210,28 +211,6 @@
 \input{include/math.tex}
 \input{include/typography.tex}
 \input{include/advanced.tex}
-
-\begin{frame}{关于}
-\vspace*{1.2cm}
-\footnotesize
-本幻灯片：\url{https://github.com/stone-zeng/latex-talk} \\
-许可证：Creative Commons Attribution-ShareAlike 4.0 International
-\vspace{0.4cm}
-\begin{center}
-  \huge\ccbysa
-\end{center}
-\vspace{2cm}
-\begin{flushleft}
-  \tiny
-  Beamer 主题：萧山 \link{https://ctan.org/pkg/pgfornament-han} \\
-  正文字体：思源宋体 + Libertinus Serif \\
-  等宽字体：等距更纱黑体 + Iosevka
-\end{flushleft}
-\vspace{-0.5cm}
-\end{frame}
-
-\begin{frame}[standout]
-  \huge \textbf{\texttt{\textbackslash bye}}
-\end{frame}
+\input{include/about.tex}
 
 \end{document}
