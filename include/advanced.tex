@@ -4,25 +4,34 @@
 \frametitle{\TeX{} 宏编程}
 \begin{itemize}
   \item<+-> \TeX{} 层面
+
     \begin{itemize}
-      \item 定义新命令：|\def|、|\gdef|、|\let|
-      \item 类别码：|\catcode|
-      \item 展开控制：|\edef|、|\expandafter|
+      \item 守序善良——定义命令：|\def|、|\gdef|、|\let|
+      \item 绝对中立——展开控制：|\edef|、|\expandafter|、|\aftergroup|
+      \item 混乱邪恶——类别码：|\catcode|
     \end{itemize}
+
   \item<+-> \LaTeX{} 层面
+
     \begin{itemize}
       \item 定义新命令：|\newcommand|、|\renewcommand|、|\newenvironment|
       \item 内部命令：|\makeatletter|、|\makeatother|
     \end{itemize}
+
   \item<+-> \LaTeX3——遥遥无期的未来
+
     \begin{itemize}
-      \item 区分底层、接口层与用户层
       \item 命令举例：|\cs_new:Npn|、|\seq_push:Nx|、|\regex_match:nnTF|
       \item 创建用户层命令：\pkg{xparse} 宏包
       \item 面向对象编程：\pkg{xtemplate} 宏包
       \item \pkg{fontspec}、\pkg{siunitx}、\pkg{ctex}、\pkg{fduthesis} 等均使用 \LaTeX3 实现
     \end{itemize}
-  \item<+-> 外部语言：Lua
+
+  \item<+-> 外部语言调用
+
+    \begin{itemize}
+      \item |\write18| 与 |\directlua|
+    \end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -30,14 +39,18 @@
 \frametitle{编写宏包}
 \begin{itemize}
   \item<+-> 文学编程
+
     \begin{itemize}
       \item 代码、注释与文档合为一体（|.dtx| 文件）
       \item 使用 \pkg{doc} 与 \pkg{docstrip} 宏包
     \end{itemize}
+
   \item<+-> 发布
+
     \begin{itemize}
       \item 上传 CTAN 实际上并无门槛
       \item 但仍有必要了解：
+
         \begin{itemize}
           \item \TeX{} 目录结构（TDS）
           \item 测试系统：\pkg{l3build} 宏包
@@ -46,7 +59,9 @@
             \link{https://www.latex-project.org/lppl/lppl-1-3c}
         \end{itemize}
     \end{itemize}
+
   \item<+-> 参考
+
     \begin{itemize}
       \item \LaTeX{} 内核代码：\pkg{source2e.pdf}、\pkg{classes.pdf}、\pkg{source3.pdf}
       \item 书籍：\emph{The \TeX book}、\emph{\TeX{} by Topic}、\emph{The \LaTeX{} Companion} 等
@@ -63,12 +78,15 @@
 \begin{column}{0.32\textwidth}
   \begin{itemize}
     \item 必备
+
       \begin{itemize}
         \item \pkg{amsmath}
         \item \pkg{graphicx}
         \item \pkg{hyperref}
       \end{itemize}
+
     \item 样式
+
       \begin{itemize}
         \item \pkg{caption}
         \item \pkg{enumitem}
@@ -78,7 +96,9 @@
         \item \pkg{ntheorem}
         \item \pkg{titlesec}
       \end{itemize}
+
     \item 数学
+
       \begin{itemize}
         \item \pkg{bm}
         \item \pkg{mathtools}
@@ -90,13 +110,16 @@
 \begin{column}{0.32\textwidth}
   \begin{itemize}
     \item 表格
+
       \begin{itemize}
         \item \pkg{array}
         \item \pkg{booktabs}
         \item \pkg{longtable}
         \item \pkg{tabularx}
       \end{itemize}
+
     \item 插图、绘图
+
       \begin{itemize}
         \item \pkg{float}
         \item \pkg{pdfpages}
@@ -105,7 +128,9 @@
         \item \pkg{pgf}/\pkg{tikz}
         \item \pkg{pgfplots}
       \end{itemize}
+
     \item 字体
+
       \begin{itemize}
         \item \pkg{newtx}
         \item \pkg{newpx}
@@ -117,6 +142,7 @@
 \begin{column}{0.32\textwidth}
   \begin{itemize}
     \item 各种功能
+
       \begin{itemize}
         \item \pkg{algorithm2e}
         \item \pkg{beamer}
@@ -130,7 +156,9 @@
         \item \pkg{siunitx}
         \item \pkg{xcolor}
       \end{itemize}
+
     \item 多语言
+
       \begin{itemize}
         \item \pkg{babel}
         \item \pkg{polyglossia}
@@ -222,12 +250,15 @@
 \frametitle{Git}
 \begin{itemize}
   \item<+-> 版本管理的必要性
+
     \begin{itemize}
       \item 远离“初稿，第二稿，第三稿……终稿，终稿（打死也不改了）”
       \item 有底气做大范围修改、重构
       \item 方便与他人协同合作
     \end{itemize}
+
   \item<+-> 基本用法
+
     \begin{itemize}
       \item 把大象放进冰箱：|git init|、|git add|、|git commit|
       \item 时空穿梭：|git reset|、|git revert|
@@ -236,7 +267,9 @@
       \item 参考链接：\link{https://git-scm.com/book/en/v2}
         \link{https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000}
     \end{itemize}
+
   \item<+-> GitHub \href{https://github.com}{\faGithub}
+
     \begin{itemize}
       \item 远程 Git 仓库
       \item Clone \& fork

@@ -22,19 +22,24 @@
 \begin{frame}{引擎与格式}
 \begin{itemize}
   \item<+-> \textbf{引擎}：\TeX{} 的实现
+
     \begin{itemize}
       \item \pdfTeX{}：直接生成 PDF，支持 micro-typography
       \item \XeTeX{}：支持 Unicode、OpenType 与复杂文本排版
       \item \LuaTeX{}：支持 Unicode，内联 Lua，支持 OpenType
       \item Ap\TeX{}：底层 CJK 支持，内联 Ruby，Color Emoji（手动斜眼笑）
     \end{itemize}
+
   \item<+-> \textbf{格式}：\TeX{} 的语言扩展（命令封装）
+
     \begin{itemize}
       \item plain \TeX{}：Knuth 同志专用
       \item \LaTeX{}：排版科技类文章的事实\zhparen{\textit{de facto}}标准
       \item Con\TeX t：基于 \LuaTeX{} 实现，优雅、易用（吗？）
     \end{itemize}
+
   \item<+-> \textbf{程序}：引擎 + dump 之后的格式代码
+
     \begin{itemize}
       \item \alert{英文文章：\pdfLaTeX{}、\XeLaTeX{} 或 \LuaLaTeX{}}
       \item \alert{中文文章：\XeLaTeX{} 或 \LuaLaTeX{}}
@@ -47,16 +52,20 @@
 \begin{itemize}
   \item 注释以 |%| 开头，忽略其后所有内容
   \item 命令以 |\| 开头，区分大小写
+
     \begin{itemize}
       \item |\foo{arg}|：必选参数放在 |{...}| 中
       \item |\foo[bar]{arg}|：可选参数放在 |[...]|
     \end{itemize}
+
   \item 环境
+
     \begin{texcode}[gobble=4, basicstyle=\footnotesize\ttfamily, emph={[1]env}]
       \begin{env}
         ...
       \end{env}
     \end{texcode}
+
   \item 特殊符号需要转义：|\%|、|\$|、|\&| 等
   \item 连续多个空格 = 单个空格 = 单个换行符 \pause
   \item \TeX{}/\LaTeX{} 的语法可以修改
@@ -108,6 +117,7 @@ Time-dependent Schrödinger equation can be written as
 \frametitle{谋篇布局}
 \begin{itemize}
   \item 文档部件
+
     \begin{itemize}
       \item 标题：|\title|、|\author|、|\date| $\to$ |\maketitle|
       \item 摘要：|abstract| 环境
@@ -115,7 +125,9 @@ Time-dependent Schrödinger equation can be written as
       \item 章节：|\chapter|、|\section|、|\subsection| 等
       \item 文献：|\bibliography|
     \end{itemize}
+
   \item 文档划分
+
     \begin{itemize}
       \item 凤头猪肚豹尾：|\frontmatter|、|\mainmatter|、|\backmatter|
       \item 分文件编译：|\include|、|\input|
@@ -146,12 +158,14 @@ Time-dependent Schrödinger equation can be written as
   \item |\textbf| 这样的命令是否表达语义？ \pause
   \item 再提一遍基本原则：\alert{内容与格式分离} \pause
   \item 正确（或曰：合理）的做法
+
     \begin{itemize}
       \item 强调文字（意大利体）：|\emph{...}|
       \item 摘要（居中，小字号，带有标题）：|abstract| 环境
       \item 引用（左右边距较大）：|quote| 或 |quotation| 环境
       \item 自定义新的命令、环境
     \end{itemize} \pause
+
   \item 报告，我想偷懒！
 \end{itemize}
 \end{frame}
@@ -160,6 +174,7 @@ Time-dependent Schrödinger equation can be written as
 \frametitle{浮动体与交叉引用}
 \begin{itemize}
   \item<+-> 浮动体机制
+
     \begin{itemize}
       \item |figure| 和 |table| 环境
       \item 文本为主，图、表为辅
@@ -167,7 +182,9 @@ Time-dependent Schrödinger equation can be written as
             \link{https://liam.page/2017/03/11/floats-in-LaTeX-basic}
       \item 避免「见上图」、「见下表」
     \end{itemize}
+
   \item<+-> 以标签控制交叉引用
+
     \begin{itemize}
       \item 被引处：|\label|
       \item 引用处：|\ref|、|\eqref| 等
@@ -181,21 +198,27 @@ Time-dependent Schrödinger equation can be written as
 \frametitle{如何在论文中画出漂亮的插图？}
 \begin{itemize}
   \item<+-> 外部插入
+
     \begin{itemize}
       \item Mathematica、MATLAB
       \item PowerPoint、Visio、Adobe Illustrator、Inkscape
       \item Python \alert{Matplotlib}
     \end{itemize}
+
   \item<+-> \TeX{} 内联
+
     \begin{itemize}
       \item Asymptote
       \item \alert{\pkg{pgf}/\pkg{TikZ}、\pkg{pgfplots}}
     \end{itemize}
+
   \item<+-> 插图格式
+
     \begin{itemize}
       \item 矢量图：|.pdf|（\alert{不再推荐} |.eps|）
       \item 位图：|.jpg| 或 |.png|
     \end{itemize}
+
   \item<+-> 参考：\link{https://www.zhihu.com/question/21664179}
                   \link{https://tex.stackexchange.com/q/158668}
 \end{itemize}
@@ -206,11 +229,14 @@ Time-dependent Schrödinger equation can be written as
 \begin{itemize}
   \item 建议自动生成\pause （你只有三篇参考文献？）\pause
   \item |.bib| 数据库
+
     \begin{itemize}
       \item Google Scholar 可直接复制
       \item 用 Zotero、Jabref 等生成
     \end{itemize} \pause
+
   \item 传统方法：\BibTeX{} 后端
+
     \begin{itemize}
       \item 控制文献、引用样式：\pkg{natbib} 宏包
       \item 国家标准 GB/T 7714--2015
@@ -218,12 +244,23 @@ Time-dependent Schrödinger equation can be written as
             \link{https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style/files/153951/GBT.7714-2015.pdf}：
             \alert{\pkg{gbt7714} 宏包}
     \end{itemize} \pause
+
   \item 现代方法：\pkg{biber} 后端 + \pkg{biblatex} 宏包
+
     \begin{itemize}
       \item 国家标准：\pkg{biblatex-gb7714-2015} 宏包
     \end{itemize} \pause
+
   \item 需多次编译——再次推荐 \pkg{latexmk}
 \end{itemize}
+\end{frame}
+
+\begin{frame}[standout]
+  \begingroup
+    \xeCJKsetup{xeCJKactive=false}
+    \SourceHanSerifNoCJK\fontsize{72}{84}\selectfont
+    ⿺辶⿳穴⿰月⿰⿲⿱幺長⿱言馬⿱幺長刂心
+  \endgroup
 \end{frame}
 
 \begin{frame}{中文支持}
@@ -231,6 +268,7 @@ Time-dependent Schrödinger equation can be written as
 \begin{column}{0.65\textwidth}
   \begin{itemize}
     \item 中文有什么特殊？\pause
+
       \begin{itemize}
         \item 汉字太多（87,887）\pause
         \item 横排 + 直排、标点禁则、行间注 \link{https://www.w3.org/TR/clreq} \pause
@@ -239,17 +277,23 @@ Time-dependent Schrödinger equation can be written as
               {\NotoArabic العَرَبِيَّة‎}、
               {\NotoEgyptian 𓅡𓎡𓅱𓀀𓏪}
       \end{itemize} \pause
+
     \item 已淘汰：
+
       \begin{itemize}
         \item CCT 系统、\pkg{CJK} 宏包（裸用）
         \item \CTeX{} 套装
       \end{itemize} \pause
+
     \item 目前推荐手段：
+
       \begin{itemize}
         \item \alert{\pkg{ctex} 宏集}（此 \pkg{ctex} 非彼 \CTeX{}）
         \item \XeLaTeX{} 编译
       \end{itemize} \pause
+
     \item 可以用，不推荐：
+
       \begin{itemize}
         \item \pkg{xeCJK} 宏包（裸用）
         \item \pkg{ctex} 宏集 + 其他引擎编译
@@ -274,29 +318,36 @@ Time-dependent Schrödinger equation can be written as
   \end{tabular}
 \end{column}
 \end{columns}
-\nonumberfootnote[<8->]{图片来源：Github，知乎}
+\nonumberfootnote[<8->]{图片来源：GitHub，知乎}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{模板}
 \begin{itemize}
   \item<+-> 是什么？
+
     \begin{itemize}
       \item 设计好的格式框架
       \item 专注于内容
       \item Word 中的样式：「学好 \LaTeX{} 可以更科学地使用 Word」
     \end{itemize}
+
   \item<+-> 有哪些？
+
     \begin{itemize}
       \item 期刊：\pkg{revtex}、\pkg{elsarticle}、\pkg{IEEEtran}……
       \item 学位论文：\pkg{thuthesis}、\pkg{ustcthesis}、\alert{\pkg{fduthesis}}……
     \end{itemize}
+
   \item<+-> 怎么用？
+
     \begin{itemize}
       \item |\documentclass{...}|，配置参数，照常编写
       \item \alert{看文档，看文档，看文档}
     \end{itemize}
+
   \item<+-> 去哪里找？
+
     \begin{itemize}
       \item CTAN \link{https://ctan.org} 或 GitHub \href{https://github.com}{\faGithub}
       \item 期刊官网

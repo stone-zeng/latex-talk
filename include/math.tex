@@ -4,18 +4,23 @@
 \frametitle{数学模式}
 \begin{itemize}
   \item<+-> 一切数学公式都要在数学模式下输入
+
     \begin{itemize}
       \item 不受外界字体命令控制
       \item 数学模式中空格不起作用，尽管用
       \item \alert{不建议用 MathType 生成 \LaTeX{} 公式}
     \end{itemize}
+
   \item<+-> 行内\zhparen{inline}公式
+
     \begin{itemize}
       \item 用一对美元符号（公式值千金）：|$...$|
       \item 示例：理想气体状态方程可以写为 \alert{$PV=nRT$}, 其中
             \alert{$P$}、\alert{$V$} 和 \alert{$T$} 分别是压强、体积和绝对温度
     \end{itemize}
+
   \item<+-> 独显\zhparen{display}公式
+
     \begin{itemize}
       \item 无编号：用 |\[...\]| 或 |equation*| 环境
       \item 编号：用 |equation| 环境
@@ -29,19 +34,24 @@
 \frametitle{结构}
 \begin{itemize}
   \item 上下标
+
     \begin{itemize}
       \item |^| 和 |_|
       \item 注意编组：|f^ab| 和 |f^{ab}|，|e^x^2|、|{e^x}^2| 和 |e^{x^2}|
       \item 张量：|R^a{}_b{}^{cd}| 或使用 \pkg{tensor} 宏包
       \item 配合积分、求和、极限使用：|\int|、|\sum|、|\limit|
     \end{itemize}
+
   \item 分式
+
     \begin{itemize}
       \item |\frac{〈分子〉}{〈分母〉}|
       \item 行内分式、小分式不好看：改用 |a/b|，或改用独显公式
       \item \alert{不推荐} |\dfrac|
     \end{itemize}
+
   \item 根式
+
     \begin{itemize}
       \item |\sqrt[〈次数〉]{〈内容〉}|
       \item 复杂情况改用分数指数：|{...}^{1/n}|
@@ -53,17 +63,22 @@
 \frametitle{括号与定界符}
 \begin{itemize}
   \item<+-> 基本括号
+
     \begin{itemize}
       \item |(...)|、|[...]|、|\{...\}|、
       \item 绝对值、范数：\lstinline[style=style@inline]+|...|+ 或 |\vert...\vert|、|\Vert...\Vert|
       \item Dirac 符号：|\angle...\rangle|、\lstinline[style=style@inline]+|...\rangle+
     \end{itemize}
+
   \item<+-> 自动调节
+
     \begin{itemize}
       \item |\left(...\right)| 等
       \item 大型括号是拼出来的
     \end{itemize}
+
   \item<+-> 手动调节
+
     \begin{itemize}
       \item 只有 4 + 1 档：|\big|、|\Big|、|\bigg|、|\Bigg|
       \item 声明左中右：|\bigl|、|\bigm|、|\bigr| 等
@@ -74,23 +89,30 @@
 \begin{frame}{符号与字体}
 \begin{itemize}
   \item 符号不是 \LaTeX{} 画出来的，也不是天上掉下来的 \pause
+
     \begin{itemize}
       \item （几乎）所有的符号都由字体提供 \pause
       \item 分清「它是什么」和「它长什么样」（术语：character 和 glyph）
     \end{itemize} \pause
+
   \item 寻找符号
+
     \begin{itemize}
       \item S. Pakin. \emph{The Comprehensive \LaTeX{} Symbol List}
             \link{https://ctan.org/pkg/comprehensive}
       \item 手写识别（不全）：Detexify \link{http://detexify.kirelabs.org}
     \end{itemize} \pause
+
   \item 数学字体
+
     \begin{itemize}
       \item 你们要的「Times New Roman」：\pkg{newtxmath} 宏包
       \item \alert{不要用 \pkg{times} 和 \pkg{mathptmx} 宏包}
       \item 加粗：使用 \pkg{bm} 宏包
     \end{itemize} \pause
+
   \item 新方案：\pkg{unicode-math}
+
     \begin{itemize}
       \item 彻底修改底层，不可以混用
     \end{itemize}
@@ -101,23 +123,30 @@
 \frametitle{专业功能（一）}
 \begin{itemize}
   \item 更高更妙的物理：\pkg{physics} 宏包
+
     \begin{itemize}
       \item 括号：|\qty()|、|\qty\big{...}|
       \item Dirac 符号：|\ket|、|\bra|、|\ev|
       \item 向量、导数、微分、矩阵……
     \end{itemize} \pause
+
   \item 国际单位：\pkg{siunitx} 宏包
+
     \begin{itemize}
       \item |$1.23 J mol^{-1} K^{-1}$|
+
         \begin{itemize}
           \item $1.23 J mol^{-1} K^{-1}$---No!
         \end{itemize}
+
       \item |\SI{1.23}{J.mol^{-1}.K^{-1}}|
+
         \begin{itemize}
           \item \SI{1.23}{J.mol^{-1}.K^{-1}}---Yes!
         \end{itemize} \pause
+
       \item 注 1：此宏包代码比 \LaTeX{} 内核还长 \pause
-      \item 注 2：明年的新定义并不会影响使用
+      \item 注 2：新定义并不会影响使用
             \link{https://en.wikipedia.org/wiki/2019_redefinition_of_SI_base_units}
     \end{itemize}
 \end{itemize}
@@ -128,6 +157,7 @@
 \begin{column}{0.65\textwidth}
   \begin{itemize}
     \item 花式图表
+
       \begin{itemize}
         \item Feynman 图：\pkg{tikz-feynman} 宏包%
               \zhparen{arXiv: 1601.05437 \link{https://arxiv.org/abs/1601.05437}}
@@ -151,14 +181,18 @@
 \frametitle{专业功能（三）}
 \begin{itemize}
   \item 抄录：忽略所有特殊类别码\zhparen{catcode}，原样显示
+
     \begin{itemize}
       \item |\verb〈char〉...〈char〉|、|verbatim| 环境
       \item \pkg{verbatim}、\pkg{fancyvrb} 宏包
     \end{itemize} \pause
+
   \item 语法高亮
+
     \begin{itemize}
       \item \pkg{listings} 宏包
       \item \pkg{minted} 宏包
+
         \begin{itemize}
           \item 需要 Python，且开启 |--shell-escape|
         \end{itemize}

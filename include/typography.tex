@@ -81,21 +81,28 @@
 \begin{column}{0.84\textwidth}
   \begin{itemize}
     \item<1-> Hyphen \enparen{\usv{002D}}: |-|
+
       \begin{itemize}
         \item Four-dimensional momentum
         \item Hyphenation
       \end{itemize}
+
     \item<3-> En dash \enparen{\usv{2013}}: |--|
+
       \begin{itemize}
         \item Newton--Leibniz formula (\emph{cf.} Levi-Civita symbol)
         \item pp.~187--189
       \end{itemize}
+
     \item<4-> Em dash \enparen{\usv{2014}}: |---|
+
       \begin{itemize}
         \item Red, white, and blue---these are the colors of the flag
         \item Like colon, parentheses, \emph{etc.}
       \end{itemize}
+
     \item<5-> Minus \enparen{\usv{2212}}: |$-$|
+
       \begin{itemize}
         \item $a-b$, $-a$
       \end{itemize}
@@ -115,21 +122,28 @@
 \frametitle{Punctuations: quotation mark}
 \begin{itemize}
   \item<1-> Left/right, single/double:
+
     \begin{itemize}
       \item `\ldots{}' \enparen{\usv{2018}, \usv{2019}}: |`...'|
       \item ``\ldots{}'' \enparen{\usv{201C}, \usv{201D}}: |``...''|
     \end{itemize}
+
   \item<2-> Different languages:
+
     \begin{itemize}
       \item `British ``English'' style' and ``American `English' style''
       \item „German'', ''Finnish'', «French», »Danish«, \emph{etc.}
       \item<3-> Use \pkg{csquotes} package
     \end{itemize}
+
   \item<4-> Programming:
+
     \begin{itemize}
       \item |char* my_name = "Xiangdong Zeng";|
     \end{itemize}
+
   \item<5-> Mathematics:
+
     \begin{itemize}
       \item |f'| = |f^{\prime}|: $f'(x) = f^{\prime}(x)$
     \end{itemize}
@@ -140,22 +154,30 @@
 \frametitle{中文标点符号}
 \begin{itemize}
   \item<+-> 句号
+
     \begin{itemize}
       \item 正常文本。科技文本．
     \end{itemize}
+
   \item<+-> 引号
+
     \begin{itemize}
       \item 『传统风格』，「某乎风格」，“标准风格”，\mbox{}’\kern-0.6em奇葩风格”
     \end{itemize}
+
   \item<+-> 破折号
+
     \begin{itemize}
-      \item 断开{\SourceHanSerifSC\symbol{"2014}\symbol{"2014}}是不好的，
+      \item 断开{\SourceHanSerif\symbol{"2014}\symbol{"2014}}是不好的，
             不断开——是好的
     \end{itemize}
+
   \item<+-> 波浪号：
+
     \begin{itemize}
       \item |~| ≠ |\textasciitilde| ≠ |\texttildelow| ≠ |$\sim$| ≠ 你要的那一个
       \item 那就是~青\textasciitilde 藏\texttildelow 高 $\sim$ 原～～～～
+
         \begin{itemize}
           \item \texttt{\usv{007E}: Tilde}
           \item \texttt{\usv{02F7}: Modifier letter low tilde}
@@ -170,6 +192,7 @@
 \begin{frame}{使用字体}
 \begin{itemize}
   \item<1-> 字体家族
+
     \begin{itemize}
       \item 衬线体：
         {\EBGaramond EB Garamond},
@@ -185,7 +208,9 @@
         \texttt{Iosevka}, \emph{etc.}
       \item 中文字体：宋体、{\HeiTi 黑体}、{\FangSong 仿宋}、{\KaiTi 楷书}、{\WaWa （娃娃体）}……
     \end{itemize}
+
   \item<2-> 样式
+
     \begin{itemize}
       \item 粗体：\textbf{Bold}
       \item 伪粗体：{\addfontfeatures{AutoFakeBold=3}\textbf{Faked bold}}
@@ -193,13 +218,16 @@
       \item 伪斜体：{\addfontfeatures{AutoFakeSlant=0.2}\textsl{Slant}}
       \item<3-> \alert{汉字一般不使用斜体}
     \end{itemize}
+
   \item<4-> OpenType
+
     \begin{itemize}
       \item 连字\zhparen{ligature}：{f}{f} $\to$ ff, {f}{i} $\to$ fi, {f}{l} $\to$ fl
       \item 老式数字\zhparen{old-style number}：
         0123456789 $\to$ {\addfontfeatures{Numbers=OldStyle}0123456789}
       \item 字偶间距\zhparen{kerning}：{T}{y} $\to$ Ty, {W}{A} $\to$ WA
     \end{itemize}
+
   \item<5-> \alert{请勿同时使用三种以上字体}
 \end{itemize}
 \vspace{-0.2cm}
