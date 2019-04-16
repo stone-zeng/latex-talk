@@ -1,4 +1,3 @@
-*.txt
 *.aux
 *.fdb_latexmk
 *.fls
@@ -7,9 +6,12 @@
 *.out
 *.pdf
 *.snm
+*.synctex.gz
 *.toc
 *.vrb
 *.xdv
+*.txt
+*.make.tex
 fonts/
 temp/
 .DS_Store

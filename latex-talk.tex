@@ -1,11 +1,12 @@
 \XeTeXgenerateactualtext=1
+\def\HANDOUT{}
 \ifdefined\HANDOUT
   \documentclass[fontset=none,handout]{ctexbeamer}
 \else
   \documentclass[fontset=none]{ctexbeamer}
 \fi
 
-\usepackage{array,bookmark,ccicons,hologo,listings,qrcode,ragged2e,siunitx,unicode-math}
+\usepackage{array,bookmark,ccicons,hologo,listings,multicol,qrcode,ragged2e,siunitx,unicode-math}
 
 \makeatletter
 
@@ -68,7 +69,7 @@
   ItalicFont     = *-Italic,
   BoldItalicFont = *-BoldItalic,
   Scale          = 1.1]
-\setmonofont{Iosevka}
+\setmonofont{Iosevka}[Scale=0.96]
 \setmathfont{LibertinusMath-Regular.otf}
 \setCJKmainfont{Source Han Serif SC}[
   UprightFont     = * SemiBold,

@@ -71,11 +71,10 @@
 
 \begin{frame}[fragile]
 \frametitle{宏包推荐}
-\vspace*{-0.4cm}
-\begin{columns}[t]
-\small
+\footnotesize
 \setbeamertemplate{itemize/enumerate subbody begin}{\scriptsize}
-\begin{column}{0.32\textwidth}
+\setlength{\leftmarginii}{1.5em}
+\begin{multicols}{3}
   \begin{itemize}
     \item 必备
 
@@ -105,10 +104,7 @@
         \item \pkg{physics}
         \item \pkg{unicode-math}
       \end{itemize}
-  \end{itemize}
-\end{column}
-\begin{column}{0.32\textwidth}
-  \begin{itemize}
+
     \item 表格
 
       \begin{itemize}
@@ -137,10 +133,7 @@
         \item \pkg{pifont}
         \item \pkg{fontspec}
       \end{itemize}
-  \end{itemize}
-\end{column}
-\begin{column}{0.32\textwidth}
-  \begin{itemize}
+
     \item 各种功能
 
       \begin{itemize}
@@ -167,9 +160,8 @@
         \item \pkg{luatexja}
       \end{itemize}
   \end{itemize}
-\end{column}
-\end{columns}
-\vspace*{-0.3cm}
+\end{multicols}
+\vspace*{-0.5cm}
 \end{frame}
 
 \begin{frame}[standout]
@@ -281,6 +273,7 @@
 
 \begin{frame}[fragile]
 \frametitle{参考文献}
+\begin{multicols}{2}
 \tiny
 \newcommand\BOOK[1]{\textbf{#1}}
 \newcommand\TAG[1]{\CASE{[#1]}}
@@ -294,9 +287,13 @@
     \newblock \BOOK{\LaTeX{} 入门} \TAG{M}. 2013.
     \newblock 北京: 电子工业出版社
   \bibitem{}
+    \jatext{高冈昌生}. 翻译: 刘庆, 监修: 陈嵘.
+    \newblock \BOOK{西文排版：排版的基础和规范} \TAG{M}. 2016.
+    \newblock 北京: 中信出版集团
+  \bibitem{}
     \jatext{小林章}. 翻译: 刘庆, 监修: 陈嵘.
     \newblock \BOOK{西文字体：字体的背景知识和使用方法} \TAG{M}. 2014.
-    \newblock 北京: 中信出版社
+    \newblock 北京: 中信出版集团
   \bibitem{}
     \textsc{Oetiker T}, \textsc{Partl H}, \textsc{Hyna I} and \textsc{Schlegl E}.
     翻译: \CTeX{} 开发小组.
@@ -317,7 +314,18 @@
     \newblock \BOOK{漫谈 \LaTeX{} 排版常见概念误区：别把 \LaTeX{} 当 Word 用！}\TAG{EB/OL}. 2018.
     \newblock PDF：
       \href{http://static.latexstudio.net/wp-content/uploads/2018/03/LianTze-presentation-0320-forReading.pdf}{\faDownload}
+  \bibitem{}
+    Wikibooks.
+    \newblock \BOOK{\LaTeX{}---Wikibooks, The Free Textbook Project} \TAG{EB/OL}.
+    \newblock \url{https://en.wikibooks.org/wiki/LaTeX}
+  \bibitem{}
+    Overleaf.
+    \newblock \BOOK{Overleaf Documentation} \TAG{EB/OL}.
+    \newblock \url{https://www.overleaf.com/learn}
+  \bibitem{}
+    刘庆.
+    \newblock \BOOK{孔雀计划：中文字体排印的思路} \TAG{EB/OL}.
+    \newblock \url{https://thetype.com/kongque}
 \end{thebibliography}
-更多参考文献见 %TODO
-\vspace{-0.5cm}
+\end{multicols}
 \end{frame}
