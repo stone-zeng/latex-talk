@@ -9,6 +9,7 @@
       \item 不受外界字体命令控制
       \item 数学模式中空格不起作用，尽管用
       \item \alert{不建议用 MathType 生成 \LaTeX{} 公式}
+      \item 建议始终调用 \pkg{amsmath} 宏包
     \end{itemize}
 
   \item<+-> 行内\zhparen{inline}公式
@@ -88,7 +89,7 @@
 
 \begin{frame}{符号与字体}
 \begin{itemize}
-  \item 符号不是 \LaTeX{} 画出来的，也不是天上掉下来的 \pause
+  \item 符号不是按钮点出来的，也不是天上掉下来的 \pause
 
     \begin{itemize}
       \item （几乎）所有的符号都由字体提供 \pause
@@ -114,6 +115,7 @@
   \item 新方案：\pkg{unicode-math}
 
     \begin{itemize}
+      \item 符号、字体、样式精调的一揽子解决方案
       \item 彻底修改底层，不可以混用
     \end{itemize}
 \end{itemize}
@@ -133,16 +135,16 @@
   \item 国际单位：\pkg{siunitx} 宏包
 
     \begin{itemize}
-      \item |$1.23 J mol^{-1} K^{-1}$|
+      \item |$4.18 \times 10^3 J mol^{-1} K^{-1}$|
 
         \begin{itemize}
-          \item $1.23 J mol^{-1} K^{-1}$---No!
+          \item $4.18 \times 10^3 J mol^{-1} K^{-1}$---No!
         \end{itemize}
 
-      \item |\SI{1.23}{J.mol^{-1}.K^{-1}}|
+      \item |\SI{4.18e3}{J.mol^{-1}.K^{-1}}|
 
         \begin{itemize}
-          \item \SI{1.23}{J.mol^{-1}.K^{-1}}---Yes!
+          \item \SI{4.18e3}{J.mol^{-1}.K^{-1}}---Yes!
         \end{itemize} \pause
 
       \item 注 1：此宏包代码比 \LaTeX{} 内核还长 \pause

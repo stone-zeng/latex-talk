@@ -189,6 +189,13 @@
 \end{itemize}
 \end{frame}
 
+\begin{frame}{大家来找茬 {\EmojiOne 😎}}
+\begin{center}
+  \includegraphics[width=5.6cm]{figures/poster-hd.png}
+\end{center}
+\vspace{-0.5cm}
+\end{frame}
+
 \begin{frame}{使用字体}
 \begin{itemize}
   \item<1-> 字体家族
@@ -197,7 +204,7 @@
       \item 衬线体：
         {\EBGaramond EB Garamond},
         {\TimesNewRoman Times New Roman},
-        {\LatinRoman Latin Modern}, \emph{etc.}
+        {\LatinRomanX Latin Modern}, \emph{etc.}
       \item 无衬线体：
         {\Helvetica Helvetica Neue},
         {\Avenir Avenir Next},
@@ -212,14 +219,22 @@
   \item<2-> 样式
 
     \begin{itemize}
-      \item 粗体：\textbf{Bold}
-      \item 伪粗体：{\addfontfeatures{AutoFakeBold=3}\textbf{Faked bold}}
-      \item 意大利体：\textit{Italic}
-      \item 伪斜体：{\addfontfeatures{AutoFakeSlant=0.2}\textsl{Slant}}
+      \item 粗体、意大利体：
+        \textbf{Bold} vs {\addfontfeatures{AutoFakeBold=4}\textbf{Faked bold}},
+        \textit{Italic} vs {\addfontfeatures{AutoFakeSlant=0.2}\textsl{Slant}}
       \item<3-> \alert{汉字一般不使用斜体}
+      \item<4-> 视觉字号\zhparen{optical size}：\\
+        {\LatinRomanV    Tiny},
+        {\LatinRomanVI   Script},
+        {\LatinRomanVII  Footnote},
+        {\LatinRomanVIII Caption},
+        {\LatinRomanIX   Small},
+        {\LatinRomanX    Normal},
+        {\LatinRomanXII  Large},
+        {\LatinRomanXVII Huge}
     \end{itemize}
 
-  \item<4-> OpenType
+  \item<5-> OpenType 特性
 
     \begin{itemize}
       \item 连字\zhparen{ligature}：{f}{f} $\to$ ff, {f}{i} $\to$ fi, {f}{l} $\to$ fl
@@ -228,7 +243,7 @@
       \item 字偶间距\zhparen{kerning}：{T}{y} $\to$ Ty, {W}{A} $\to$ WA
     \end{itemize}
 
-  \item<5-> \alert{请勿同时使用三种以上字体}
+  \item<6-> \alert{请勿同时使用三种以上字体}
 \end{itemize}
 \vspace{-0.2cm}
 \end{frame}

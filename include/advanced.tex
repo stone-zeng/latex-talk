@@ -36,6 +36,37 @@
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{深入字体}
+\begin{itemize}
+  \item NFSS 与字体的坐标
+
+    \begin{itemize}
+      \item 字体族、形状、系列、编码、字号
+      \item \TeX{} 仅需要 metric 信息：|.tfm|
+    \end{itemize}
+
+  \item 现代方案：OpenType
+
+    \begin{itemize}
+      \item 编码层面：支持 Unicode
+      \item 东亚文字：超大字符集、地区变体、竖排
+      \item 中东、南亚文字：Bi-di 文本、上下文连字、字符序调整
+    \end{itemize}
+
+  \item OpenType 中的数学支持（|MATH| 表）
+
+    \begin{itemize}
+      \item Unicode Math：字母、符号支持
+      \item 「数学常数」：整体度量信息——上下标位置、分数线粗细等
+      \item |MathVariants|：大小替换（积分号、根号、括号等）
+      \item |MathGlyphConstruction|：字符形装配（更大的根号、括号等）
+    \end{itemize}
+
+  \item 可变字体、\jatext{絵文字}\zhparen{emoji, {\EmojiOne 😂}}…… 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{编写宏包}
 \begin{itemize}
   \item<+-> 文学编程
@@ -244,7 +275,7 @@
   \item<+-> 版本管理的必要性
 
     \begin{itemize}
-      \item 远离“初稿，第二稿，第三稿……终稿，终稿（打死也不改了）”
+      \item 远离「初稿，第二稿，第三稿……终稿，终稿（打死也不改了）」
       \item 有底气做大范围修改、重构
       \item 方便与他人协同合作
     \end{itemize}

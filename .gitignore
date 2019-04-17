@@ -7,6 +7,7 @@
 *.pdf
 *.snm
 *.synctex.gz
+*.synctex(busy)
 *.toc
 *.vrb
 *.xdv
