@@ -23,10 +23,9 @@
   \item<+-> 独显\zhparen{display}公式
 
     \begin{itemize}
-      \item 无编号：用 |\[...\]| 或 |equation*| 环境
-      \item 编号：用 |equation| 环境
-      \item 多行：\pkg{amsmath} 宏包提供的 |gather|、|align|、|mutiline| 等环境
-      \item \alert{不要用} |$$...$$| \alert{和} |eqnarray| \alert{环境}
+      \item 无编号：|\[...\]| 或 |equation*| 环境
+      \item 编号：|equation| 环境
+      \item \alert{不要用 \texttt{\$\$...\$\$}}
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -37,10 +36,10 @@
   \item 上下标
 
     \begin{itemize}
-      \item |^| 和 |_|
-      \item 注意编组：|f^ab| 和 |f^{ab}|，|e^x^2|、|{e^x}^2| 和 |e^{x^2}|
+      \item |^| 和 |_|：|f^ab| 和 |f^{ab}|，|e^x^2|、|{e^x}^2| 和 |e^{x^2}|
       \item 张量：|R^a{}_b{}^{cd}| 或使用 \pkg{tensor} 宏包
-      \item 配合积分、求和、极限使用：|\int|、|\sum|、|\limit|
+      \item 配合积分、求和、极限使用：|\int|、|\sum|、|\lim|；
+        \lstinline[style=style@inline]|\(no)limits|
     \end{itemize}
 
   \item 分式
@@ -48,7 +47,7 @@
     \begin{itemize}
       \item |\frac{〈分子〉}{〈分母〉}|
       \item 行内分式、小分式不好看：改用 |a/b|，或改用独显公式
-      \item \alert{不推荐} |\dfrac|
+      \item \alert{不推荐 \texttt{\textbackslash frac}}
     \end{itemize}
 
   \item 根式
@@ -56,6 +55,14 @@
     \begin{itemize}
       \item |\sqrt[〈次数〉]{〈内容〉}|
       \item 复杂情况改用分数指数：|{...}^{1/n}|
+    \end{itemize}
+
+  \item 矩阵与行列式
+
+    \begin{itemize}
+      \item |matrix|、|pmatrix|、|vmatrix| 等环境
+      \item 语法类似表格：|&| 分列，|\\| 换行
+      \item 推荐 \pkg{physics} 宏包
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -116,8 +123,35 @@
 
     \begin{itemize}
       \item 符号、字体、样式精调的一揽子解决方案
-      \item 彻底修改底层，不可以混用
+      \item 彻底修改底层，不可与传统方案混用
     \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{多行公式}
+\begin{itemize}
+  \item 以下均要求 \pkg{amsmath} 宏包
+  \item 独立数学环境
+
+  \begin{itemize}
+    \item 多行居中 |gather|、多行手动对齐 |align|、跨行 |multiline|
+    \item 手动对齐：关系符前加 |&|
+  \end{itemize}
+
+  \item 内联数学环境
+
+  \begin{itemize}
+    \item 条件 |cases|、多行对齐 |split|、|...ed|
+  \end{itemize}
+
+  \item 精细调整
+
+  \begin{itemize}
+    \item \pkg{mathtools}、\pkg{empheq} 等
+    \item 自动换行：\pkg{breqn}
+    \item \alert{避免使用 \texttt{eqnarray} 环境}
+  \end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -127,9 +161,10 @@
   \item 更高更妙的物理：\pkg{physics} 宏包
 
     \begin{itemize}
-      \item 括号：|\qty()|、|\qty\big{...}|
+      \item 括号：|\qty(...)|、|\qty\big{...}|
+      \item 矩阵：|\mqty(...)|、\lstinline[style=style@inline]+\mqty|...|+|、\dmat{a,b,c,...}|
       \item Dirac 符号：|\ket|、|\bra|、|\ev|
-      \item 向量、导数、微分、矩阵……
+      \item 向量、导数、微分、更多函数名……
     \end{itemize} \pause
 
   \item 国际单位：\pkg{siunitx} 宏包

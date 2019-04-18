@@ -19,14 +19,16 @@
   \end{texcode}
 \end{frame}
 
-\begin{frame}{引擎与格式}
+\begin{frame}[fragile]
+\frametitle{引擎与格式}
 \begin{itemize}
   \item<+-> \textbf{引擎}：\TeX{} 的实现
 
     \begin{itemize}
       \item \pdfTeX{}：直接生成 PDF，支持 micro-typography
-      \item \XeTeX{}：支持 Unicode、OpenType 与复杂文本排版
+      \item \XeTeX{}：支持 Unicode、OpenType 与复杂文字编排（CTL）
       \item \LuaTeX{}：支持 Unicode，内联 Lua，支持 OpenType
+      \item (u)p\TeX{}：日本方面推动，生成 |.dvi|，（支持 Unicode）
       \item Ap\TeX{}：底层 CJK 支持，内联 Ruby，Color Emoji（手动斜眼笑）
     \end{itemize}
 
@@ -202,7 +204,7 @@ Time-dependent Schrödinger equation can be written as
     \begin{itemize}
       \item Mathematica、MATLAB
       \item PowerPoint、Visio、Adobe Illustrator、Inkscape
-      \item Python \alert{Matplotlib}、R、Plotly
+      \item Python Matplotlib、\texttt{Plots.jl}、R、Plotly 等
     \end{itemize}
 
   \item<+-> \TeX{} 内联
@@ -217,7 +219,7 @@ Time-dependent Schrödinger equation can be written as
     \begin{itemize}
       \item 矢量图：|.pdf|
       \item 位图：|.jpg| 或 |.png|
-      \item \alert{不再推荐} |.eps|
+      \item \alert{不再推荐 \texttt{.eps}}
       \item 不（完全）支持 |.svg|、|.bmp|
     \end{itemize}
 
