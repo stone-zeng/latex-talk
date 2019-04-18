@@ -2,7 +2,7 @@
 
 \begin{frame}[fragile]
 \frametitle{Hello world!}
-\begin{texcode}[emph={[1]document}, emph={[2]article}]
+\begin{texcode}[emph={[1]document}, emph={[2]article}, xleftmargin=1.2cm]
   % 用 pdfLaTeX、XeLaTeX 或 LuaLaTeX 编译
   \documentclass{article}
   \begin{document}
@@ -10,7 +10,7 @@
   \end{document}
 \end{texcode}
 \pause
-\begin{texcode}[emph={[1]document}, emph={[2]ctexart}]
+\begin{texcode}[emph={[1]document}, emph={[2]ctexart}, xleftmargin=1.2cm]
   % 用 XeLaTeX 或 LuaLaTeX 编译
   \documentclass{ctexart}
   \begin{document}
@@ -50,6 +50,28 @@
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{编译}
+\begin{itemize}
+  \item 现代 \TeX{} 引擎均可直接生成 PDF \pause
+  \item 命令行
+
+    \begin{itemize}
+      \item |pdflatex|/|xelatex|/|lualatex| + |<文件名>[.tex]|
+      \item 多次编译：读取并排版中间文件 \pause
+      \item 推荐 \pkg{latexmk}：|latexmk [<选项>] <文件名>|
+    \end{itemize} \pause
+
+  \item 编辑器
+
+    \begin{itemize}
+      \item 按钮的背后仍然是命令
+      \item |PATH| 环境变量：确定可执行文件的位置
+      \item VS Code：配置 |tools| 和 |recipes|
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{语法}
 \begin{itemize}
   \item 注释以 |%| 开头，忽略其后所有内容
@@ -68,7 +90,7 @@
       \end{env}
     \end{texcode}
 
-  \item 特殊符号需要转义：|\%|、|\$|、|\&| 等
+  \item 特殊符号需要转义：|\%|、|\$|、|\&|、|\textbackslash| 等
   \item 连续多个空格 = 单个空格 = 单个换行符 \pause
   \item \TeX{}/\LaTeX{} 的语法可以修改
 \end{itemize}
