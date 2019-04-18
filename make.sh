@@ -7,7 +7,7 @@ if [ $1 == "-c" ]
 then
     latexmk -c -f $JOBNAME
     latexmk -c -f $JOBNAME-handout
-    rm -f *.xdv
+    rm -f *.xdv *.synctex.gz
 else
     if [ $1 == "-h" ]
     then
