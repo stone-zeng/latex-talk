@@ -7,8 +7,9 @@
 ## 勘误
 
 - 2019-04-18
+  - 第 22.5 页：`U+30EDD` → `U+30EDE`
   - 第 26 页：不推荐 `\frac` → 不推荐 `\dfrac`
 
 -----
 
-Copyright (C) 2018, 2019 by Xiangdong Zeng.
+Copyright (C) 2018&ndash;2020 by Xiangdong Zeng.

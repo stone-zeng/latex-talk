@@ -5,7 +5,17 @@
   \documentclass[fontset=none]{ctexbeamer}
 \fi
 
-\usepackage{array,bookmark,ccicons,hologo,listings,multicol,qrcode,ragged2e,siunitx,unicode-math}
+\usepackage{%
+  array,
+  bookmark,
+  fontawesome5,
+  hologo,
+  listings,
+  multicol,
+  qrcode,
+  ragged2e,
+  siunitx,
+  unicode-math}
 
 \makeatletter
 
@@ -36,7 +46,7 @@
   \insertsubtitle
   \hspace*{1.2cm}\par
   \vspace*{0.5em}}
-\setbeamertemplate{title page}{
+\setbeamertemplate{title page}{%
   \begin{minipage}[b]{\textwidth}
     \usebeamertemplate*{title graphic}\vfill
     \usebeamertemplate*{title}
@@ -102,7 +112,7 @@
 \newfontfamily\NotoDevanagari{Noto Serif Devanagari}
 \newfontfamily\NotoEgyptian{Noto Sans Egyptian Hieroglyphs}
 \newfontfamily\Optima{Optima}
-\newfontfamily\SourceHanSerifNoCJK{Source Han Serif SC ExtraLight}
+\newfontfamily\SourceHanSerifNoCJK{Source Han Serif SC Heavy}
 \newCJKfontfamily\FangSong{FZFangSong-Z02}
 \newCJKfontfamily\HeiTi{FZHei-B01}
 \newCJKfontfamily\KaiTi{FZKai-Z03}
@@ -168,11 +178,6 @@
         \xeCJK_copy_inter_class_toks:nnnn {#1} { PoZheHao } {#1} { FullRight }
       }
   }
-% FontAwesome package uses font name, but not available in macOS
-\newfontfamily\FA{FontAwesome.otf}
-\def\faicon#1{\csname faicon@#1\endcsname}
-\input{fontawesomesymbols-generic.tex}
-\input{fontawesomesymbols-xeluatex.tex}
 \ExplSyntaxOff
 
 % Macros
@@ -204,7 +209,7 @@
 \subtitle{Modern \LaTeX{} in a Nutshell}
 \author{曾祥东}
 \institute{复旦大学\quad 物理系}
-\date{2019 年 4 月 18 日}
+\date{\zhtoday}
 \titlegraphic{%
   \vspace{3.4cm}
   \qrcode[hyperlink, height=1.6cm]{https://github.com/stone-zeng/latex-talk/}}
