@@ -1,14 +1,11 @@
-# 现代 LaTeX 入门讲座
+<p align="center">
+  <img src="latex-talk.svg" alt="latex-talk" width=75%>
+</p>
 
 ## PDF 下载：
 
-- [2019-04-18](https://github.com/stone-zeng/latex-talk/releases/tag/2019-04-18)
-
-## 勘误
-
-- 2019-04-18
-  - 第 22.5 页：`U+30EDD` → `U+30EDE`
-  - 第 26 页：不推荐 `\frac` → 不推荐 `\dfrac`
+- [放映版](https://github.com/stone-zeng/latex-talk/releases/download/2019-04-18/latex-talk.pdf)
+- [阅读版](https://github.com/stone-zeng/latex-talk/releases/download/2019-04-18/latex-talk-handout.pdf)
 
 -----
 
