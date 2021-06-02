@@ -18,13 +18,14 @@
       \item 内部命令：|\makeatletter|、|\makeatother|
     \end{itemize}
 
-  \item<+-> \LaTeX3——遥遥无期的未来
+  \item<+-> \LaTeX3——可望还不可即的未来
 
     \begin{itemize}
       \item 命令举例：|\cs_new:cpx|、|\seq_sort:Nn|、|\regex_match:nnTF|
-      \item 创建用户层命令：\pkg{xparse} 宏包
+      \item 创建用户层命令：\pkg{xparse} 宏包（已默认载入）
       \item 面向对象编程：\pkg{xtemplate} 宏包
       \item \pkg{fontspec}、\pkg{siunitx}、\pkg{ctex}、\pkg{fduthesis} 等均使用 \LaTeX3 实现
+      \item \LaTeX{} 内核正逐步迁移至 \LaTeX3
     \end{itemize}
 
   \item<+-> 外部语言调用
@@ -62,7 +63,7 @@
       \item |MathGlyphConstruction|：字符形装配（更大的根号、括号等）
     \end{itemize}
 
-  \item<+-> 可变字体、\jatext{絵文字}%
+  \item<+-> 可变字体\zhparen{\includegraphics{example/variable-font.pdf}}、\jatext{絵文字}%
     \zhparen{emoji, \raisebox{-.2ex}{\includegraphics{example/emoji.pdf}}}……
 \end{itemize}
 \end{frame}
@@ -219,7 +220,7 @@
   keywordstyle = [2]\bfseries\color{texcs},
   emphstyle    = [1]\itshape\color{emph1},
   emphstyle    = [2]\color{inline}}
-\begin{column}{0.5\textwidth}
+\begin{column}{0.48\textwidth}
   \begin{lstlisting}[gobble=2]
   # Markdown syntax
 
@@ -242,21 +243,21 @@
   +>+ !characters for blockquoting.!
   \end{lstlisting}
 \end{column}
-\begin{column}{0.5\textwidth}
+\begin{column}{0.48\textwidth}
   \begin{lstlisting}[gobble=2]
   ## List
 
   ### Bullet list
 
-    +*+ apples
-    +*+ oranges
-    +*+ pears
+  +*+ apples
+  +*+ oranges
+  +*+ pears
 
   ### Numbered list
 
-    +1.+ wash
-    +2.+ rinse
-    +3.+ repeat
+  +1.+ wash
+  +2.+ rinse
+  +3.+ repeat
 
   +---+
 
@@ -303,8 +304,34 @@
 \end{itemize}
 \end{frame}
 
+\begin{frame}{获取帮助}
+\begin{itemize}
+  \item<+-> 搜索、提问的姿势
+
+  \begin{itemize}
+    \item 优先使用英文 + Google (if possible)
+    \item 提供最小工作示例（MWE, minmal working example）
+      \begin{itemize}
+        \item 能复现问题
+        \item 尽量不带冗余内容
+      \end{itemize}
+  \end{itemize}
+
+  \item<+-> 在线社区
+
+  \begin{itemize}
+    \item \TeX{} - \LaTeX{} Stack Exchange \link{https://tex.stackexchange.com}
+    \item \CTeX{} 临时论坛 \link{https://github.com/CTeX-org/forum}
+    \item \LaTeX{} 工作室 \link{https://www.latexstudio.net}
+      \begin{itemize}
+        \item 资源需要鉴别，且部分内容需付费
+      \end{itemize}
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]
-\frametitle{参考文献}
+\frametitle{参考文献与扩展阅读}
 \begin{multicols}{2}
 \tiny
 \newcommand\BOOK[1]{\textbf{#1}}
@@ -312,42 +339,40 @@
 \begin{thebibliography}{99}
   \bibitem{}
     \textsc{Knuth D E}.
-    \newblock \BOOK{The \TeX book: Computers \& Typesetting, volume C} \TAG{M}. 1984.
+    \newblock \BOOK{The \TeX book: Computers \& Typesetting, volume C} \TAG{M}, 1984.
     \newblock Boston: Addison--Wesley Publishing Company
   \bibitem{}
     刘海洋．
-    \newblock \BOOK{\LaTeX{} 入门} \TAG{M}. 2013.
+    \newblock \BOOK{\LaTeX{} 入门} \TAG{M}, 2013.
     \newblock 北京：电子工业出版社
   \bibitem{}
     \jatext{高冈昌生}．\\
     翻译：刘庆，监修：陈嵘．
-    \newblock \BOOK{西文排版：排版的基础和规范} \TAG{M}. 2016.
-    \newblock 北京：中信出版集团
-  \bibitem{}
-    \jatext{小林章}．\\
-    翻译：刘庆，监修：陈嵘．
-    \newblock \BOOK{西文字体：字体的背景知识和使用方法} \TAG{M}. 2014.
+    \newblock \BOOK{西文排版：排版的基础和规范} \TAG{M}, 2016.
     \newblock 北京：中信出版集团
   \bibitem{}
     \textsc{Oetiker T}, \textsc{Partl H}, \textsc{Hyna I} and \textsc{Schlegl E}.\\
     翻译：\CTeX{} 开发小组．
-    \newblock \BOOK{一份（不太）简短的 \LaTeXe{} 介绍：或 110 分钟了解 \LaTeXe{}} \TAG{EB/OL}. 2019.
+    \newblock \BOOK{一份（不太）简短的 \LaTeXe{} 介绍：或 112 分钟了解 \LaTeXe{}} \TAG{EB/OL}, 2020.
     \newblock \url{https://ctan.org/pkg/lshort-zh-cn}
   \bibitem{}
+    黄新刚（包太雷）．
+    \newblock \BOOK{\LaTeX{} Notes: 雷太赫排版系统简介（第二版）} \TAG{EB/OL}, 2019.
+    \newblock \url{https://github.com/huangxg/lnotes}
+  \bibitem{}
     汪彧之，陈晟祺．
-    \newblock \BOOK{如何使用 \LaTeX{} 排版论文} \TAG{EB/OL}. 2019.
-    \newblock PDF:
-      \href{https://github.com/tuna/thulib-latex-talk/raw/master/latex-talk.pdf}{\faDownload}
+    \newblock \BOOK{如何使用 \LaTeX{} 排版论文} \TAG{EB/OL}, 2021.
+    \newblock \url{https://github.com/tuna/thulib-latex-talk}
   \bibitem{}
     刘海洋．
-    \newblock \BOOK{\LaTeX{} 入门} \TAG{EB/OL}. 2013.
-    \newblock PDF:
-      \href{https://bbs.pku.edu.cn/attach/e7/f2/e7f2bb698b9c3672/tex_intro_talk.pdf}{\faDownload}
+    \newblock \BOOK{\LaTeX{} \CJKsout[thickness=0.1em]{快速}入门} \TAG{EB/OL}, 2020.
+    \newblock Video: \href{https://www.bilibili.com/video/BV1s7411U7Pr}{\faVideo}
+    % Old version: https://bbs.pku.edu.cn/attach/e7/f2/e7f2bb698b9c3672/tex_intro_talk.pdf
   \bibitem{}
     林莲枝．
-    \newblock \BOOK{漫谈 \LaTeX{} 排版常见概念误区：别把 \LaTeX{} 当 Word 用！}\TAG{EB/OL}. 2018.
-    \newblock PDF:
-      \href{http://static.latexstudio.net/wp-content/uploads/2018/03/LianTze-presentation-0320-forReading.pdf}{\faDownload}
+    \newblock \BOOK{漫谈 \LaTeX{} 排版常见概念误区：别把 \LaTeX{} 当 Word 用！}\TAG{EB/OL}, 2018.
+    \newblock Video: \href{https://www.bilibili.com/video/BV1r4411o7KJ}{\faVideo}\quad
+      PDF: \href{http://static.latexstudio.net/wp-content/uploads/2018/03/LianTze-presentation-0320-forReading.pdf}{\faDownload}
   \bibitem{}
     Wikibooks.
     \newblock \BOOK{\LaTeX{}---Wikibooks, The Free Textbook Project} \TAG{EB/OL}.
@@ -357,9 +382,9 @@
     \newblock \BOOK{Overleaf Documentation} \TAG{EB/OL}.
     \newblock \url{https://www.overleaf.com/learn}
   \bibitem{}
-    刘庆．
-    \newblock \BOOK{孔雀计划：中文字体排印的思路} \TAG{EB/OL}.
-    \newblock \url{https://thetype.com/kongque}
+    \LaTeX{} project.
+    \newblock \BOOK{Learn\LaTeX.org} \TAG{EB/OL}.
+    \newblock \url{https://www.learnlatex.org}
 \end{thebibliography}
 \end{multicols}
 \end{frame}

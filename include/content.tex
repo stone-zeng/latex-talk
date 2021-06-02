@@ -2,7 +2,8 @@
 
 \begin{frame}[fragile]
 \frametitle{Hello world!}
-\begin{texcode}[emph={[1]document}, emph={[2]article}, xleftmargin=1.2cm]
+\begin{texcode}[basicstyle=\small\ttfamily, xleftmargin=1.2cm,
+    emph={[1]document}, emph={[2]article}]
   % 用 pdfLaTeX、XeLaTeX 或 LuaLaTeX 编译
   \documentclass{article}
   \begin{document}
@@ -10,7 +11,8 @@
   \end{document}
 \end{texcode}
 \pause
-\begin{texcode}[emph={[1]document}, emph={[2]ctexart}, xleftmargin=1.2cm]
+\begin{texcode}[basicstyle=\small\ttfamily, xleftmargin=1.2cm,
+    emph={[1]document}, emph={[2]ctexart}]
   % 用 XeLaTeX 或 LuaLaTeX 编译
   \documentclass{ctexart}
   \begin{document}
@@ -27,7 +29,7 @@
     \begin{itemize}
       \item \pdfTeX{}：直接生成 PDF，支持 micro-typography
       \item \XeTeX{}：支持 Unicode、OpenType 与复杂文字编排（CTL）
-      \item \LuaTeX{}：支持 Unicode，内联 Lua，支持 OpenType
+      \item \LuaTeX{}：支持 Unicode、OpenType，内联 Lua
       \item (u)p\TeX{}：日本方面推动，生成 |.dvi|，（支持 Unicode）
       \item Ap\TeX{}：底层 CJK 支持，内联 Ruby，Color Emoji（手动斜眼笑）
     \end{itemize}
@@ -84,7 +86,7 @@
 
   \item 环境
 
-    \begin{texcode}[gobble=4, basicstyle=\footnotesize\ttfamily, emph={[1]env}]
+    \begin{texcode}[gobble=4, emph={[1]env}]
       \begin{env}
         ...
       \end{env}
@@ -99,7 +101,7 @@
 \begin{frame}[fragile]
 \frametitle{文件结构}
 \begin{texcode}[basicstyle=\scriptsize\ttfamily, moretexcs={\keyword,\boldsymbol},
-  emph={[1]document}, emph={[2]article,amsmath}]
+    emph={[1]document}, emph={[2]article,amsmath}]
   % 用 UTF-8 编码，命名为 xxx.tex
   \documentclass{article}                     % 指明文档类型：文章
   % 导言区：设置文档样式
@@ -160,7 +162,7 @@ Time-dependent Schrödinger equation can be written as
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{文本标记}
+\frametitle{文本标记（一）}
 \begin{itemize}
   \item 加粗：|{\bfseries ...}| 或 |\textbf{...}|
   \item 倾斜：|{\itshape ...}| 或 |\textit{...}|
@@ -176,7 +178,7 @@ Time-dependent Schrödinger equation can be written as
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{文本标记}
+\frametitle{文本标记（二）}
 \begin{itemize}
   \item 为什么要有不同的标记？\pause\mbox{}——表达不同的\alert{语义} \pause
   \item |\textbf| 这样的命令是否表达语义？ \pause
@@ -195,6 +197,168 @@ Time-dependent Schrödinger equation can be written as
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{常用环境：列表与枚举}
+\begin{columns}
+\begin{column}{0.55\textwidth}
+  \begin{texcode}[gobble=4, emph={[1]enumerate,itemize}]
+    \begin{enumerate}
+      \item Da Vinci
+        \begin{itemize}
+          \item \textit{The Last Supper}
+          \item \textit{Salvator Mundi}
+          \item \textit{Mona Lisa}
+        \end{itemize}
+      \item Shakespeare
+        \begin{itemize}
+          \item \textit{Macbeth}
+          \item \textit{Hamlet}
+          \item \textit{King Lear}
+          \item \textit{Othello}
+        \end{itemize}
+    \end{enumerate}
+  \end{texcode}
+\end{column}
+\pause
+\begin{column}{0.35\textwidth}
+  \begin{enumerate}
+    \item Da Vinci
+      \begin{itemize}
+        \item \textit{The Last Supper}
+        \item \textit{Salvator Mundi}
+        \item \textit{Mona Lisa}
+      \end{itemize}
+    \item Shakespeare
+      \begin{itemize}
+        \item \textit{Macbeth}
+        \item \textit{Hamlet}
+        \item \textit{King Lear}
+        \item \textit{Othello}
+      \end{itemize}
+  \end{enumerate}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{常用环境：图片}
+\begin{columns}
+\begin{column}{0.6\textwidth}
+  \begin{texcode}[gobble=4, moretexcs={\graphicspath,\includegraphics},
+      emph={[1]figure}, emph={[2]graphicx}]
+    % 不是 graphics
+    \usepackage{graphicx}
+    % 可以统一指定图片路径
+    \graphicspath{{./images/}}
+
+    \begin{figure}
+      \centering
+      % 可指定宽度、高度等选项
+      \includegraphics[...]{fudan-logo.pdf}
+      \caption{Logo of Fudan University}
+      \label{fig:fudan-logo}
+    \end{figure}
+  \end{texcode}
+\end{column}
+\pause
+\begin{column}{0.3\textwidth}
+  \begin{figure}
+    \centering
+    \fduemblem+[x=0.1pt, y=0.1pt, color=FudanBlue]
+    \caption{\textcolor{keyword}{Figure \thefigure:} Logo of Fudan University}
+    \label{fig:fudan-logo_}  % Avoid duplicate labels warning
+  \end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{常用环境：表格}
+\begin{columns}
+\begin{column}{0.6\textwidth}
+  \begin{texcode}[gobble=4, moretexcs={\toprule,\midrule,\bottomrule},
+      emph={[1]table,tabular}, emph={[2]booktabs}]
+    \usepackage{booktabs} % 三线表
+    \begin{table}
+      \caption{Population Census of China}
+      \label{tab:china-population}
+      % 列格式：c 居中，l 左对齐，r 右对齐
+      \begin{tabular}{cc}
+        \toprule
+          Year & Population \\
+        \midrule
+          1953 &  6.0 \\
+          ...
+          2020 & 14.1 \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+  \end{texcode}
+\end{column}
+\pause
+\begin{column}{0.3\textwidth}
+  \begin{table}
+    \caption{\textcolor{keyword}{Table \thetable:} Population Census of China}
+    \label{tab:china-population_}
+    \footnotesize
+    \begin{tabular}{cc}
+      \toprule
+        Year & Population \\
+      \midrule
+        1953 &  6.0 \\
+        1964 &  6.9 \\
+        1982 & 10.1 \\
+        1990 & 11.3 \\
+        2000 & 12.7 \\
+        2010 & 13.4 \\
+        2020 & 14.1 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{常用环境：定理}
+\begin{columns}
+\begin{column}{0.57\textwidth}
+  \begin{texcode}[gobble=4, moredelim={[is][emphstyle]{!}{!}}, moretexcs={\newtheorem*},
+      emph={[2]amsthm}]
+    \usepackage{amsthm}
+    % 需要预先定义
+    \newtheorem{theorem}{Theorem}
+    \newtheorem*{remark}{Remark} % 不编号
+
+    \begin{!theorem!}[Fermat]
+      $a^n+b^n=c^n$ has no positive...
+    \end{!theorem!}
+    \begin{!proof!}
+      % 证明后面会有 QED 符号
+      It's obvious.
+    \end{!proof!}
+    \begin{!remark!}
+      The cases $n=1$ and $n=2$...
+    \end{!remark!}
+  \end{texcode}
+\end{column}
+\pause
+\begin{column}{0.33\textwidth}
+  \footnotesize
+  \setlength{\parskip}{0.5em}
+  \setlength{\parindent}{0pt}
+
+  \textbf{Theorem 1} (Fermat). \emph{$a^n+b^n=c^n$ has no positive integer solutions
+    for $x$, $y$ and $z$ when $n$ is greater than 2.}
+
+  \textit{Proof.} It's obvious. \hfill $\mdlgwhtsquare$
+
+  \textbf{Remark.} \emph{The cases $n=1$ and $n=2$ have been known since antiquity
+    to have infinitely many solutions.}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{浮动体与交叉引用}
 \begin{itemize}
   \item<+-> 浮动体机制
@@ -205,13 +369,15 @@ Time-dependent Schrödinger equation can be written as
       \item 希望浮动体不要乱跑：「这是病，得治」
             \link{https://liam.page/2017/03/11/floats-in-LaTeX-basic}
       \item 避免「见上图」、「见下表」
+      \item 建议写完全文之后统一调整
     \end{itemize}
 
   \item<+-> 以标签控制交叉引用
 
     \begin{itemize}
       \item 被引处：|\label|
-      \item 引用处：|\ref|、|\eqref| 等
+      \item 引用处：|\ref|、|\eqref| 等（如图~\textcolor{emph1}{\ref{fig:fudan-logo_}}、
+            表~\textcolor{emph1}{\ref{tab:china-population_}}）
       \item 用有意义的标签：|\label{eq:euler-lagrange-eq}|
       \item 需多次编译——推荐 \pkg{latexmk}
     \end{itemize}
@@ -226,7 +392,10 @@ Time-dependent Schrödinger equation can be written as
     \begin{itemize}
       \item Mathematica、MATLAB
       \item PowerPoint、Visio、Adobe Illustrator、Inkscape
-      \item Python Matplotlib、\texttt{Plots.jl}、R、Plotly 等
+      \item Python \texttt{Matplotlib}、\texttt{Plots.jl}、R、Plotly 等
+      \item draw.io \link{https://www.draw.io}、
+            Mathcha \link{https://www.mathcha.io}、
+            ProcessOn \link{https://www.processon.com} 等网站
     \end{itemize}
 
   \item<+-> \TeX{} 内联
@@ -255,17 +424,20 @@ Time-dependent Schrödinger equation can be written as
 \frametitle{文献}
 \begin{itemize}
   \item 建议自动生成\pause （你只有三篇参考文献？）\pause
-  \item |.bib| 数据库
+  \item |.bib| 数据库（条目会包含 key，用于引用）
 
     \begin{itemize}
-      \item Google Scholar 可直接复制
-      \item 用 Zotero、Jabref 等生成
+      \item Google Scholar 复制，Zotero、Jabref 等生成
+      \item 注意特殊符号、公式等常常需要人工检查
     \end{itemize} \pause
 
   \item 传统方法：\BibTeX{} 后端
 
     \begin{itemize}
-      \item 控制文献、引用样式：\pkg{natbib} 宏包
+      \item 指定样式：|\bibliographystyle{<style>}|（导言区）
+      \item 标记引用：|\cite{<key>}|
+      \item 插入参考文献：|\bibliography{<bib 文件>}|
+      \item 更多文献、引用样式：\pkg{natbib} 宏包
       \item 国家标准 GB/T 7714--2015
             \link{https://www.gb688.cn/bzgk/gb/newGbInfo?hcno=7FA63E9BBA56E60471AEDAEBDE44B14C}
             \link{https://github.com/Haixing-Hu/GBT7714-2005-BibTeX-Style/files/153951/GBT.7714-2015.pdf}：
@@ -350,7 +522,7 @@ Time-dependent Schrödinger equation can be written as
   \vspace{-0.6cm}
 \end{column}
 \end{columns}
-\nonumberfootnote[<8->]{图片来源：GitHub，知乎}
+\nonumberfootnote[<8->]{图片来源：GitHub、Twitter、知乎}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -384,6 +556,37 @@ Time-dependent Schrödinger equation can be written as
       \item CTAN \link{https://ctan.org} 或 GitHub \href{https://github.com}{\faGithub}
       \item 期刊官网
       \item 「湿兄用 U 盘拷给你的模板一定是过时的」
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{幻灯片}
+\begin{itemize}
+  \item<+-> 基本框架
+
+    \begin{itemize}
+      \item \pkg{beamer} 或 \pkg{ctexbeamer} 文档类
+      \item 页面由 |frame| 环境组织
+      \item 文本内容：建议使用 |itemize| 和 |enumerate|
+      \item 图表：不再浮动，不建议使用交叉引用
+      \item 定理及强调：|theorem|、|proof|、|block| 等
+      \item 分栏：|columns| + |column| 环境
+    \end{itemize}
+
+  \item<+-> 主题与样式
+
+    \begin{itemize}
+      \item |\usetheme|、\lstinline[style=style@inline]+\use[font|color|inner|outer]theme+
+      \item 更现代的主题：|metropolis|
+      \item 使用「默认」字体：|\usefonttheme{serif}|
+    \end{itemize}
+
+  \item<+-> 动画（覆盖）
+
+    \begin{itemize}
+      \item |\pause| 命令
+      \item |\onslide<1>|、|\item<1+>| 等
     \end{itemize}
 \end{itemize}
 \end{frame}

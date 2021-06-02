@@ -3,24 +3,25 @@
 \begin{frame}[fragile]
 \frametitle{数学模式}
 \begin{itemize}
-  \item<+-> 一切数学公式都要在数学模式下输入
+  \item 一切数学公式都要在数学模式下输入
 
     \begin{itemize}
       \item 不受外界字体命令控制
-      \item 数学模式中空格不起作用，尽管用
+      \item 数学模式中空格不起作用，尽管用；但不能有空行
+      \item 建议始终调用 \pkg{amsmath} 宏包 \pause
       \item \alert{不建议用 MathType 生成 \LaTeX{} 公式}
-      \item 建议始终调用 \pkg{amsmath} 宏包
-    \end{itemize}
+      \item 但可以用 MathJax \link{https://www.mathjax.org} 或 KaTeX \link{https://katex.org} 练习
+    \end{itemize} \pause
 
-  \item<+-> 行内\zhparen{inline}公式
+  \item 行内\zhparen{inline}公式
 
     \begin{itemize}
       \item 用一对美元符号（公式值千金）：|$...$|
       \item 示例：理想气体状态方程可以写为 $PV=nRT$, 其中 $P$、$V$ 和 $T$
         分别是压强、体积和绝对温度
-    \end{itemize}
+    \end{itemize} \pause
 
-  \item<+-> 独显\zhparen{display}公式
+  \item 独显\zhparen{display}公式
 
     \begin{itemize}
       \item 无编号：|\[...\]| 或 |equation*| 环境
@@ -33,7 +34,7 @@
 \begin{frame}[fragile]
 \frametitle{结构}
 \begin{itemize}
-  \item 上下标
+  \item<+-> 上下标
 
     \begin{itemize}
       \item |^| 和 |_|：|f^ab| 和 |f^{ab}|，|e^x^2|、|{e^x}^2| 和 |e^{x^2}|
@@ -42,7 +43,7 @@
         \lstinline[style=style@inline]|\(no)limits|
     \end{itemize}
 
-  \item 分式
+  \item<+-> 分式
 
     \begin{itemize}
       \item |\frac{〈分子〉}{〈分母〉}|
@@ -50,14 +51,14 @@
       \item \alert{不推荐 \texttt{\textbackslash dfrac}}
     \end{itemize}
 
-  \item 根式
+  \item<+-> 根式
 
     \begin{itemize}
       \item |\sqrt[〈次数〉]{〈内容〉}|
       \item 复杂情况改用分数指数：|{...}^{1/n}|
     \end{itemize}
 
-  \item 矩阵与行列式
+  \item<+-> 矩阵与行列式
 
     \begin{itemize}
       \item |matrix|、|pmatrix|、|vmatrix| 等环境
@@ -94,7 +95,8 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{符号与字体}
+\begin{frame}[fragile]
+\frametitle{符号与字体}
 \begin{itemize}
   \item 符号不是按钮点出来的，也不是天上掉下来的 \pause
 
@@ -106,9 +108,10 @@
   \item 寻找符号
 
     \begin{itemize}
+      \item 最常用的额外字体包：\pkg{amssymb}
       \item S. Pakin. \emph{The Comprehensive \LaTeX{} Symbol List}
             \link{https://ctan.org/pkg/comprehensive}
-      \item 手写识别（不全）：Detexify \link{http://detexify.kirelabs.org}
+      \item 手写识别（有趣但不全）：Detexify \link{http://detexify.kirelabs.org}
     \end{itemize} \pause
 
   \item 数学字体
@@ -116,7 +119,7 @@
     \begin{itemize}
       \item 你们要的「Times New Roman」：\pkg{newtxmath} 宏包
       \item \alert{不要用 \pkg{times} 和 \pkg{mathptmx} 宏包}
-      \item 加粗：使用 \pkg{bm} 宏包
+      \item 加粗：使用 \pkg{bm} 宏包的 |\bm| 命令（|\mathbf| 只有直立的字母）
     \end{itemize} \pause
 
   \item 新方案：\pkg{unicode-math}
@@ -176,15 +179,14 @@
           \item $4.18 \times 10^3 J mol^{-1} K^{-1}$---No!
         \end{itemize}
 
-      \item |\SI{4.18e3}{J.mol^{-1}.K^{-1}}|
+      \item |\qty{4.18e3}{J.mol^{-1}.K^{-1}}|
 
         \begin{itemize}
-          \item \SI{4.18e3}{J.mol^{-1}.K^{-1}}---Yes!
+          \item \qty{4.18e3}{J.mol^{-1}.K^{-1}}---Yes!
         \end{itemize} \pause
 
       \item 注 1：此宏包代码比 \LaTeX{} 内核还长 \pause
-      \item 注 2：新定义并不会影响使用
-            \link{https://en.wikipedia.org/wiki/2019_redefinition_of_SI_base_units}
+      \item 注 2：新版本的 \pkg{siunitx} 宏包与 \pkg{physics} 宏包有兼容性问题
     \end{itemize}
 \end{itemize}
 \end{frame}

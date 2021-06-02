@@ -1,5 +1,3 @@
-#!/bin/sh
-
 JOBNAME=latex-talk
 MAIN=latex-talk.tex
 

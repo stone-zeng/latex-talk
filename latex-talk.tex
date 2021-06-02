@@ -8,6 +8,8 @@
 \usepackage{%
   array,
   bookmark,
+  booktabs,
+  fdulogo,
   fontawesome5,
   hologo,
   listings,
@@ -15,6 +17,7 @@
   qrcode,
   ragged2e,
   siunitx,
+  xeCJKfntef,
   unicode-math}
 
 \makeatletter
@@ -48,7 +51,7 @@
   \vspace*{0.5em}}
 \setbeamertemplate{title page}{%
   \begin{minipage}[b]{\textwidth}
-    \usebeamertemplate*{title graphic}\vfill
+    \usebeamertemplate*{title graphic}
     \usebeamertemplate*{title}
     \usebeamertemplate*{subtitle}
     \usebeamertemplate*{title separator}
@@ -57,6 +60,9 @@
     \usebeamertemplate*{institute}
     \vfill
   \end{minipage}}
+\setbeamertemplate{title graphic}{%
+  \vbox to 0pt {\smash{\raisebox{-128pt}{\inserttitlegraphic}}}%
+  \nointerlineskip}
 \setbeamertemplate{frame numbering}{\zhnumber[style=Financial]{\insertframenumber}}
 \setbeamertemplate{itemize/enumerate subbody begin}{\footnotesize}
 \setbeamertemplate{caption}{\parbox{\textwidth}{\centering\insertcaption}\par}
@@ -118,10 +124,9 @@
 \newCJKfontfamily\KaiTi{FZKai-Z03}
 \newCJKfontfamily\SourceHanSerif{Source Han Serif SC SemiBold}
 \newCJKfontfamily\WaWa{Wawati SC}
-\newfontfamily\SimHei{SimHei.ttf}[Path=./fonts/, AutoFakeBold=4, AutoFakeSlant]
+\newfontfamily\SimHei{simhei.ttf}[Path=./fonts/, AutoFakeBold=4, AutoFakeSlant]
 \newfontfamily\TimesNewRoman{Times New Roman}
 \newfontfamily\xkcd{xkcd-script.ttf}[Path=./fonts/, Ligatures=TeX]
-% \newfontfamily\EmojiOne{EmojiOneColor.otf}[Path=./fonts/, BoldFont=*]
 
 % PDF bookmark
 \apptocmd{\beamer@@frametitle}{%
@@ -133,7 +138,6 @@
   language     = [latex]TeX,
   alsoletter   = {*},
   basewidth    = 0.54em,
-  basicstyle   = \small\ttfamily,
   keywordstyle = \bfseries\color{keyword},
   commentstyle = \itshape\color{comment},
   texcsstyle   = *\color{texcs},
@@ -146,6 +150,7 @@
 }
 \lstnewenvironment{texcode}[1][]{\lstset{
   style        = style@latex,
+  basicstyle   = \footnotesize\ttfamily,
   gobble       = 2,
   morekeywords = {\documentclass,\usepackage,\begin,\end},#1}}{}
 \lstMakeShortInline[style=style@inline]|
@@ -210,9 +215,7 @@
 \author{曾祥东}
 \institute{复旦大学\quad 物理系}
 \date{\zhtoday}
-\titlegraphic{%
-  \vspace{3.4cm}
-  \qrcode[hyperlink, height=1.6cm]{https://github.com/stone-zeng/latex-talk/}}
+\titlegraphic{\qrcode[hyperlink, height=1.6cm]{https://github.com/stone-zeng/latex-talk/}}
 
 \begin{document}
 
