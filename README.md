@@ -4,8 +4,8 @@
 
 ## PDF 下载：
 
-- [放映版](https://github.com/stone-zeng/latex-talk/releases/download/2019-04-18/latex-talk.pdf)
-- [阅读版](https://github.com/stone-zeng/latex-talk/releases/download/2019-04-18/latex-talk-handout.pdf)
+- [放映版](https://github.com/stone-zeng/latex-talk/releases/latest/download/latex-talk.pdf)
+- [阅读版](https://github.com/stone-zeng/latex-talk/releases/latest/download/latex-talk-handout.pdf)
 
 -----
 
