@@ -60,7 +60,7 @@
     \begin{itemize}
       \item |pdflatex|/|xelatex|/|lualatex| + |<文件名>[.tex]|
       \item 多次编译：读取并排版中间文件 \pause
-      \item 推荐 \pkg{latexmk}：|latexmk [<选项>] <文件名>|
+      \item 推荐 \pkg{latexmk}：|latexmk [<选项>] [<文件名>]|
     \end{itemize} \pause
 
   \item 编辑器
@@ -193,6 +193,7 @@ Time-dependent Schrödinger equation can be written as
     \end{itemize} \pause
 
   \item 报告，我想偷懒！
+  \item 报告，我听说了 Tailwind CSS！
 \end{itemize}
 \end{frame}
 
@@ -253,6 +254,7 @@ Time-dependent Schrödinger equation can be written as
     \begin{figure}
       \centering
       % 可指定宽度、高度等选项
+      % 图片后缀名可省略，但建议保留
       \includegraphics[...]{fudan-logo.pdf}
       \caption{Logo of Fudan University}
       \label{fig:fudan-logo}
@@ -347,12 +349,12 @@ Time-dependent Schrödinger equation can be written as
   \setlength{\parskip}{0.5em}
   \setlength{\parindent}{0pt}
 
-  \textbf{Theorem 1} (Fermat). \emph{$a^n+b^n=c^n$ has no positive integer solutions
+  \textbf{Theorem 1} (Fermat). \textit{$a^n+b^n=c^n$ has no positive integer solutions
     for $x$, $y$ and $z$ when $n$ is greater than 2.}
 
   \textit{Proof.} It's obvious. \hfill $\mdlgwhtsquare$
 
-  \textbf{Remark.} \emph{The cases $n=1$ and $n=2$ have been known since antiquity
+  \textbf{Remark.} \textit{The cases $n=1$ and $n=2$ have been known since antiquity
     to have infinitely many solutions.}
 \end{column}
 \end{columns}
@@ -391,7 +393,7 @@ Time-dependent Schrödinger equation can be written as
 
     \begin{itemize}
       \item Mathematica、MATLAB
-      \item PowerPoint、Visio、Adobe Illustrator、Inkscape
+      \item PowerPoint、Visio、Adobe Illustrator、Inkscape、Figma 等
       \item Python \texttt{Matplotlib}、\texttt{Plots.jl}、R、Plotly 等
       \item draw.io \link{https://www.draw.io}、
             Mathcha \link{https://www.mathcha.io}、
@@ -456,9 +458,8 @@ Time-dependent Schrödinger equation can be written as
 
 \begin{frame}[standout]
   \begingroup
-    \xeCJKsetup{xeCJKactive=false}
-    \SourceHanSerifNoCJK\fontsize{72}{84}\selectfont
-    ⿺辶⿳穴⿰月⿰⿲⿱幺長⿱言馬⿱幺長刂心
+    \fontsize{72}{84}\selectfont
+    \textbf{𰻝}
   \endgroup \\[2ex]
   \footnotesize \texttt{U+30EDE}
 \end{frame}
@@ -470,11 +471,13 @@ Time-dependent Schrödinger equation can be written as
     \item 中文有什么特殊？\pause
 
       \begin{itemize}
-        \item 汉字太多（92,856+）\pause
+        % Unicode 15.0
+        % https://twitter.com/ken_lunde/status/1499739277281792002
+        \item 汉字太多（97,057+）\pause
         \item 横排 + 直排、标点禁则、行间注 \link{https://www.w3.org/TR/clreq} \pause
         \item \jatext{にほんご}、
               {\NotoDevanagari देवनागरी}、
-              {\NotoArabic العَرَبِيَّة‎}、
+              {\NotoArabic العَرَبِيَّة}、
               {\NotoEgyptian 𓅡𓎡𓅱𓀀𓏪}
       \end{itemize} \pause
 
@@ -532,7 +535,7 @@ Time-dependent Schrödinger equation can be written as
 
     \begin{itemize}
       \item 设计好的格式框架
-      \item 专注于内容：\alert{不要追求与期刊排版一致}
+      \item 专注于内容：\alert{不必追求与期刊排版完全一致}
       \item Word 中的样式：「学好 \LaTeX{} 可以更科学地使用 Word」
     \end{itemize}
 
@@ -555,7 +558,7 @@ Time-dependent Schrödinger equation can be written as
     \begin{itemize}
       \item CTAN \link{https://ctan.org} 或 GitHub \href{https://github.com}{\faGithub}
       \item 期刊官网
-      \item 「湿兄用 U 盘拷给你的模板一定是过时的」
+      \item 「湿兄用微信发给你的模板几乎一定是过时的」
     \end{itemize}
 \end{itemize}
 \end{frame}
