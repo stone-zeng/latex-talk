@@ -1,0 +1,176 @@
+\documentclass[type=doctor, oneside]{fduthesis}
+
+% 文本来源：
+% https://zh.wikipedia.org/wiki/量子力学
+% https://zh.wikipedia.org/wiki/量子力学入门
+% https://en.wikipedia.org/wiki/Introduction_to_quantum_mechanics
+
+\fdusetup{
+  style = {
+    font-size = 5,
+    bib-backend = bibtex,
+    bib-resource = {fduthesis-template.bib},
+  },
+  info = {
+    title = {论文标题},
+    title* = {Thesis Title},
+    author = {王二},
+    supervisor = {某某某\quad 教授},
+    major = {物理学},
+    degree = academic,
+    department = {物理系},
+    student-id = {18110190000},
+    keywords = {不确定关系, 量子力学, 理论物理},
+    keywords* = {Uncertainty principle, quantum mechanics, theoretical physics},
+    clc = {O413.1},
+  }
+}
+
+\usepackage{physics}
+
+\newcommand{\hilbertH}{\symcal{H}}
+\newcommand{\ee}{\symrm{e}}
+\newcommand{\ii}{\symrm{i}}
+
+\begin{document}
+
+\frontmatter
+
+\tableofcontents
+
+\begin{abstract}
+量子力学是描述微观物质（原子、亚原子粒子）行为的物理学理论，量子力学是我们理解除万有引力之外的
+所有基本力（电磁相互作用、强相互作用、弱相互作用）的基础。
+
+量子力学是许多物理学分支的基础，包括电磁学、粒子物理、凝聚态物理以及宇宙学的部分内容。量子力学
+也是化学键理论、结构生物学以及电子学等学科的基础。
+
+量子力学主要是用来描述微观下的行为，所描述的粒子现象无法精确地以经典力学诠释。例如：根据哥本哈根
+诠释，一个粒子在被观测之前，不具有任何物理性质，然而被观测之后，依测量仪器而定，可能观测到其粒子
+性质，也可能观测到其波动性质，或者观测到一部分粒子性质一部分波动性质，此即波粒二象性。
+
+量子力学始于 20 世纪初马克斯·普朗克和尼尔斯·玻尔的开创性工作，马克斯·玻恩于 1924 年创造了
+“量子力学”一词。因其成功的解释了经典力学无法解释的实验现象，并精确地预言了此后的一些发现，物理学界
+开始广泛接受这个新理论。量子力学早期的一个主要成就是成功地解释了波粒二象性，此术语源于亚原子粒子
+同时表现出粒子和波的特性。
+\end{abstract}
+
+\begin{abstract*}
+Quantum mechanics is a fundamental theory in physics that provides a description of the physical
+properties of nature at the scale of atoms and subatomic particles. It is the foundation of all
+quantum physics including quantum chemistry, quantum field theory, quantum technology, and quantum
+information science.
+
+Classical physics, the collection of theories that existed before the advent of quantum mechanics,
+describes many aspects of nature at an ordinary (macroscopic) scale, but is not sufficient for
+describing them at small (atomic and subatomic) scales. Most theories in classical physics can be
+derived from quantum mechanics as an approximation valid at large (macroscopic) scale.
+
+Quantum mechanics differs from classical physics in that energy, momentum, angular momentum, and
+other quantities of a bound system are restricted to discrete values (quantization), objects have
+characteristics of both particles and waves (wave--particle duality), and there are limits to how
+accurately the value of a physical quantity can be predicted prior to its measurement, given a
+complete set of initial conditions (the uncertainty principle).
+
+Quantum mechanics arose gradually from theories to explain observations which could not be
+reconciled with classical physics, such as Max Planck's solution in 1900 to the black-body
+radiation problem, and the correspondence between energy and frequency in Albert Einstein's 1905
+paper which explained the photoelectric effect. These early attempts to understand microscopic
+phenomena, now known as the ``old quantum theory'', led to the full development of quantum
+mechanics in the mid-1920s by Niels Bohr, Erwin Schrödinger, Werner Heisenberg, Max Born and
+others. The modern theory is formulated in various specially developed mathematical formalisms.
+In one of them, a mathematical entity called the wave function provides information, in the form
+of probability amplitudes, about what measurements of a particle's energy, momentum, and other
+physical properties may yield.
+\end{abstract*}
+
+\mainmatter
+
+\chapter{数学基础}
+
+\strong{量子力学}是物理学的分支学科。它主要描写微观的事物，与相对论一起被认为是现代物理学的两大
+基本支柱，许多物理学理论和科学，如原子物理学、固体物理学、核物理学和粒子物理学以及其它相关的学科，
+都是以其为基础\cite{曾谨言2013量子力学,feynman2011feynman}。
+
+\section{基础公设}
+
+整个量子力学的数学理论可以建立于五个基础公设。这些公设不能被严格推导出来的，而是从实验结果仔细分析
+归纳总结而得到的。从这五个公设，可以推导出整个量子力学。假若量子力学的理论结果不符合实验结果，
+则必须将这些基础公设加以修改，直到没有任何不符合之处。至今为止，量子力学已被实验核对至极高准确度，
+还没有找到任何与理论不符合的实验结果，虽然有些理论很难直觉地用经典物理的概念来理解，例如，波粒
+二象性、量子纠缠等等\cite{zurek2014quantum,cohen2013claude,zettili2003quantum}。
+
+\begin{enumerate}
+  \item 量子态公设：量子系统在任意时刻的状态（量子态）可以由希尔伯特空间 $\hilbertH$ 中的态矢量
+    $\ket{\psi}$ 来设定，这态矢量完备地给出了这量子系统的所有信息。这公设意味着量子系统遵守%
+    \emph{态叠加原理}，假若 $\ket*{\psi_1}$、$\ket*{\psi_2}$ 属于希尔伯特空间 $\hilbertH$，则
+    $c_1\ket*{\psi_1} + c_2\ket*{\psi_2}$ 也属于希尔伯特空间 $\hilbertH$。
+  \item 时间演化公设： 态矢量为 $\ket{\psi(t)}$ 的量子系统，其动力学演化可以用薛定谔方程表示：
+    \begin{equation}
+      \ii\hbar \pdv{t} \ket{\psi(t)} = \hat{H} \ket{\psi(t)}.
+    \end{equation}
+    其中，哈密顿算符 $\hat{H}$ 对应于量子系统的总能量，$\hbar$ 是约化普朗克常数。根据薛定谔方程，
+    假设时间从 $t_0$ 变化到 $t$，则态矢量从 $\ket*{\psi(t_0)}$ 演化到 $\ket{\psi(t)}$，该过程以
+    方程表示为
+    \begin{equation}
+      \ket{\psi(t)} = \hat{U}(t,\,t_0) \ket*{\psi(t_0)}.
+    \end{equation}
+    其中 $\hat{U}(t,\,t_0) = \ee^{-\ii\hat{H}(t-t_0) / \hbar}$ 是时间演化算符。
+  \item 可观察量公设：每个可观察量 $A$ 都有其对应的厄米算符 $\hat{A}$，而算符 $\hat{A}$ 的所有
+    本征矢量共同组成一个完备基底。
+  \item 坍缩公设：对于量子系统测量某个可观察量 $A$ 的过程，可以数学表示为将对应的厄米算符
+    $\hat{A}$ 作用于量子系统的态矢量 $\ket{\psi}$，测量值只能为厄米算符 $\hat{A}$ 的本征值。
+    在测量后，假设测量值为 $a_i$，则量子系统的量子态立刻会坍缩为对应于本征值 $a_i$ 的本征态
+    $\ket*{e_i}$。
+  \item 波恩公设：对于这测量，获得本征值 $a_i$ 的概率为量子态 $\ket{\psi}$ 处于本征态 $\ket*{e_i}$
+    的概率幅的绝对值平方。\footnote{%
+      使用可观察量 $A$ 的基底 $\qty{e_1,\,e_2,\,\ldots,\,e_n}$，量子态 $\ket{\psi}$ 可以表示为
+      $\ket{\psi} = \sum_j c_j \ket*{e_j}$，其中 $c_j$ 是量子态 $\ket{\psi}$ 处于本征态
+      $\ket*{e_j}$ 的概率幅。根据波恩定则，对于此次测量，获得本征值 $a_i$ 的概率为
+      $\abs*{\ip*{e_i}{\psi}}^2 = \abs*{c_i}^2$。}
+\end{enumerate}
+
+\section{量子态与量子算符}
+
+量子态指的是量子系统的状态，态矢量可以用来抽象地表现量子态。采用狄拉克标记，态矢量表示为右矢
+$\ket{\psi}$；其中，在符号内部的希腊字母 $\psi$ 可以是任何符号、字母、数字，或单字。例如，
+沿着磁场方向测量电子的自旋，得到的结果可以是上旋或是下旋，分别标记为 $\ket{\uparrow}$ 和
+$\ket{\downarrow}$。
+
+\begin{figure}[htb]
+  \centering
+  \setlength{\fboxsep}{4em}
+  \fbox{\texttt{stern-gerlach-experiment.png}}
+  \caption[施特恩—格拉赫实验]{%
+    设定施特恩—格拉赫实验仪器的磁场方向为 $z$-轴，入射的银原子束可以被分裂成两道银原子束，每一道
+    银原子束代表一种量子态，上旋 $\ket{\uparrow}$ 或下旋 $\ket{\downarrow}$%
+    \cite{wikimedia:stern-gerlach-experiment}。}
+  \label{fig:stern-gerlach-experiment}
+\end{figure}
+
+对量子态做操作定义，量子态可以从一系列制备程序来辨认，即这程序所制成的量子系统拥有这量子态。例如，
+使用施特恩—格拉赫实验仪器，设定磁场朝着 $z$-轴方向，如图~\ref{fig:stern-gerlach-experiment} 所示，
+可以将入射的银原子束，依照自旋的 $z$-分量分裂成两道，一道为上旋，量子态为 $\ket{\uparrow}$；另一道
+为下旋，量子态为 $\ket{\downarrow}$，这样，可以制备成量子态为 $\ket{\uparrow}$ 的银原子束，或量子态
+为 $\ket{\downarrow}$ 的银原子束。原本银原子束的态矢量可以按照态叠加原理表示为
+\begin{equation}
+  \ket{\psi} = \alpha \ket{\uparrow} + \beta \ket{\downarrow}.
+\end{equation}
+其中，$\alpha$、$\beta$ 是复值系数，$\abs{\alpha}^2$、$\abs{\beta}^2$ 分别为入射银原子束处于上旋、
+下旋的概率，且有
+\begin{equation}
+  \abs{\alpha}^2 + \abs{\beta}^2 = 1.
+\end{equation}
+
+\section{动力学演化}
+
+量子系统的动力学演化可以用不同的绘景来表现。通过重新定义，这些不同的绘景可以互相变换，它们实际上
+是等价的。假若要专注分析量子态怎样随着时间的流易而演化，时间演化算符怎样影响量子态，则可采用
+薛定谔绘景。假若要专注了解对应于可观察量的算符怎样随着时间的流易而演化、时间演化算符怎样影响这些
+算符，则可采用海森堡绘景。
+
+\backmatter
+
+\printbibliography
+
+\end{document}
