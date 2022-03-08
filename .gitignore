@@ -16,3 +16,4 @@
 fonts/
 temp/
 .DS_Store
+!normal-distribution-PDF.pdf
