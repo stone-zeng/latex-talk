@@ -1,3 +1,5 @@
+.DS_Store
+
 *.aux
 *.fdb_latexmk
 *.fls
@@ -11,9 +13,7 @@
 *.toc
 *.vrb
 *.xdv
-*.txt
 *.make.tex
+
 fonts/
 temp/
-.DS_Store
-!normal-distribution-PDF.pdf
