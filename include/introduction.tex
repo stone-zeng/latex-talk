@@ -71,7 +71,7 @@
 \begin{frame}[fragile]
 \frametitle{\LaTeX{} 是什么？\mbox{}——\mbox{}What you \emph{think} is what you get!}
 \begin{columns}
-\begin{column}{0.48\textwidth}
+\begin{column}{0.5\textwidth}
   \begin{texcode}[basicstyle=\tiny\ttfamily, moretexcs={\maketitle},
     emph={[1]equation,itemize,document}, emph={[2]article,amsmath,graphicx}]
   \documentclass{article}
@@ -99,11 +99,12 @@
   \end{texcode}
 \end{column}
 \pause
-\begin{column}{0.48\textwidth}
+\begin{column}{0.42\textwidth}
   \begin{figure}
     \centering
     \vspace{-0.8cm}
-    \includegraphics[width=\textwidth]{examples/normal-dist/normal-dist.pdf}
+    \includegraphics[width=\textwidth, trim={2cm 2cm 2cm 2cm}, clip]%
+      {examples/normal-dist/normal-dist.pdf}
   \end{figure}
 \end{column}
 \end{columns}

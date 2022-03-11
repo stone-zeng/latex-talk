@@ -46,7 +46,7 @@
   \item<+-> 分式
 
     \begin{itemize}
-      \item |\frac{〈分子〉}{〈分母〉}|
+      \item |\frac{<分子>}{<分母>}|
       \item 行内分式、小分式不好看：改用 |a/b|，或改用独显公式
       \item \alert{不推荐 \texttt{\textbackslash dfrac}}
     \end{itemize}
@@ -54,7 +54,7 @@
   \item<+-> 根式
 
     \begin{itemize}
-      \item |\sqrt[〈次数〉]{〈内容〉}|
+      \item |\sqrt[<次数>]{<内容>}|
       \item 复杂情况改用分数指数：|{...}^{1/n}|
     \end{itemize}
 
@@ -223,7 +223,7 @@
   \item 抄录：忽略所有特殊类别码\zhparen{catcode}，原样显示
 
     \begin{itemize}
-      \item |\verb〈char〉...〈char〉|、|verbatim| 环境
+      \item |\verb<char>...<char>|、|verbatim| 环境
       \item \pkg{verbatim}、\pkg{fancyvrb} 宏包
     \end{itemize} \pause
 
@@ -240,7 +240,6 @@
 \end{itemize} \pause
 \begin{lstlisting}[
   language         = C,
-  basewidth        = 0.54em,
   xleftmargin      = 6em,
   numbers          = left,
   numberstyle      = \tiny,

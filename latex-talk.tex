@@ -36,6 +36,7 @@
 \setbeamerfont{section title}{size=\Large, series=\bfseries}
 \setbeamerfont{frametitle}{size=\large, series=\bfseries}
 \setbeamerfont{caption}{size=\footnotesize, series=\bfseries}
+\setbeamerfont{itemize/enumerate subbody}{size=\footnotesize}
 \setbeamerfont{footnote}{size=\tiny}
 \setbeamerfont{alerted text}{series=\bfseries}
 \addtobeamertemplate{institute}{\raggedleft}{}
@@ -65,7 +66,6 @@
   \vbox to 0pt {\smash{\raisebox{-128pt}{\inserttitlegraphic}}}%
   \nointerlineskip}
 \setbeamertemplate{frame numbering}{\zhnumber[style=Financial]{\insertframenumber}}
-\setbeamertemplate{itemize/enumerate subbody begin}{\footnotesize}
 \setbeamertemplate{caption}{\parbox{\textwidth}{\centering\insertcaption}\par}
 \setbeamertemplate{bibliography item}[text]
 
@@ -85,15 +85,21 @@
   ItalicFont     = *-Italic,
   BoldItalicFont = *-BoldItalic,
   Scale          = 1.1]
-\setmonofont{Iosevka}[Scale=0.96]
+\setmonofont{RobotoMono}[
+  Extension      = .otf,
+  UprightFont    = *-Regular,
+  BoldFont       = *-Bold,
+  ItalicFont     = *-Italic,
+  BoldItalicFont = *-BoldItalic,
+  Scale          = 0.92]
 \setmathfont{LibertinusMath-Regular.otf}
 \setCJKmainfont{Source Han Serif SC}[
   UprightFont    = * SemiBold,
   BoldFont       = * Heavy,
   ItalicFont     = * SemiBold,
   BoldItalicFont = * SemiBold,
-  RawFeature     = +fwid]
-\setCJKmonofont{Sarasa Mono SC}
+  CharacterWidth = Full]
+\setCJKmonofont{Source Han Sans SC}[AutoFakeSlant]
 
 \newfontfamily\EBGaramond{EBGaramond}[
   Extension      = .otf,
@@ -114,7 +120,7 @@
 \newfontfamily\Avenir{Avenir Next}
 \newfontfamily\Courier{Courier}
 \newfontfamily\Helvetica{Helvetica Neue Light}
-\newfontfamily\Menlo{Menlo}
+\newfontfamily\Menlo{Menlo}[Scale=MatchLowercase]
 \newfontfamily\NotoArabic{Noto Naskh Arabic}[Script=Arabic]
 \newfontfamily\NotoDevanagari{Noto Serif Devanagari}
 \newfontfamily\NotoEgyptian{Noto Sans Egyptian Hieroglyphs}
@@ -126,6 +132,7 @@
 \newCJKfontfamily\WaWa{Wawati SC}
 \newfontfamily\SimHei{simhei.ttf}[Path=./fonts/, AutoFakeBold=4, AutoFakeSlant]
 \newfontfamily\TimesNewRoman{Times New Roman}
+\newfontfamily\Unifont{Unifont}
 \newfontfamily\xkcd{xkcd-script.ttf}[Path=./fonts/, Ligatures=TeX]
 
 % PDF bookmark
@@ -137,7 +144,6 @@
 \lstdefinestyle{style@latex}{
   language     = [latex]TeX,
   alsoletter   = {*},
-  basewidth    = 0.54em,
   keywordstyle = \bfseries\color{keyword},
   commentstyle = \itshape\color{comment},
   texcsstyle   = *\color{texcs},
@@ -186,26 +192,26 @@
 \ExplSyntaxOff
 
 % Macros
-\newcommand\link[1]{\href{#1}{\faLink}}
-\newcommand\CASE[1]{{\addfontfeatures{Letters=Uppercase}#1}}
-\newcommand\jatext[1]{{\addCJKfontfeatures{Language=Japanese}#1}}
-\newcommand\zhparen[1]{（\raisebox{0.1ex}{#1}）}
-\newcommand\enparen[1]{\CASE{(}#1\CASE{)}}
-\newcommand\pkg[1]{\texttt{#1}}
-\newcommand\usv[1]{\texttt{U+#1}}
-\newcommand\kbd[1]{{\LibertinusKey#1}}
-\DeclareRobustCommand{\nonumberfootnote}[2][]{%
+\newcommand{\link}[1]{\href{#1}{\faLink}}
+\newcommand{\CASE}[1]{{\addfontfeatures{Letters=Uppercase}#1}}
+\newcommand{\jatext}[1]{{\addCJKfontfeatures{Language=Japanese}#1}}
+\newcommand{\zhparen}[1]{（\raisebox{0.1ex}{#1}）}
+\newcommand{\enparen}[1]{\CASE{(}#1\CASE{)}}
+\newcommand{\pkg}[1]{\texttt{#1}}
+\newcommand{\usv}[1]{\texttt{U+#1}}
+\newcommand{\kbd}[1]{{\LibertinusKey#1}}
+\newcommand{\nonumberfootnote}[2][]{%
   \let\thefootnote\relax
   \footnotetext#1{#2}}
-\renewcommand*\footnoterule{}
+\renewcommand{\footnoterule}{}
 
-\newcommand\XeTeX{\hologo{XeTeX}}
-\newcommand\pdfTeX{\hologo{pdfTeX}}
-\newcommand\LuaTeX{\hologo{LuaTeX}}
-\newcommand\XeLaTeX{\hologo{Xe}\kern-.13em\LaTeX{}}
-\newcommand\pdfLaTeX{pdf\LaTeX{}}
-\newcommand\LuaLaTeX{Lua\LaTeX{}}
-\newcommand\BibTeX{\hologo{BibTeX}}
+\newcommand{\XeTeX}{\hologo{XeTeX}}
+\newcommand{\pdfTeX}{\hologo{pdfTeX}}
+\newcommand{\LuaTeX}{\hologo{LuaTeX}}
+\newcommand{\XeLaTeX}{\hologo{Xe}\kern-.13em\LaTeX{}}
+\newcommand{\pdfLaTeX}{pdf\LaTeX{}}
+\newcommand{\LuaLaTeX}{Lua\LaTeX{}}
+\newcommand{\BibTeX}{\hologo{BibTeX}}
 
 \makeatother
 

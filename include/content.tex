@@ -106,7 +106,7 @@
   \documentclass{article}                     % 指明文档类型：文章
   % 导言区：设置文档样式
   \usepackage{amsmath}                        % 调用宏包，实现各种功能
-  \newcommand\keyword[1]{\textbf{#1}}         % 自定义命令
+  \newcommand{\keyword}[1]{\textbf{#1}}       % 自定义命令
 
   \begin{document}
   % 正文：套用格式
@@ -193,48 +193,45 @@ Time-dependent Schrödinger equation can be written as
     \end{itemize} \pause
 
   \item 报告，我想偷懒！
-  \item 报告，我听说了 Tailwind CSS！
+  \item 报告，我听说了 Tailwind CSS \link{https://tailwindcss.com}！
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{常用环境：列表与枚举}
 \begin{columns}
-\begin{column}{0.55\textwidth}
+\begin{column}{0.54\textwidth}
   \begin{texcode}[gobble=4, emph={[1]enumerate,itemize}]
     \begin{enumerate}
-      \item Da Vinci
+      \item Frontend
         \begin{itemize}
-          \item \textit{The Last Supper}
-          \item \textit{Salvator Mundi}
-          \item \textit{Mona Lisa}
+          \item React
+          \item Vue.js
+          \item Svelte
         \end{itemize}
-      \item Shakespeare
-        \begin{itemize}
-          \item \textit{Macbeth}
-          \item \textit{Hamlet}
-          \item \textit{King Lear}
-          \item \textit{Othello}
-        \end{itemize}
+      \item Backend
+        \begin{description}
+          \item[PHP] Laravel
+          \item[JavaScript] Express
+          \item[Python] Django
+        \end{description}
     \end{enumerate}
   \end{texcode}
 \end{column}
 \pause
-\begin{column}{0.35\textwidth}
+\begin{column}{0.38\textwidth}
   \begin{enumerate}
-    \item Da Vinci
+    \item Frontend
       \begin{itemize}
-        \item \textit{The Last Supper}
-        \item \textit{Salvator Mundi}
-        \item \textit{Mona Lisa}
+        \item React
+        \item Vue.js
+        \item Svelte
       \end{itemize}
-    \item Shakespeare
-      \begin{itemize}
-        \item \textit{Macbeth}
-        \item \textit{Hamlet}
-        \item \textit{King Lear}
-        \item \textit{Othello}
-      \end{itemize}
+    \item Backend \par
+        \vspace{0.5ex}\small
+        \textbf{PHP}\enspace Laravel \\
+        \textbf{JavaScript}\enspace Express \\
+        \textbf{Python}\enspace Django
   \end{enumerate}
 \end{column}
 \end{columns}
@@ -243,7 +240,7 @@ Time-dependent Schrödinger equation can be written as
 \begin{frame}[fragile]
 \frametitle{常用环境：图片}
 \begin{columns}
-\begin{column}{0.6\textwidth}
+\begin{column}{0.64\textwidth}
   \begin{texcode}[gobble=4, moretexcs={\graphicspath,\includegraphics},
       emph={[1]figure}, emph={[2]graphicx}]
     % 不是 graphics
@@ -262,7 +259,7 @@ Time-dependent Schrödinger equation can be written as
   \end{texcode}
 \end{column}
 \pause
-\begin{column}{0.3\textwidth}
+\begin{column}{0.28\textwidth}
   \begin{figure}
     \centering
     \fduemblem+[x=0.1pt, y=0.1pt, color=FudanBlue]
@@ -276,7 +273,7 @@ Time-dependent Schrödinger equation can be written as
 \begin{frame}[fragile]
 \frametitle{常用环境：表格}
 \begin{columns}
-\begin{column}{0.6\textwidth}
+\begin{column}{0.62\textwidth}
   \begin{texcode}[gobble=4, moretexcs={\toprule,\midrule,\bottomrule},
       emph={[1]table,tabular}, emph={[2]booktabs}]
     \usepackage{booktabs} % 三线表
@@ -323,7 +320,7 @@ Time-dependent Schrödinger equation can be written as
 \begin{frame}[fragile]
 \frametitle{常用环境：定理}
 \begin{columns}
-\begin{column}{0.57\textwidth}
+\begin{column}{0.6\textwidth}
   \begin{texcode}[gobble=4, moredelim={[is][emphstyle]{!}{!}}, moretexcs={\newtheorem*},
       emph={[2]amsthm}]
     \usepackage{amsthm}
@@ -344,8 +341,8 @@ Time-dependent Schrödinger equation can be written as
   \end{texcode}
 \end{column}
 \pause
-\begin{column}{0.33\textwidth}
-  \footnotesize
+\begin{column}{0.32\textwidth}
+  \footnotesize\RaggedRight
   \setlength{\parskip}{0.5em}
   \setlength{\parindent}{0pt}
 
@@ -555,7 +552,7 @@ Time-dependent Schrödinger equation can be written as
 
     \begin{itemize}
       \item |\pause| 命令
-      \item |\onslide<1>|、|\item<1+>| 等
+      \item |\onslide<1>|、|\item<1->| 等
     \end{itemize}
 \end{itemize}
 \end{frame}
