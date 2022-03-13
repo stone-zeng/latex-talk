@@ -2,8 +2,9 @@
 
 \begin{frame}{先看一个例子}
 \begin{minipage}{\textwidth}
-  \SimHei\small
-  \hyphenpenalty=10000\hbadness=10000\linespread{0.8}\selectfont
+  \ArphicKai\small
+  \hyphenpenalty=10000\hbadness=10000
+  \linespread{0.8}\selectfont
   \textbf{Typography} is the art and technique of arranging type to make written language
   legible,readable,and appealing when displayed. The arrangement of type involves selecting
   typefaces, point sizes, line lengths, line-spacing(\textit{leading}), and letter-spacing
@@ -14,13 +15,13 @@
   type designers do not consider themselves typographers. Typography also may be used as a
   decorative device,unrelated to communication of information.
 \end{minipage}
-\nonumberfootnote{中易黑体，行距 0.8 倍，关闭断词；
+\nonumberfootnote{文鼎楷体，行距 0.8 倍，关闭断词；
   文本来源：\link{https://en.wikipedia.org/wiki/Typography}}
 \end{frame}
 
 \begin{frame}{没有对比就没有伤害}
 \begin{minipage}{\textwidth}
-  \EBGaramond\small
+  \Garamond\small
   \textbf{Typography} is the art and technique of arranging type to make written language
   legible, readable, and appealing when displayed. The arrangement of type involves selecting
   typefaces, point sizes, line lengths, line-spacing (\textit{leading}), and letter-spacing
@@ -173,8 +174,7 @@
   \item<+-> 破折号
 
     \begin{itemize}
-      \item 断开{\SourceHanSerif\symbol{"2014}\symbol{"2014}}是不好的，
-            不断开——是好的
+      \item 断开\symbol{"2014}\symbol{"2014}是不好的，不断开——是好的
     \end{itemize}
 
   \item<+-> 波浪号：
@@ -200,18 +200,13 @@
 
     \begin{itemize}
       \item 衬线体：
-        {\EBGaramond EB Garamond},
-        {\TimesNewRoman Times New Roman},
-        {\LatinRomanX Latin Modern}, \textit{etc.}
+        {\Garamond Garamond}, {\Times Times New Roman}, {\Bodini Bodini}, \textit{etc.}
       \item 无衬线体：
-        {\Helvetica Helvetica Neue},
-        {\Avenir Avenir Next},
-        {\Optima Optima}, \textit{etc.}
+        {\Helvetica Helvetica}, {\Futura Futura}, {\Optima Optima}, \textit{etc.}
       \item 等宽字体：
-        {\Courier Courier},
-        {\Menlo Menlo},
-        {\Unifont GNU Unifont}, \textit{etc.}
-      \item 中文字体：宋体、{\HeiTi 黑体}、{\FangSong 仿宋}、{\KaiTi 楷书}、{\WaWa （娃娃体）}……
+        {\Courier Courier}, {\Inconsolata Inconsolata}, {\Unifont GNU Unifont}, \textit{etc.}
+      \item 中文字体：
+        宋体、{\heiti 黑体}、{\fangsong 仿宋}、{\kaishu 楷书}……
     \end{itemize}
 
   \item<2-> 样式 \link{https://stone-zeng.github.io/2019-07-06-use-opentype-fonts-ii}
@@ -235,10 +230,10 @@
   \item<5-> OpenType 特性
 
     \begin{itemize}
-      \item 连字\zhparen{ligature}：{f}{f} $\to$ ff, {f}{i} $\to$ fi, {f}{l} $\to$ fl
+      \item 连字\zhparen{ligature}：f{}f $\to$ ff, f{}i $\to$ fi, f{}l $\to$ fl
       \item 老式数字\zhparen{old-style number}：
         0123456789 $\to$ {\addfontfeatures{Numbers=OldStyle}0123456789}
-      \item 字偶间距\zhparen{kerning}：{T}{y} $\to$ Ty, {W}{A} $\to$ WA
+      \item 字偶间距\zhparen{kerning}：T{}y $\to$ Ty, W{}A $\to$ WA
     \end{itemize}
 
   \item<6-> \alert{请避免滥用过多字体{\tiny （此页除外）}}

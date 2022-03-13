@@ -77,7 +77,7 @@
 \colorlet{emph2}{琥珀}
 \colorlet{inline}{玄色}
 
-% Fonts
+% Fonts: basic
 \setmainfont{LibertinusSerif}[
   Extension      = .otf,
   UprightFont    = *-Regular,
@@ -93,47 +93,62 @@
   BoldItalicFont = *-BoldItalic,
   Scale          = 0.92]
 \setmathfont{LibertinusMath-Regular.otf}
-\setCJKmainfont{Source Han Serif SC}[
-  UprightFont    = * SemiBold,
-  BoldFont       = * Heavy,
-  ItalicFont     = * SemiBold,
-  BoldItalicFont = * SemiBold,
-  CharacterWidth = Full]
-\setCJKmonofont{Source Han Sans SC}[AutoFakeSlant]
 
-\newfontfamily\EBGaramond{EBGaramond}[
+\IfFontExistsTF{Source Han Serif SC}{
+  \setCJKmainfont{Source Han Serif SC}[
+    UprightFont    = * SemiBold,
+    BoldFont       = * Heavy,
+    ItalicFont     = * SemiBold,
+    BoldItalicFont = * Heavy,
+    CharacterWidth = Full]
+}{
+  \setCJKmainfont{Noto Serif CJK SC}[
+    UprightFont    = * SemiBold,
+    BoldFont       = * Black,
+    ItalicFont     = * SemiBold,
+    BoldItalicFont = * Black,
+    CharacterWidth = Full]
+}
+\IfFontExistsTF{Source Han Serif SC}{
+  \setCJKmonofont{Source Han Sans SC}[AutoFakeSlant]
+}{
+  \setCJKmonofont{Noto Sans CJK SC}[AutoFakeSlant]
+}
+
+% Fonts: TeX Live
+\newfontfamily\Garamond{EBGaramond}[
   Extension      = .otf,
   UprightFont    = *-Regular,
   BoldFont       = *-Bold,
   ItalicFont     = *-Italic,
   BoldItalicFont = *-BoldItalic]
-\newfontfamily\LatinRomanV{lmroman5-regular.otf}
-\newfontfamily\LatinRomanVI{lmroman6-regular.otf}
-\newfontfamily\LatinRomanVII{lmroman7-regular.otf}
-\newfontfamily\LatinRomanVIII{lmroman8-regular.otf}
-\newfontfamily\LatinRomanIX{lmroman9-regular.otf}
-\newfontfamily\LatinRomanX{lmroman10-regular.otf}
-\newfontfamily\LatinRomanXII{lmroman12-regular.otf}
-\newfontfamily\LatinRomanXVII{lmroman17-regular.otf}
-\newfontfamily\LibertinusKey{LibertinusKeyboard-Regular.otf}
+\newfontface\ArphicKai{gkai00mp.ttf}[AutoFakeBold=4, AutoFakeSlant]
+\newfontface\Times{FreeSerif.otf}
+\newfontface\Helvetica{FreeSans.otf}
+\newfontface\Courier{FreeMono.otf}
+\newfontface\Bodini{QTBodini.otf}
+\newfontface\Futura{QTFuture.otf}
+\newfontface\Optima{QTOptimum.otf}
+\newfontface\Inconsolata{Inconsolatazi4-Regular.otf}
+\newfontface\LibertinusKey{LibertinusKeyboard-Regular.otf}
+\newfontface\LatinRomanV{lmroman5-regular.otf}
+\newfontface\LatinRomanVI{lmroman6-regular.otf}
+\newfontface\LatinRomanVII{lmroman7-regular.otf}
+\newfontface\LatinRomanVIII{lmroman8-regular.otf}
+\newfontface\LatinRomanIX{lmroman9-regular.otf}
+\newfontface\LatinRomanX{lmroman10-regular.otf}
+\newfontface\LatinRomanXII{lmroman12-regular.otf}
+\newfontface\LatinRomanXVII{lmroman17-regular.otf}
+\newCJKfontfamily\fangsong{FandolFang-Regular.otf}
+\newCJKfontfamily\heiti{FandolHei-Regular.otf}
+\newCJKfontfamily\kaishu{FandolKai-Regular.otf}
 
-\newfontfamily\Avenir{Avenir Next}
-\newfontfamily\Courier{Courier}
-\newfontfamily\Helvetica{Helvetica Neue Light}
-\newfontfamily\Menlo{Menlo}[Scale=MatchLowercase]
-\newfontfamily\NotoArabic{Noto Naskh Arabic}[Script=Arabic]
-\newfontfamily\NotoDevanagari{Noto Serif Devanagari}
-\newfontfamily\NotoEgyptian{Noto Sans Egyptian Hieroglyphs}
-\newfontfamily\Optima{Optima}
-\newCJKfontfamily\FangSong{FZFangSong-Z02}
-\newCJKfontfamily\HeiTi{FZHei-B01}
-\newCJKfontfamily\KaiTi{FZKai-Z03}
-\newCJKfontfamily\SourceHanSerif{Source Han Serif SC SemiBold}
-\newCJKfontfamily\WaWa{Wawati SC}
-\newfontfamily\SimHei{simhei.ttf}[Path=./fonts/, AutoFakeBold=4, AutoFakeSlant]
-\newfontfamily\TimesNewRoman{Times New Roman}
-\newfontfamily\Unifont{Unifont}
-\newfontfamily\xkcd{xkcd-script.ttf}[Path=./fonts/, Ligatures=TeX]
+% Fonts: local
+\newfontface\NotoDevanagari{NotoSerifDevanagari-Regular.otf}[Path=./fonts/, Script=Devanagari]
+\newfontface\NotoArabic{NotoNaskhArabic-Regular.otf}[Path=./fonts/, Script=Arabic]
+\newfontface\NotoEgyptian{NotoSansEgyptianHieroglyphs-Regular.otf}[Path=./fonts/]
+\newfontface\Unifont{unifont-14.0.02.subset.ttf}[Path=./fonts/]
+\newfontface\XKCD{xkcd-script.ttf}[Path=./fonts/, Ligatures=TeX]
 
 % PDF bookmark
 \apptocmd{\beamer@@frametitle}{%
@@ -191,7 +206,7 @@
   }
 \ExplSyntaxOff
 
-% Macros
+% Commands
 \newcommand{\link}[1]{\href{#1}{\faLink}}
 \newcommand{\CASE}[1]{{\addfontfeatures{Letters=Uppercase}#1}}
 \newcommand{\jatext}[1]{{\addCJKfontfeatures{Language=Japanese}#1}}
