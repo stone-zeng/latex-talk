@@ -6,6 +6,7 @@
 
 - [放映版](https://github.com/stone-zeng/latex-talk/releases/latest/download/latex-talk.pdf)
 - [阅读版](https://github.com/stone-zeng/latex-talk/releases/latest/download/latex-talk-handout.pdf)
+- [Overleaf](https://www.overleaf.com/read/gzrxsfbwjxbd)
 
 -----
 
