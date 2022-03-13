@@ -1,6 +1,8 @@
 .DS_Store
 
 *.aux
+*.bbl
+*.blg
 *.fdb_latexmk
 *.fls
 *.log
@@ -10,10 +12,11 @@
 *.snm
 *.synctex.gz
 *.synctex(busy)
+*.thm
 *.toc
 *.vrb
 *.xdv
 *.make.tex
 
-fonts/
-temp/
+examples/fduthesis/fduthesis.def
+examples/fduthesis/fduthesis.cls
