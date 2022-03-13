@@ -18,3 +18,8 @@ else
     latexmk -jobname=$JOBNAME $JOBNAME.make.tex
     rm -f *.make.tex
 fi
+
+# Generate SVG
+# mutool convert -F svg latex-talk.pdf 1
+# mv out-0001.svg latex-talk.svg
+# svgo -p 2 --multipass latex-talk.svg
