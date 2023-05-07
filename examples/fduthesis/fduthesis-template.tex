@@ -10,6 +10,7 @@
     font-size = 5,
     bib-backend = bibtex,
     bib-resource = {fduthesis-template.bib},
+    auto-make-cover = false,
   },
   info = {
     title = {论文标题},
@@ -33,6 +34,10 @@
 \newcommand{\ii}{\symrm{i}}
 
 \begin{document}
+
+\begin{titlepage}
+  \makecoveri
+\end{titlepage}
 
 \frontmatter
 
@@ -172,5 +177,7 @@ $\ket{\downarrow}$。
 \backmatter
 
 \printbibliography
+
+\makecoveriii
 
 \end{document}

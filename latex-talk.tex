@@ -150,6 +150,9 @@
 \newfontface\Unifont{unifont-14.0.02.subset.ttf}[Path=./fonts/]
 \newfontface\XKCD{xkcd-script.ttf}[Path=./fonts/, Ligatures=TeX]
 
+% xeCJKfntef
+\xeCJKsetup{sout/thickness = 0.05em}
+
 % PDF bookmark
 \apptocmd{\beamer@@frametitle}{%
   \only<1>{\expandafter\ifnum\insertcontinuationcount<2\relax

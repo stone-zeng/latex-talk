@@ -88,7 +88,7 @@
       \item 但仍有必要了解：
 
         \begin{itemize}
-          \item \TeX{} 目录结构（TDS）
+          \item \TeX{} 目录结构\zhparen{TDS}
           \item 测试系统：\pkg{l3build} 宏包
           \item 版本控制、持续集成
           \item 许可证选择：\LaTeX{} 内核使用 LPPL 1.3c
@@ -109,7 +109,8 @@
 \frametitle{宏包推荐}
 \footnotesize
 \setbeamertemplate{itemize/enumerate subbody begin}{\scriptsize}
-\setlength{\leftmarginii}{1.5em}
+\setlength{\leftmarginii}{1em}
+\setlength{\columnsep}{2pt}
 \begin{multicols}{3}
   \begin{itemize}
     \item 必备
@@ -137,7 +138,7 @@
       \begin{itemize}
         \item \pkg{bm}
         \item \pkg{mathtools}
-        \item \pkg{physics}
+        \item \pkg{physics}/\pkg{physics2}
         \item \pkg{unicode-math}
       \end{itemize}
 
@@ -148,6 +149,7 @@
         \item \pkg{booktabs}
         \item \pkg{longtable}
         \item \pkg{tabularx}
+        \item \pkg{tabularray}
       \end{itemize}
 
     \item 插图、绘图
@@ -164,8 +166,7 @@
     \item 字体
 
       \begin{itemize}
-        \item \pkg{newtx}
-        \item \pkg{newpx}
+        \item \pkg{newtx}/\pkg{newpx}
         \item \pkg{pifont}
         \item \pkg{fontspec}
       \end{itemize}
@@ -281,7 +282,7 @@
   \item<+-> 版本管理的必要性
 
     \begin{itemize}
-      \item 远离「初稿，第二稿，第三稿……终稿，终稿（打死也不改了）」
+      \item 远离「初稿、第二稿、第三稿……终稿、终稿（打死也不改了）」
       \item 有底气做大范围修改、重构
       \item 方便与他人协同合作
     \end{itemize}
@@ -314,13 +315,13 @@
 
     \begin{itemize}
       \item 优先使用英文 + Google (if possible)
-      \item 提供最小工作示例（MWE, minimal working example）
+      \item 提供最小工作示例\zhparen{MWE, minimal working example}
         \begin{itemize}
           \item 能复现问题
           \item 尽量不带冗余内容
           \item 策略：二分查找
         \end{itemize}
-      \item 遵循社区行为准则（code of conduct）
+      \item 遵循社区行为准则\zhparen{code of conduct}
     \end{itemize}
 
   \item<+-> 在线论坛
@@ -333,6 +334,8 @@
           \item 资源需要甄别，且部分内容需付费
         \end{itemize}
     \end{itemize}
+
+  \item<+-> 为什么不试试万能的 ChatGPT 呢？
 \end{itemize}
 \end{frame}
 
@@ -362,68 +365,68 @@
 
 \begin{frame}[fragile]
 \frametitle{参考文献与扩展阅读}
-\begin{multicols}{2}
 \tiny
 \newcommand{\BOOK}[1]{\textbf{#1}}
 \newcommand{\TAG}[1]{\CASE{[#1]}}
 \newcommand{\URL}[1]{\scalebox{0.92}[1]{\url{#1}}}
-\begin{thebibliography}{99}
-  \bibitem{}
-    \textsc{Knuth D E}.
-    \BOOK{The \TeX book: Computers \& Typesetting, volume C} \TAG{M}, 1984.
-    \newblock Addison--Wesley Publishing Company, Boston
-  \bibitem{}
-    \textsc{Bringhurst R}.
-    \BOOK{The Elements of Typographic Style, version 4.3} \TAG{M}, 2019.
-    \newblock Hartley \& Marks Publishers, Vancouver
-  \bibitem{}
-    刘海洋．
-    \BOOK{\LaTeX{} 入门} \TAG{M}, 2013.
-    \newblock 北京：电子工业出版社
-  \bibitem{}
-    \jatext{高冈昌生}．
-    刘庆~译，陈嵘~监修．
-    \BOOK{西文排版：排版的基础和规范} \TAG{M}, 2016.
-    \newblock 北京：中信出版集团
-  \bibitem{}
-    \textsc{Oetiker T}, \textsc{Partl H}, \textsc{Hyna I} and \textsc{Schlegl E}.
-    \CTeX{} 开发小组~译．
-    \BOOK{一份（不太）简短的 \LaTeXe{} 介绍：或 111 分钟了解 \LaTeXe{}} \TAG{EB/OL}, 2021.
-    \newblock \URL{https://ctan.org/pkg/lshort-zh-cn}
-  \bibitem{}
-    黄新刚（包太雷）．
-    \BOOK{\LaTeX{} Notes: 雷太赫排版系统简介（第二版）} \TAG{EB/OL}, 2021.
-    \newblock \URL{https://github.com/huangxg/lnotes}
-  \bibitem{}
-    汪彧之，陈晟祺．
-    \BOOK{清华大学图书馆：如何使用 \LaTeX{} 排版论文} \TAG{EB/OL}, 2021.
-    \newblock \URL{https://github.com/tuna/thulib-latex-talk}
-  \bibitem{}
-    吴伟健，李子龙．
-    \BOOK{上海交通大学图书馆：如何使用 \LaTeX{} 排版论文} \TAG{EB/OL}, 2022.
-    \newblock \URL{https://github.com/sjtug/sjtulib-latex-talk}
-  \bibitem{}
-    刘海洋．
-    \BOOK{\LaTeX{} \CJKsout[thickness=0.1em]{快速}入门} \TAG{EB/OL}, 2020.
-    \newblock Video: \href{https://www.bilibili.com/video/BV1s7411U7Pr}{\faVideo}
-    % Old version: https://bbs.pku.edu.cn/attach/e7/f2/e7f2bb698b9c3672/tex_intro_talk.pdf
-  \bibitem{}
-    林莲枝．
-    \BOOK{漫谈 \LaTeX{} 排版常见概念误区：别把 \LaTeX{} 当 Word 用！}\TAG{EB/OL}, 2018.
-    \newblock Video: \href{https://www.bilibili.com/video/BV1r4411o7KJ}{\faVideo}\quad
-      PDF: \href{http://static.latexstudio.net/wp-content/uploads/2018/03/LianTze-presentation-0320-forReading.pdf}{\faDownload}
-  \bibitem{}
-    Wikibooks.
-    \BOOK{\LaTeX{}---Wikibooks, The Free Textbook Project} \TAG{EB/OL}.
-    \newblock \URL{https://en.wikibooks.org/wiki/LaTeX}
-  \bibitem{}
-    Overleaf.
-    \BOOK{Overleaf Documentation} \TAG{EB/OL}.
-    \newblock \URL{https://www.overleaf.com/learn}
-  \bibitem{}
-    \LaTeX{} project.
-    \BOOK{Learn\LaTeX.org} \TAG{EB/OL}.
-    \newblock \URL{https://www.learnlatex.org}
-\end{thebibliography}
+\begin{multicols}{2}
+  \begin{thebibliography}{99}
+    \bibitem{}
+      \textsc{Knuth D E}.
+      \BOOK{The \TeX book: Computers \& Typesetting, volume C} \TAG{M}, 1984.
+      \newblock Addison--Wesley Publishing Company, Boston
+    \bibitem{}
+      \textsc{Bringhurst R}.
+      \BOOK{The Elements of Typographic Style, version 4.3} \TAG{M}, 2019.
+      \newblock Hartley \& Marks Publishers, Vancouver
+    \bibitem{}
+      刘海洋．
+      \BOOK{\LaTeX{} 入门} \TAG{M}, 2013.
+      \newblock 北京：电子工业出版社
+    \bibitem{}
+      \jatext{高冈昌生}．
+      刘庆~译，陈嵘~监修．
+      \BOOK{西文排版：排版的基础和规范} \TAG{M}, 2016.
+      \newblock 北京：中信出版集团
+    \bibitem{}
+      \textsc{Oetiker T}, \textsc{Partl H}, \textsc{Hyna I} and \textsc{Schlegl E}.
+      \CTeX{} 开发小组~译．
+      \BOOK{一份（不太）简短的 \LaTeXe{} 介绍：或 111 分钟了解 \LaTeXe{}} \TAG{EB/OL}, 2023.
+      \newblock \URL{https://ctan.org/pkg/lshort-zh-cn}
+    \bibitem{}
+      黄新刚（包太雷）．
+      \BOOK{\LaTeX{} Notes: 雷太赫排版系统简介（第二版）} \TAG{EB/OL}, 2021.
+      \newblock \URL{https://github.com/huangxg/lnotes}
+    \bibitem{}
+      汪彧之，陈晟祺．
+      \BOOK{清华大学图书馆：如何使用 \LaTeX{} 排版论文} \TAG{EB/OL}, 2023.
+      \newblock \URL{https://github.com/tuna/thulib-latex-talk}
+    \bibitem{}
+      吴伟健，李子龙，钱宇超．
+      \BOOK{上海交通大学图书馆：如何使用 \LaTeX{} 排版论文\,/\,幻灯片} \TAG{EB/OL}, 2023.
+      \newblock \URL{https://github.com/sjtug/sjtulib-latex-talk}
+    \bibitem{}
+      刘海洋．
+      \BOOK{\LaTeX{} \CJKsout{快速}入门} \TAG{EB/OL}, 2020.
+      \newblock Video: \href{https://www.bilibili.com/video/BV1s7411U7Pr}{\faVideo}
+      % Old version: https://bbs.pku.edu.cn/attach/e7/f2/e7f2bb698b9c3672/tex_intro_talk.pdf
+    \bibitem{}
+      林莲枝．
+      \BOOK{漫谈 \LaTeX{} 排版常见概念误区：别把 \LaTeX{} 当 Word 用！}\TAG{EB/OL}, 2018.
+      \newblock Video: \href{https://www.bilibili.com/video/BV1r4411o7KJ}{\faVideo}\quad
+        PDF: \href{http://static.latexstudio.net/wp-content/uploads/2018/03/LianTze-presentation-0320-forReading.pdf}{\faDownload}
+    \bibitem{}
+      Wikibooks.
+      \BOOK{\LaTeX{}---Wikibooks, The Free Textbook Project} \TAG{EB/OL}.
+      \newblock \URL{https://en.wikibooks.org/wiki/LaTeX}
+    \bibitem{}
+      Overleaf.
+      \BOOK{Overleaf Documentation} \TAG{EB/OL}.
+      \newblock \URL{https://www.overleaf.com/learn}
+    \bibitem{}
+      \LaTeX{} project.
+      \BOOK{Learn\LaTeX.org} \TAG{EB/OL}.
+      \newblock \URL{https://www.learnlatex.org}
+  \end{thebibliography}
 \end{multicols}
 \end{frame}

@@ -376,9 +376,10 @@ Time-dependent Schrödinger equation can be written as
 
     \begin{itemize}
       \item 被引处：|\label|
-      \item 引用处：|\ref|、|\eqref| 等（如图~\textcolor{emph1}{\ref{fig:fudan-logo_}}、
+      \item 引用处：|\ref|、|\eqref|、|\autoref| 等（如图~\textcolor{emph1}{\ref{fig:fudan-logo_}}、
             表~\textcolor{emph1}{\ref{tab:china-population_}}）
       \item 用有意义的标签：|\label{eq:euler-lagrange-eq}|
+      \item \pkg{hyperref}：添加超链接、电子书签等
       \item 需多次编译——推荐 \pkg{latexmk}
     \end{itemize}
 \end{itemize}
@@ -459,7 +460,7 @@ Time-dependent Schrödinger equation can be written as
     \fontsize{72}{84}\selectfont
     \textbf{𰻝}
   \endgroup \\[2ex]
-  \footnotesize \texttt{U+30EDE}
+  \footnotesize \usv{30EDE}
 \end{frame}
 
 \begin{frame}{中文支持}
@@ -469,9 +470,9 @@ Time-dependent Schrödinger equation can be written as
     \item 中文有什么特殊？\pause
 
       \begin{itemize}
-        % Unicode 15.0
-        % https://twitter.com/ken_lunde/status/1499739277281792002
-        \item 汉字太多（97,057+）\pause
+        % Unicode 15.1
+        % https://twitter.com/ken_lunde/status/1651215492840067072
+        \item 汉字太多\zhparen{97,661+} \pause
         \item 横排 + 直排、标点禁则、行间注 \link{https://www.w3.org/TR/clreq} \pause
         \item \jatext{にほんご}、
               {\NotoDevanagari देवनागरी}、

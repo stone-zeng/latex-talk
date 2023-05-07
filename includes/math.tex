@@ -37,7 +37,9 @@
   \item<+-> 上下标
 
     \begin{itemize}
-      \item |^| 和 |_|：|f^ab| 和 |f^{ab}|，|e^x^2|、|{e^x}^2| 和 |e^{x^2}|
+      \item |^| 和 |_|：
+        \CJKsout[format=\color{inline}]{\ttfamily\color{inline}f\^{}ab} vs |f^{ab}|，
+        \CJKsout[format=\color{inline}]{\ttfamily\color{inline}e\^{}x\^{}2} vs |{e^x}^2| 或 |e^{x^2}|
       \item 张量：|R^a{}_b{}^{cd}| 或使用 \pkg{tensor} 宏包
       \item 配合积分、求和、极限使用：|\int|、|\sum|、|\lim|；
         \lstinline[style=style@inline]|\(no)limits|
@@ -55,7 +57,7 @@
 
     \begin{itemize}
       \item |\sqrt[<次数>]{<内容>}|
-      \item 复杂情况改用分数指数：|{...}^{1/n}|
+      \item 复杂情况建议改用分数指数：|{...}^{1/n}|
     \end{itemize}
 
   \item<+-> 矩阵与行列式
@@ -63,7 +65,7 @@
     \begin{itemize}
       \item |matrix|、|pmatrix|、|vmatrix| 等环境
       \item 语法类似表格：|&| 分列，|\\| 换行
-      \item 推荐 \pkg{physics} 宏包
+      \item 复杂矩阵：\pkg{nicematrix} 宏包
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -141,6 +143,7 @@
     \begin{itemize}
       \item 多行居中 |gather|、多行手动对齐 |align|、跨行 |multiline|
       \item 手动对齐：关系符前加 |&|
+      \item 编号控制：|\tag{...}|、|\notag|
     \end{itemize}
 
   \item 内联数学环境
@@ -149,12 +152,45 @@
       \item 条件 |cases|、多行对齐 |split|、|...ed|
     \end{itemize} \pause
 
-  \item 精细调整
+  \item 更复杂的情况
 
     \begin{itemize}
       \item \pkg{mathtools}、\pkg{empheq} 等
       \item 自动换行：\pkg{breqn}
       \item \alert{避免使用 \texttt{eqnarray} 环境}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{精细调整}
+\begin{itemize}
+  \item 空格与间距
+
+    \begin{itemize}
+      \item |\quad|、|\qquad|、|\,|、|\!|
+      \item \pkg{physics} 宏包：|\qq{<text>}|、|\qcomma|、|\qif| 等
+    \end{itemize}
+
+  \item 行内公式断行
+
+    \begin{itemize}
+      \item 默认只允许在运算符之后断行
+      \item 不建议在行内插入过于复杂的公式
+    \end{itemize}
+
+  \item 多行公式
+
+    \begin{itemize}
+      \item 允许分页：|\allowdisplaybreaks|
+      \item 前后间距：|\abovedisplay(short)skip|、|\belowdisplay(short)skip|
+    \end{itemize} \pause
+
+  \item 经验之谈
+
+    \begin{itemize}
+      \item 避免过度封装：\lstinline[style=style@inline]|\newcommand{\be}{\begin{equation}}|
+      \item 不要浪费（现代）编辑器的高亮、提纲、预览功能
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -187,7 +223,11 @@
         \end{itemize} \pause
 
       \item 注 1：此宏包代码比 \LaTeXe{} 内核还长 \pause
-      \item 注 2：新版本的 \pkg{siunitx} 宏包与 \pkg{physics} 宏包有兼容性问题
+      \item 注 2：\pkg{physics} 宏包与新版本的 \pkg{siunitx} 宏包有兼容性问题
+
+        \begin{itemize}
+          \item 可用 \pkg{physics2} 宏包代替
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 \end{frame}
@@ -202,9 +242,11 @@
         \item Feynman 图：\pkg{tikz-feynman} 宏包%
               \zhparen{arXiv: 1601.05437 \link{https://arxiv.org/abs/1601.05437}}
         \item Feynman 斜线：\pkg{slashed} 宏包
-        \item Wick 定理：\pkg{simplewick} 宏包、\pkg{simpler-wick} 宏包
+        \item Wick 缩并：\pkg{simplewick}、\pkg{simpler-wick} 宏包
         \item Young 表、Young 图：\pkg{ytableau} 宏包
+        \item 交换图：\pkg{tikz-cd} 宏包
         \item 电路图：\pkg{circuitikz} 宏包
+        \item 量子线路：\pkg{qcircuit}、\pkg{quantikz}、\pkg{yquant} 宏包
         \item 拓扑量子场论：\pkg{tqft} 宏包
         \item ……
       \end{itemize}
@@ -234,7 +276,8 @@
       \item \pkg{minted} 宏包
 
         \begin{itemize}
-          \item 需要 Python，且开启 |--shell-escape|
+          \item 需要 Python+Pygments，且开启 |--shell-escape|
+          \item 也可尝试 Node.js+Shiki \link{https://github.com/shikijs/shiki-latex}
         \end{itemize}
     \end{itemize}
 \end{itemize} \pause
@@ -250,7 +293,6 @@
   showstringspaces = false]
 /* A standard Hello World program in C. */
 #include <stdio.h>
-
 int main(int argc, char** argv) {
     printf("Hello, world!\n");
     return 0;
